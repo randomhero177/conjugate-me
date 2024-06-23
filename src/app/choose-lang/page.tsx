@@ -1,15 +1,31 @@
+// src/app/all-verbs/page.tsx
 "use client";
-/*import SpanishVerbs from "spanish-verbs";*/
+import { useEffect, useState } from "react";
 
 export default function Page() {
-  const SpanishVerbs = require('spanish-verbs');
-  console.log(SpanishVerbs.validTenses);
-  console.log(SpanishVerbs.getConjugation('hablar', 'INDICATIVE_PRESENT', 2));
-  console.log(SpanishVerbs.getConjugation('hablar', 'INDICATIVE_PRETERITE', 5));
+  const [connectionStatus, setConnectionStatus] = useState("");
+
+  useEffect(() => {
+    const checkMongoDBConnection = async () => {
+      try {
+        const response = await fetch("/api/test-connection");
+        const data = await response.json();
+        setConnectionStatus(data.message);
+      } catch (error) {
+        console.error("Error checking MongoDB connection:", error);
+        setConnectionStatus("Error connecting to MongoDB");
+      }
+    };
+
+    checkMongoDBConnection();
+  }, []);
 
   return (
-      <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">a 1</div>
-      </main>
+    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
+        asdasd
+        {connectionStatus}
+      </div>
+    </main>
   );
 }
