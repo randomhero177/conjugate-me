@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { UserRegister } from "@/services/auth";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -10,14 +11,10 @@ export default function LoginPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch("/api/auth", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
+    const response = await UserRegister(email, password);
 
-    const data = await response.json();
-    setMessage(data.message);
+    console.log(response);
+    /*setMessage(data.message);*/
   };
 
   // Example fix: Ensure any effects are only run on the client
@@ -28,7 +25,7 @@ export default function LoginPage() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-24">
       <div className="w-full max-w-md">
-        <h1 className="text-2xl font-bold mb-4">Login</h1>
+        <h1 className="text-2xl font-bold mb-4">Register</h1>
         <form
           onSubmit={handleSubmit}
           className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
