@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { UserRegister } from "@/services/auth";
 
-export default function LoginPage() {
+export default function RegisterPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
