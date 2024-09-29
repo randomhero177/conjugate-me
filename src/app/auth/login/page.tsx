@@ -2,9 +2,11 @@
 
 import { useState, useEffect } from "react";
 import { UserLogin } from "@/services/auth";
-import { setJwtToken } from "@/util/token";
+import { setJwtToken, getJwtToken, deleteJwtToken } from "@/util/token";
+import { checkToken } from "@/middleware/auth";
 
 export default function LoginPage() {
+  const [isAuth, setIsAuth] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
@@ -20,12 +22,31 @@ export default function LoginPage() {
 
   // Example fix: Ensure any effects are only run on the client
   useEffect(() => {
-    // Any client-only logic
+    async function checkTokenValid() {
+      const token = getJwtToken();
+      if (token?.token) {
+        try {
+          const res = await checkToken(token.token);
+
+          if (res) {
+            setIsAuth(true);
+          }
+        } catch (e) {
+          deleteJwtToken();
+          console.error("Error checking token:", e);
+        }
+      } else {
+        setIsAuth(false);
+      }
+    }
+    checkTokenValid();
+    console.log("mounted");
   }, []);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-24">
       <div className="w-full max-w-md">
+        <div>isAuth - {isAuth.toString()}</div>
         <h1 className="text-2xl font-bold mb-4">Login</h1>
         <form
           onSubmit={handleSubmit}

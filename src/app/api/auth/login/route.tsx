@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 import dbConnect from "@/util/dbConnect";
 import UserModel from "@/models/UserModel";
 
-const JWT_SECRET = process.env.JWT_SECRET || "your_jwt_secret"; // Use an environment variable
+const JWT_SECRET = process.env.JWT_SECRET_KEY || "your_jwt_secret"; // Use an environment variable
 
 export async function POST(req: Request) {
   await dbConnect();

@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
+import { checkTokenValidity } from "@/services/auth";
 
-const JWT_SECRET = process.env.JWT_SECRET || "your_jwt_secret";
+const JWT_SECRET = process.env.JWT_SECRET_KEY || "your_jwt_secret";
 
 export async function middleware(req: any) {
   const token = req.headers.authorization?.split(" ")[1]; // Extract token from headers
@@ -19,4 +20,19 @@ export async function middleware(req: any) {
   } catch (error) {
     return NextResponse.json({ message: "Invalid token" }, { status: 403 });
   }
+}
+
+export async function checkToken(token: string) {
+  console.log("checkTokenValidity          " + token);
+
+  const data = await checkTokenValidity(token);
+  console.log(data);
+  const isOk = data.statusText && data.status === 200;
+  if (isOk) {
+    console.log("Token is valid", data.data.user);
+  } else {
+    console.log("Token is invalid", data.data.message);
+  }
+
+  return isOk ? data.data.user : false;
 }
