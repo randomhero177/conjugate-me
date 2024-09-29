@@ -6,11 +6,10 @@ import UserModel from "@/models/UserModel";
 export async function POST(req: Request) {
   await dbConnect();
   console.log("connected");
-  try {
-    console.log(req);
 
+  try {
     const { email, password } = await req.json();
-    console.log(email, password);
+
     // Validate input
     if (!email || !password) {
       return NextResponse.json(
@@ -44,6 +43,7 @@ export async function POST(req: Request) {
       { status: 201 },
     );
   } catch (error) {
+    console.error("Registration error:", error);
     return NextResponse.json(
       { message: "Server error", error: error.message },
       { status: 500 },
