@@ -11,6 +11,9 @@ export default function Home() {
         <Link href="/choose-lang" className="p-4">
           Choose lang templ
         </Link>
+        <Link href="/all-verbs" className="p-4">
+          All verbs
+        </Link>
       </div>
 
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">

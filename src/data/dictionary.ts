@@ -1,4 +1,4 @@
-const d = [
+const Dictionary = [
   "abandonar",
   "abordar",
   "abortar",
@@ -637,3 +637,5 @@ const d = [
   "yacer",
   "zambullirse",
 ];
+
+export default Dictionary;
