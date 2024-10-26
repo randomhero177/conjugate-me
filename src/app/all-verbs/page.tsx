@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Dictionary from "@/data/dictionary";
 
 export default function Page() {
-  const [selectedVerbs, setSelectedVerbs] = useState([""]);
+  const [selectedVerbs, setSelectedVerbs] = useState([]);
 
   useEffect(() => {
     const SpanishVerbs = require("spanish-verbs");
@@ -17,8 +17,18 @@ export default function Page() {
 
   const selectVerb = (verb) => {
     console.log(verb);
-    setSelectedVerbs((prevSelectedVerbs) => [...prevSelectedVerbs, verb]);
+    if (!isVerbAdded(verb)) {
+      setSelectedVerbs((prevSelectedVerbs) => [...prevSelectedVerbs, verb]);
+    }
   };
+  const removeVerb = (verb) => {
+    console.log(verb);
+    setSelectedVerbs((prevSelectedVerbs) =>
+      prevSelectedVerbs.filter((item) => item !== verb),
+    );
+  };
+
+  const isVerbAdded = (verb) => selectedVerbs.includes(verb);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -27,17 +37,53 @@ export default function Page() {
       </h1>
       <div className="mb-6">
         {selectedVerbs.map((item, index) => (
-          <span key={`selectedVerbsMap${index}`}> {item} </span>
+          <span key={`selectedVerbsMap${index}`} className="flex items-center">
+            {" "}
+            {item}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="size-6 ml-1"
+              onClick={() => removeVerb(item)}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M12 9.75 14.25 12m0 0 2.25 2.25M14.25 12l2.25-2.25M14.25 12 12 14.25m-2.58 4.92-6.374-6.375a1.125 1.125 0 0 1 0-1.59L9.42 4.83c.21-.211.497-.33.795-.33H19.5a2.25 2.25 0 0 1 2.25 2.25v10.5a2.25 2.25 0 0 1-2.25 2.25h-9.284c-.298 0-.585-.119-.795-.33Z"
+              />
+            </svg>
+          </span>
         ))}
       </div>
       <ul className="grid grid-cols-4 gap-4">
         {Dictionary.map((item, index) => (
           <li
             key={`Dictionary_${index}`}
-            className="p-4 bg-gray-200 rounded-lg shadow-md"
+            className="p-4 bg-gray-200 rounded-lg shadow-md flex items-center"
             onClick={() => selectVerb(item)}
           >
             {item}
+            {isVerbAdded(item) && (
+              <span className="ml-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="size-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="m4.5 12.75 6 6 9-13.5"
+                  />
+                </svg>
+              </span>
+            )}
           </li>
         ))}
       </ul>
