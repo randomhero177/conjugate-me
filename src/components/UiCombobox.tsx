@@ -7,6 +7,7 @@ const UiCombobox = ({
   isMultiple = false,
   onChange,
   minSearchLength = 0,
+  showSelectedChips = true,
 }) => {
   const [query, setQuery] = useState("");
   const [filteredOptions, setFilteredOptions] = useState([]);
@@ -64,6 +65,16 @@ const UiCombobox = ({
     if (onChange) onChange(updatedSelection);
   };
 
+  const removeSelected = (index) => {
+    console.log(index);
+    console.log(selectedOptions);
+    const updatedSelection = selectedOptions.slice(index + 1);
+    console.log(updatedSelection);
+    setSelectedOptions(updatedSelection);
+
+    if (onChange) onChange(updatedSelection);
+  };
+
   return (
     <div className="relative w-full max-w-sm mx-auto mt-10" ref={containerRef}>
       {label && (
@@ -97,14 +108,15 @@ const UiCombobox = ({
           ))}
         </ul>
       )}
-      {isMultiple && selectedOptions.length > 0 && (
+      {isMultiple && selectedOptions.length > 0 && showSelectedChips && (
         <div className="mt-2 space-x-2">
-          {selectedOptions.map((option) => (
+          {selectedOptions.map((option, index) => (
             <span
               key={option}
               className="inline-block px-2 py-1 text-sm font-semibold text-indigo-700 bg-indigo-100 rounded"
             >
-              {option}
+              {option} {index}
+              <span onClick={() => removeSelected(index)}>remove</span>
             </span>
           ))}
         </div>

@@ -38,6 +38,19 @@ export default function Page() {
             isMultiple={true}
             onChange={setSelectedFruits}
             minSearchLength={2}
+            showSelectedChips={false}
+          />
+          <div className="mt-2">
+            Selected Fruits: {selectedFruits.join(", ")}
+          </div>
+        </div>
+        <div>
+          <UiCombobox
+            options={fruits}
+            label="Select multiple fruits"
+            isMultiple={true}
+            onChange={setSelectedFruits}
+            minSearchLength={2}
           />
           <div className="mt-2">
             Selected Fruits: {selectedFruits.join(", ")}
