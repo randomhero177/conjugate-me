@@ -6,9 +6,10 @@ const UiCombobox = ({
   label = "Select an option",
   isMultiple = false,
   onChange,
+  minSearchLength = 0,
 }) => {
   const [query, setQuery] = useState("");
-  const [filteredOptions, setFilteredOptions] = useState(options);
+  const [filteredOptions, setFilteredOptions] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState(
     isMultiple ? [] : null,
@@ -16,12 +17,16 @@ const UiCombobox = ({
   const containerRef = useRef(null);
 
   useEffect(() => {
-    setFilteredOptions(
-      options.filter((option) =>
-        option.toLowerCase().includes(query.toLowerCase()),
-      ),
-    );
-  }, [query, options]);
+    if (query.length >= minSearchLength) {
+      setFilteredOptions(
+        options.filter((option) =>
+          option.toLowerCase().includes(query.toLowerCase()),
+        ),
+      );
+    } else {
+      setFilteredOptions([]);
+    }
+  }, [query, options, minSearchLength]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -39,7 +44,7 @@ const UiCombobox = ({
 
   const handleInputChange = (e) => {
     setQuery(e.target.value);
-    setIsOpen(true);
+    setIsOpen(e.target.value.length >= minSearchLength);
   };
 
   const handleOptionClick = (option) => {
@@ -72,7 +77,7 @@ const UiCombobox = ({
         placeholder="Search..."
         value={query}
         onChange={handleInputChange}
-        onFocus={() => setIsOpen(true)}
+        onFocus={() => setIsOpen(query.length >= minSearchLength)}
         autoComplete="off"
       />
       {isOpen && filteredOptions.length > 0 && (

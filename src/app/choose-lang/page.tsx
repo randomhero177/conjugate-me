@@ -37,6 +37,7 @@ export default function Page() {
             label="Select multiple fruits"
             isMultiple={true}
             onChange={setSelectedFruits}
+            minSearchLength={2}
           />
           <div className="mt-2">
             Selected Fruits: {selectedFruits.join(", ")}
