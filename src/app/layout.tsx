@@ -6,7 +6,7 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import "./globals.css";
 import "../styles/main.scss";
-
+import Link from "next/link";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -21,7 +21,28 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className="flex justify-center">
+          <div className="container">
+            <div className="flex justify-center">
+              <Link href="/" className="p-4">
+                Home
+              </Link>
+              <Link href="/auth/register" className="p-4">
+                registration
+              </Link>
+              <Link href="/choose-lang" className="p-4">
+                Choose lang templ
+              </Link>
+              <Link href="/all-verbs" className="p-4">
+                All verbs
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {children}
+      </body>
     </html>
   );
 }
