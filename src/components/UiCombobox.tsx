@@ -23,7 +23,7 @@ const UiCombobox = ({
     if (query.length >= minSearchLength) {
       setFilteredOptions(
         options.filter((option) =>
-          option.toLowerCase().includes(query.toLowerCase()),
+          option.toLowerCase().startsWith(query.toLowerCase()),
         ),
       );
     } else {
