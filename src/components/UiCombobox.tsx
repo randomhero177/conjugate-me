@@ -9,32 +9,27 @@ const UiCombobox = ({
   updateFilteredOptions,
   minSearchLength = 0,
   showSelectedChips = true,
+  preselectedOptions = isMultiple ? [] : null,
 }) => {
   const [query, setQuery] = useState("");
   const [filteredOptions, setFilteredOptions] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOptions, setSelectedOptions] = useState(
-    isMultiple ? [] : null,
-  );
+  const [selectedOptions, setSelectedOptions] = useState(preselectedOptions);
   const containerRef = useRef(null);
 
   useEffect(() => {
-    console.log(query.length, query.length >= minSearchLength);
     if (query.length >= minSearchLength) {
-      setFilteredOptions(
-        options.filter((option) =>
-          option.toLowerCase().startsWith(query.toLowerCase()),
-        ),
+      const newFilteredOptions = options.filter((option) =>
+        option.toLowerCase().startsWith(query.toLowerCase()),
       );
+      setFilteredOptions(newFilteredOptions);
     } else {
       setFilteredOptions([]);
     }
   }, [query, options, minSearchLength]);
 
   useEffect(() => {
-    // Notify parent with the updated filtered options
     if (updateFilteredOptions && typeof updateFilteredOptions === "function") {
-      console.log(filteredOptions);
       updateFilteredOptions(filteredOptions);
     }
   }, [filteredOptions, updateFilteredOptions]);
@@ -53,10 +48,19 @@ const UiCombobox = ({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    // Initialize selectedOptions with preselectedOptions only once when the component mounts
+    if (isMultiple) {
+      setSelectedOptions(preselectedOptions);
+    } else {
+      setSelectedOptions(preselectedOptions);
+      setQuery(preselectedOptions || "");
+    }
+  }, []); // Empty dependency array to run only once
+
   const handleInputChange = (e) => {
     const value = e.target.value;
     const filteredValue = value.replace(/[^a-zA-Z]/g, "");
-
     setQuery(filteredValue);
     setIsOpen(filteredValue.length >= minSearchLength);
   };
@@ -69,19 +73,16 @@ const UiCombobox = ({
         : [...selectedOptions, option];
     } else {
       updatedSelection = option;
-      setQuery(option); // Set the selected option as the input value
-      setIsOpen(false); // Close dropdown after selection
+      setQuery(option);
+      setIsOpen(false);
     }
     setSelectedOptions(updatedSelection);
-
-    // Emit selected values to the parent component
     if (onChange) onChange(updatedSelection);
   };
 
   const removeSelected = (index) => {
-    const updatedSelection = selectedOptions.slice(index + 1);
+    const updatedSelection = selectedOptions.filter((_, i) => i !== index);
     setSelectedOptions(updatedSelection);
-
     if (onChange) onChange(updatedSelection);
   };
 
@@ -133,13 +134,13 @@ const UiCombobox = ({
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="size-6 ml-1"
+                  className="w-4 h-4 ml-1 cursor-pointer"
                   onClick={() => removeSelected(index)}
                 >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    d="M12 9.75 14.25 12m0 0 2.25 2.25M14.25 12l2.25-2.25M14.25 12 12 14.25m-2.58 4.92-6.374-6.375a1.125 1.125 0 0 1 0-1.59L9.42 4.83c.21-.211.497-.33.795-.33H19.5a2.25 2.25 0 0 1 2.25 2.25v10.5a2.25 2.25 0 0 1-2.25 2.25h-9.284c-.298 0-.585-.119-.795-.33Z"
+                    d="M6 18L18 6M6 6l12 12"
                   />
                 </svg>
               </span>

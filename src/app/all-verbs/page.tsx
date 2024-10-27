@@ -71,6 +71,7 @@ export default function Page() {
             isMultiple={true}
             minSearchLength={2}
             updateFilteredOptions={setFilteredVerbs}
+            preselectedOptions={["trabajar", "ir"]}
           />
         </div>
       </div>
