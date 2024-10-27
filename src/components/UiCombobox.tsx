@@ -6,6 +6,7 @@ const UiCombobox = ({
   label = "Select an option",
   isMultiple = false,
   onChange,
+  updateFilteredOptions,
   minSearchLength = 0,
   showSelectedChips = true,
 }) => {
@@ -18,6 +19,7 @@ const UiCombobox = ({
   const containerRef = useRef(null);
 
   useEffect(() => {
+    console.log(query.length, query.length >= minSearchLength);
     if (query.length >= minSearchLength) {
       setFilteredOptions(
         options.filter((option) =>
@@ -28,6 +30,14 @@ const UiCombobox = ({
       setFilteredOptions([]);
     }
   }, [query, options, minSearchLength]);
+
+  useEffect(() => {
+    // Notify parent with the updated filtered options
+    if (updateFilteredOptions && typeof updateFilteredOptions === "function") {
+      console.log(filteredOptions);
+      updateFilteredOptions(filteredOptions);
+    }
+  }, [filteredOptions, updateFilteredOptions]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -44,8 +54,11 @@ const UiCombobox = ({
   }, []);
 
   const handleInputChange = (e) => {
-    setQuery(e.target.value);
-    setIsOpen(e.target.value.length >= minSearchLength);
+    const value = e.target.value;
+    const filteredValue = value.replace(/[^a-zA-Z]/g, "");
+
+    setQuery(filteredValue);
+    setIsOpen(filteredValue.length >= minSearchLength);
   };
 
   const handleOptionClick = (option) => {
@@ -66,10 +79,7 @@ const UiCombobox = ({
   };
 
   const removeSelected = (index) => {
-    console.log(index);
-    console.log(selectedOptions);
     const updatedSelection = selectedOptions.slice(index + 1);
-    console.log(updatedSelection);
     setSelectedOptions(updatedSelection);
 
     if (onChange) onChange(updatedSelection);
