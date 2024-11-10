@@ -25,6 +25,8 @@ export default function Page() {
     console.log(verb);
     if (!isVerbAdded(verb)) {
       setSelectedVerbs((prevSelectedVerbs) => [...prevSelectedVerbs, verb]);
+    } else {
+      removeVerb(verb);
     }
   };
   const removeVerb = (verb) => {
