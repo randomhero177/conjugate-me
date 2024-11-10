@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+// @ts-ignore
 import jwt from "jsonwebtoken";
 
 export async function GET(req: Request) {

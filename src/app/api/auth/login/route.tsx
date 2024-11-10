@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
+// @ts-ignore
 import bcrypt from "bcrypt";
+// @ts-ignore
 import jwt from "jsonwebtoken";
 import dbConnect from "@/util/dbConnect";
 import UserModel from "@/models/UserModel";

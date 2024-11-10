@@ -1,6 +1,18 @@
 // components/UiCombobox.js
 import { useState, useEffect, useRef } from "react";
 
+interface UiComboboxProps {
+  options: string[];
+  isMultiple?: boolean;
+  showSelectedChips?: boolean;
+  minSearchLength?: number;
+  updateFilteredOptions: (filtered: string[]) => void;
+  onChange: (selected: string[]) => void;
+  selectedOptions: string[];
+  preselectedOptions?: [] | null;
+  label?: string;
+}
+
 const UiCombobox = ({
   options = [],
   label = "Select an option",
@@ -11,7 +23,7 @@ const UiCombobox = ({
   preselectedOptions = isMultiple ? [] : null,
   minSearchLength = 0,
   showSelectedChips = true,
-}) => {
+}: UiComboboxProps) => {
   const [query, setQuery] = useState("");
   const [filteredOptions, setFilteredOptions] = useState([]);
   const [isOpen, setIsOpen] = useState(false);

@@ -9,13 +9,14 @@ import {
 import UiCombobox from "@/components/UiCombobox";
 import Dictionary from "@/data/dictionary";
 import { useRouter } from "next/navigation";
+import { RootState } from "@/types/typeVerbs";
 
 export default function Page() {
   const router = useRouter();
   const selectedVerbs = useSelector(
-    (state) => state.selectedVerbs.selectedVerbs,
+    (state: RootState) => state.selectedVerbs.selectedVerbs,
   );
-  const [filteredVerbs, setFilteredVerbs] = useState([]);
+  const [filteredVerbs, setFilteredVerbs] = useState<string[]>([]);
   const isVerbSelected = useMemo(
     () => selectedVerbs.length > 0,
     [selectedVerbs],
@@ -32,7 +33,7 @@ export default function Page() {
     console.log(SpanishVerbs.allInfinitives);
   }, []);
 
-  const selectVerb = (verb) => {
+  const selectVerb = (verb: string) => {
     console.log(verb);
     if (!isVerbAdded(verb)) {
       dispatch(addVerb(verb));
@@ -41,12 +42,12 @@ export default function Page() {
     }
   };
 
-  const removeVerbWrap = (verb) => {
+  const removeVerbWrap = (verb: string) => {
     console.log(verb);
     dispatch(removeVerb(verb));
   };
 
-  const isVerbAdded = (verb) => selectedVerbs.includes(verb);
+  const isVerbAdded = (verb: string) => selectedVerbs.includes(verb);
 
   const goPractice = () => {
     router.push("/practice");
@@ -99,7 +100,7 @@ export default function Page() {
             showSelectedChips={false}
             minSearchLength={2}
             updateFilteredOptions={setFilteredVerbs}
-            onChange={(verbs) => dispatch(setSelectedVerbs(verbs))} // Update selected verbs
+            onChange={(verbs: string[]) => dispatch(setSelectedVerbs(verbs))} // Update selected verbs
             selectedOptions={selectedVerbs} // Pass the current selected verbs
           />
         </div>

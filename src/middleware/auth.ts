@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+// @ts-ignore
 import jwt from "jsonwebtoken";
 import { checkTokenValidity } from "@/services/auth";
 
