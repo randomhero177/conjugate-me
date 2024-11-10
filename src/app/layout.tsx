@@ -8,6 +8,7 @@ import "./globals.css";
 import "../styles/main.scss";
 import Link from "next/link";
 const inter = Inter({ subsets: ["latin"] });
+import Providers from "./Providers";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -40,8 +41,7 @@ export default function RootLayout({
             </div>
           </div>
         </div>
-
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

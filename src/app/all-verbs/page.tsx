@@ -1,15 +1,27 @@
 "use client";
 import { useState, useEffect, useMemo } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addVerb,
+  removeVerb,
+  setSelectedVerbs,
+} from "@/features/selectedVerbsSlice";
 import UiCombobox from "@/components/UiCombobox";
 import Dictionary from "@/data/dictionary";
+import { useRouter } from "next/navigation";
 
 export default function Page() {
-  const [selectedVerbs, setSelectedVerbs] = useState([]);
+  const router = useRouter();
+  const selectedVerbs = useSelector(
+    (state) => state.selectedVerbs.selectedVerbs,
+  );
   const [filteredVerbs, setFilteredVerbs] = useState([]);
   const isVerbSelected = useMemo(
     () => selectedVerbs.length > 0,
     [selectedVerbs],
   );
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const SpanishVerbs = require("spanish-verbs");
@@ -23,27 +35,28 @@ export default function Page() {
   const selectVerb = (verb) => {
     console.log(verb);
     if (!isVerbAdded(verb)) {
-      setSelectedVerbs((prevSelectedVerbs) => [...prevSelectedVerbs, verb]);
+      dispatch(addVerb(verb));
     } else {
-      removeVerb(verb);
+      removeVerbWrap(verb);
     }
   };
 
-  const removeVerb = (verb) => {
+  const removeVerbWrap = (verb) => {
     console.log(verb);
-    setSelectedVerbs((prevSelectedVerbs) =>
-      prevSelectedVerbs.filter((item) => item !== verb),
-    );
+    dispatch(removeVerb(verb));
   };
 
   const isVerbAdded = (verb) => selectedVerbs.includes(verb);
 
+  const goPractice = () => {
+    router.push("/practice");
+  };
   return (
     <main className="flex min-h-screen flex-col items-center p-24">
       <h1 className="text-2xl font-bold mb-4">
         Select verbs for practics ({Dictionary.length})
       </h1>
-      <div className="mb-6 inline-flex flex-wrap">
+      <div className="mb-6 inline-flex flex-wrap items-center">
         {selectedVerbs.map((item, index) => (
           <span
             key={`selectedVerbsMap${index}`}
@@ -57,7 +70,7 @@ export default function Page() {
               strokeWidth={1.5}
               stroke="currentColor"
               className="size-6 ml-1 cursor-pointer"
-              onClick={() => removeVerb(item)}
+              onClick={() => removeVerbWrap(item)}
             >
               <path
                 strokeLinecap="round"
@@ -69,7 +82,10 @@ export default function Page() {
         ))}
 
         {selectedVerbs.length > 0 && (
-          <button className="ml-4 px-6 py-2 bg-green-500 text-white font-bold rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50 transition">
+          <button
+            onClick={() => goPractice()}
+            className="ml-4 px-6 py-2 mb-2 bg-green-500 text-white font-bold rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50 transition"
+          >
             Practice
           </button>
         )}
@@ -83,7 +99,7 @@ export default function Page() {
             showSelectedChips={false}
             minSearchLength={2}
             updateFilteredOptions={setFilteredVerbs}
-            onChange={setSelectedVerbs} // Update selected verbs
+            onChange={(verbs) => dispatch(setSelectedVerbs(verbs))} // Update selected verbs
             selectedOptions={selectedVerbs} // Pass the current selected verbs
           />
         </div>
@@ -121,7 +137,10 @@ export default function Page() {
       </ul>
       <div className="fixed bottom-0 left-0 w-full bg-blue-500 text-white p-4 text-center text-lg">
         {selectedVerbs.length ? (
-          <button className="ml-4 px-6 py-2 bg-green-500 text-white font-bold rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50 transition">
+          <button
+            onClick={() => goPractice()}
+            className="ml-4 px-6 py-2 bg-green-500 text-white font-bold rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50 transition"
+          >
             Practice
           </button>
         ) : (
