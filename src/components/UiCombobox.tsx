@@ -7,15 +7,22 @@ const UiCombobox = ({
   isMultiple = false,
   onChange,
   updateFilteredOptions,
+  selectedOptions = [],
+  preselectedOptions = isMultiple ? [] : null,
   minSearchLength = 0,
   showSelectedChips = true,
-  preselectedOptions = isMultiple ? [] : null,
 }) => {
   const [query, setQuery] = useState("");
   const [filteredOptions, setFilteredOptions] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOptions, setSelectedOptions] = useState(preselectedOptions);
   const containerRef = useRef(null);
+
+  useEffect(() => {
+    // Initialize selectedOptions with preselectedOptions only once when the component mounts
+    if (preselectedOptions && preselectedOptions.length > 0) {
+      onChange(preselectedOptions);
+    }
+  }, []); // Empty dependency array to run only once
 
   useEffect(() => {
     if (query.length >= minSearchLength) {
@@ -48,16 +55,6 @@ const UiCombobox = ({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  useEffect(() => {
-    // Initialize selectedOptions with preselectedOptions only once when the component mounts
-    if (isMultiple) {
-      setSelectedOptions(preselectedOptions);
-    } else {
-      setSelectedOptions(preselectedOptions);
-      setQuery(preselectedOptions || "");
-    }
-  }, []); // Empty dependency array to run only once
-
   const handleInputChange = (e) => {
     const value = e.target.value;
     const filteredValue = value.replace(/[^a-zA-Z]/g, "");
@@ -76,13 +73,11 @@ const UiCombobox = ({
       setQuery(option);
       setIsOpen(false);
     }
-    setSelectedOptions(updatedSelection);
     if (onChange) onChange(updatedSelection);
   };
 
   const removeSelected = (index) => {
     const updatedSelection = selectedOptions.filter((_, i) => i !== index);
-    setSelectedOptions(updatedSelection);
     if (onChange) onChange(updatedSelection);
   };
 
@@ -145,11 +140,11 @@ const UiCombobox = ({
         </ul>
       )}
       {isMultiple && selectedOptions.length > 0 && showSelectedChips && (
-        <div className="mt-2 space-x-2">
+        <div className="mt-2 inline-flex flex-wrap">
           {selectedOptions.map((option, index) => (
             <span
               key={option}
-              className="inline-block px-2 py-1 text-sm font-semibold text-indigo-700 bg-indigo-100 rounded"
+              className="inline-block me-2 mb-2 px-2 py-1 text-sm font-semibold text-indigo-700 bg-indigo-100 rounded"
             >
               <span className="flex items-center">
                 {option}

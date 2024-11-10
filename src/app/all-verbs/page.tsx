@@ -1,6 +1,5 @@
 "use client";
-/*import SpanishVerbs from "spanish-verbs";*/
-import { useState, useEffect, useRef, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import UiCombobox from "@/components/UiCombobox";
 import Dictionary from "@/data/dictionary";
 
@@ -29,6 +28,7 @@ export default function Page() {
       removeVerb(verb);
     }
   };
+
   const removeVerb = (verb) => {
     console.log(verb);
     setSelectedVerbs((prevSelectedVerbs) =>
@@ -41,12 +41,14 @@ export default function Page() {
   return (
     <main className="flex min-h-screen flex-col items-center p-24">
       <h1 className="text-2xl font-bold mb-4">
-        Select verbs ({Dictionary.length})
+        Select verbs for practics ({Dictionary.length})
       </h1>
-      <div className="mb-6">
+      <div className="mb-6 inline-flex flex-wrap">
         {selectedVerbs.map((item, index) => (
-          <span key={`selectedVerbsMap${index}`} className="flex items-center">
-            {" "}
+          <span
+            key={`selectedVerbsMap${index}`}
+            className="flex items-center me-2 mb-2 px-2 py-1 text-lg font-semibold text-indigo-700 bg-indigo-100 rounded"
+          >
             {item}
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -54,7 +56,7 @@ export default function Page() {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="size-6 ml-1"
+              className="size-6 ml-1 cursor-pointer"
               onClick={() => removeVerb(item)}
             >
               <path
@@ -65,24 +67,33 @@ export default function Page() {
             </svg>
           </span>
         ))}
+
+        {selectedVerbs.length > 0 && (
+          <button className="ml-4 px-6 py-2 bg-green-500 text-white font-bold rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50 transition">
+            Practice
+          </button>
+        )}
       </div>
+
       <div className="mb-16">
         <div className="lg:min-w-[540px]">
           <UiCombobox
             options={Dictionary}
             isMultiple={true}
+            showSelectedChips={false}
             minSearchLength={2}
             updateFilteredOptions={setFilteredVerbs}
-            preselectedOptions={["trabajar", "ir"]}
+            onChange={setSelectedVerbs} // Update selected verbs
+            selectedOptions={selectedVerbs} // Pass the current selected verbs
           />
         </div>
       </div>
-      <ul className="grid grid-cols-6 gap-4">
+      <ul className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
         {(filteredVerbs?.length ? filteredVerbs : Dictionary).map(
           (item, index) => (
             <li
               key={`Dictionary_${index}`}
-              className="p-4 bg-gray-200 rounded-lg shadow-md flex items-center"
+              className="p-4 bg-gray-200 rounded-lg shadow-md flex items-center cursor-pointer"
               onClick={() => selectVerb(item)}
             >
               {item}
@@ -109,7 +120,13 @@ export default function Page() {
         )}
       </ul>
       <div className="fixed bottom-0 left-0 w-full bg-blue-500 text-white p-4 text-center text-lg">
-        Choose verbs you would like to practice
+        {selectedVerbs.length ? (
+          <button className="ml-4 px-6 py-2 bg-green-500 text-white font-bold rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50 transition">
+            Practice
+          </button>
+        ) : (
+          <div>Choose verbs you would like to practice</div>
+        )}
       </div>
     </main>
   );
