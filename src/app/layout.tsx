@@ -9,6 +9,7 @@ import "../styles/main.scss";
 import Link from "next/link";
 const inter = Inter({ subsets: ["latin"] });
 import Providers from "./Providers";
+import MainMenu from "@/components/MainMenu";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,20 +26,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className="flex justify-center">
           <div className="container">
-            <div className="flex justify-center">
-              <Link href="/" className="p-4">
-                Home
-              </Link>
-              <Link href="/auth/register" className="p-4">
-                registration
-              </Link>
-              <Link href="/choose-lang" className="p-4">
-                Choose lang templ
-              </Link>
-              <Link href="/all-verbs" className="p-4">
-                All verbs
-              </Link>
-            </div>
+            <MainMenu />
           </div>
         </div>
         <Providers>{children}</Providers>
