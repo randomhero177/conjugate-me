@@ -10,6 +10,7 @@ import UiCombobox from "@/components/UiCombobox";
 import Dictionary from "@/data/dictionary";
 import { useRouter } from "next/navigation";
 import { RootState } from "@/types/typeVerbs";
+import { PagesUrl } from "@/data/urls";
 
 export default function Page() {
   const router = useRouter();
@@ -50,7 +51,7 @@ export default function Page() {
   const isVerbAdded = (verb: string) => selectedVerbs.includes(verb);
 
   const goPractice = () => {
-    router.push("/practice");
+    router.push(PagesUrl.tense);
   };
   return (
     <main className="flex min-h-screen flex-col items-center p-24">
