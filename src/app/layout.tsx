@@ -6,7 +6,6 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import "./globals.css";
 import "../styles/main.scss";
-import Link from "next/link";
 const inter = Inter({ subsets: ["latin"] });
 import Providers from "./Providers";
 import MainMenu from "@/components/MainMenu";
