@@ -11,6 +11,7 @@ import Dictionary from "@/data/dictionary";
 import { useRouter } from "next/navigation";
 import { RootState } from "@/types/typeVerbs";
 import { PagesUrl } from "@/data/urls";
+import FooterAction from "@/components/FooterAction";
 
 export default function AllVerbsPage() {
   const router = useRouter();
@@ -131,18 +132,12 @@ export default function AllVerbsPage() {
           ),
         )}
       </ul>
-      <div className="fixed bottom-0 left-0 w-full bg-blue-500 text-white p-4 text-center text-lg">
-        {selectedVerbs.length ? (
-          <button
-            onClick={() => goPractice()}
-            className="ml-4 px-6 py-2 bg-green-500 text-white font-bold rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50 transition"
-          >
-            Practice
-          </button>
-        ) : (
-          <div>Choose verbs you would like to practice</div>
-        )}
-      </div>
+      <FooterAction
+        selectedOptions={selectedVerbs}
+        emptyText="Choose verbs you would like to practice"
+        btnText="Practice"
+        mainAction={goPractice}
+      />
     </main>
   );
 }

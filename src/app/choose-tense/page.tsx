@@ -6,7 +6,7 @@ import { setSelectedTenses } from "@/features/selectedTensesSlice";
 import { RootState } from "@/types/typeVerbs";
 import { PagesUrl } from "@/data/urls";
 import UiChooseList from "@/components/UiChooseList";
-import FooterActions from "@/components/FooterAction";
+import FooterAction from "@/components/FooterAction";
 
 export default function ChooseTensePage() {
   const SpanishVerbs = require("spanish-verbs");
@@ -56,7 +56,7 @@ export default function ChooseTensePage() {
           />
         </div>
       </div>
-      <FooterActions
+      <FooterAction
         selectedOptions={selectedTenses}
         mainAction={goToNext}
         btnText="Practice"
