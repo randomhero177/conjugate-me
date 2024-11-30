@@ -2,25 +2,25 @@
 
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  addVerb,
-  removeVerb,
-  setSelectedVerbs,
-} from "@/features/selectedVerbsSlice";
+import { setSelectedTenses } from "@/features/selectedTensesSlice";
 import { RootState } from "@/types/typeVerbs";
 import { PagesUrl } from "@/data/urls";
 import UiChooseList from "@/components/UiChooseList";
 
 export default function ChooseTensePage() {
   const SpanishVerbs = require("spanish-verbs");
+  const dispatch = useDispatch();
   const selectedVerbs = useSelector(
     (state: RootState) => state.selectedVerbs.selectedVerbs,
   );
-  const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
+
+  const selectedTenses = useSelector(
+    (state: RootState) => state.selectedTenses.selectedTenses,
+  );
 
   const handleUpdate = (data: string[]) => {
     console.log(data);
-    setSelectedOptions(data);
+    dispatch(setSelectedTenses(data));
   };
 
   const [recomputedTenses, setRecomputedTenses] = useState<string[]>([]);
@@ -47,7 +47,7 @@ export default function ChooseTensePage() {
         <div>
           <UiChooseList
             options={recomputedTenses}
-            selectedOptions={selectedOptions}
+            selectedOptions={selectedTenses}
             onChange={(data: string[]) => handleUpdate(data)}
           />
         </div>
