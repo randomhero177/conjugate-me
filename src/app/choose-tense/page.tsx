@@ -10,7 +10,6 @@ import {
 import { RootState } from "@/types/typeVerbs";
 import { PagesUrl } from "@/data/urls";
 import UiChooseList from "@/components/UiChooseList";
-import SpanishVerbs from "spanish-verbs";
 
 export default function ChooseTensePage() {
   const SpanishVerbs = require("spanish-verbs");
@@ -24,6 +23,8 @@ export default function ChooseTensePage() {
     setSelectedOptions(data);
   };
 
+  const [recomputedTenses, setRecomputedTenses] = useState<string[]>([]);
+
   useEffect(() => {
     console.log(SpanishVerbs);
     console.log(SpanishVerbs.validTenses);
@@ -31,18 +32,25 @@ export default function ChooseTensePage() {
     console.log(
       SpanishVerbs.getConjugation("abortar", "INDICATIVE_PRETERITE", 5),
     );
+    setRecomputedTenses(
+      SpanishVerbs.validTenses.map((tense: string) =>
+        tense.replaceAll("_", " "),
+      ),
+    );
   }, []);
 
   return (
-    <div>
-      <div>Hello choose tense</div>
-      {selectedVerbs.length > 0 && <div>there are some</div>}
-      <div>
-        <UiChooseList
-          options={SpanishVerbs.validTenses}
-          selectedOptions={selectedOptions}
-          onChange={(data: string[]) => handleUpdate(data)}
-        />
+    <div className="flex justify-center">
+      <div className="container">
+        <div>Hello choose tense</div>
+        {selectedVerbs.length > 0 && <div>there are some</div>}
+        <div>
+          <UiChooseList
+            options={recomputedTenses}
+            selectedOptions={selectedOptions}
+            onChange={(data: string[]) => handleUpdate(data)}
+          />
+        </div>
       </div>
     </div>
   );
