@@ -23,11 +23,9 @@ export default function AllVerbsPage() {
 
   useEffect(() => {
     const SpanishVerbs = require("spanish-verbs");
-    console.log(SpanishVerbs);
     console.log(SpanishVerbs.validTenses);
     console.log(SpanishVerbs.getConjugation("hablar", "INDICATIVE_PRESENT", 2));
     console.log(SpanishVerbs.getConjugation("huir", "INDICATIVE_PRETERITE", 5));
-    console.log(SpanishVerbs.allInfinitives);
   }, []);
 
   const selectVerb = (verb: string) => {
