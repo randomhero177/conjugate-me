@@ -44,7 +44,7 @@ export default function ChooseTensePage() {
 
   return (
     <div className="flex justify-center">
-      <div className="container">
+      <div className="container mt-6">
         <h1 className="text-2xl font-bold mb-4 text-center my-4">
           Select in which tenses you want to practice verbs
         </h1>
