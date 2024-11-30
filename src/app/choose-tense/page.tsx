@@ -6,6 +6,7 @@ import { setSelectedTenses } from "@/features/selectedTensesSlice";
 import { RootState } from "@/types/typeVerbs";
 import { PagesUrl } from "@/data/urls";
 import UiChooseList from "@/components/UiChooseList";
+import FooterActions from "@/components/FooterAction";
 
 export default function ChooseTensePage() {
   const SpanishVerbs = require("spanish-verbs");
@@ -25,6 +26,8 @@ export default function ChooseTensePage() {
 
   const [recomputedTenses, setRecomputedTenses] = useState<string[]>([]);
 
+  const goToNext = () => {};
+
   useEffect(() => {
     console.log(SpanishVerbs);
     console.log(SpanishVerbs.validTenses);
@@ -42,9 +45,10 @@ export default function ChooseTensePage() {
   return (
     <div className="flex justify-center">
       <div className="container">
-        <div>Hello choose tense</div>
-        {selectedVerbs.length > 0 && <div>there are some</div>}
-        <div>
+        <h1 className="text-2xl font-bold mb-4 text-center my-4">
+          Select in which tenses you want to practice verbs
+        </h1>
+        <div className="py-4">
           <UiChooseList
             options={recomputedTenses}
             selectedOptions={selectedTenses}
@@ -52,6 +56,12 @@ export default function ChooseTensePage() {
           />
         </div>
       </div>
+      <FooterActions
+        selectedOptions={selectedTenses}
+        mainAction={goToNext}
+        btnText="Practice"
+        emptyText="Choose tenses you would like to practice"
+      />
     </div>
   );
 }
