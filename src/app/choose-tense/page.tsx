@@ -60,7 +60,7 @@ export default function ChooseTensePage() {
         selectedOptions={selectedTenses}
         mainAction={goToNext}
         btnText="Practice"
-        emptyText="Choose tenses you would like to practice"
+        emptyText="Choose the tenses in which you want to practice verbs."
       />
     </div>
   );
