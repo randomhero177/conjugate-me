@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addVerb,
@@ -12,16 +12,12 @@ import { useRouter } from "next/navigation";
 import { RootState } from "@/types/typeVerbs";
 import { PagesUrl } from "@/data/urls";
 
-export default function Page() {
+export default function AllVerbsPage() {
   const router = useRouter();
   const selectedVerbs = useSelector(
     (state: RootState) => state.selectedVerbs.selectedVerbs,
   );
   const [filteredVerbs, setFilteredVerbs] = useState<string[]>([]);
-  const isVerbSelected = useMemo(
-    () => selectedVerbs.length > 0,
-    [selectedVerbs],
-  );
 
   const dispatch = useDispatch();
 
