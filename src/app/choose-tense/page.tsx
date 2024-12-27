@@ -4,10 +4,13 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setSelectedTenses } from "@/features/selectedTensesSlice";
 import { RootState } from "@/types/typeVerbs";
+import { useRouter } from "next/navigation";
+import { PagesUrl } from "@/data/urls";
 import UiChooseList from "@/components/UiChooseList";
 import FooterAction from "@/components/FooterAction";
 
 export default function ChooseTensePage() {
+  const router = useRouter();
   const SpanishVerbs = require("spanish-verbs");
   const dispatch = useDispatch();
   const selectedVerbs = useSelector(
@@ -25,7 +28,9 @@ export default function ChooseTensePage() {
 
   const [recomputedTenses, setRecomputedTenses] = useState<string[]>([]);
 
-  const goToNext = () => {};
+  const goToNext = () => {
+    router.push(PagesUrl.practiseSelected);
+  };
 
   useEffect(() => {
     console.log(SpanishVerbs);
