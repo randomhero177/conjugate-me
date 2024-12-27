@@ -1,4 +1,4 @@
-function getRandomInRange(indexStart:string, indexEnd:string) {
+function getRandomInRange(indexStart:number, indexEnd:number) {
     if (typeof indexStart !== 'number' || typeof indexEnd !== 'number') {
         throw new Error('Both arguments must be numbers.');
     }
@@ -10,3 +10,4 @@ function getRandomInRange(indexStart:string, indexEnd:string) {
     return Math.floor(Math.random() * (indexEnd - indexStart + 1)) + indexStart;
 }
   
+export default getRandomInRange 
