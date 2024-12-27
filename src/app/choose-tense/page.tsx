@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setSelectedTenses } from "@/features/selectedTensesSlice";
 import { RootState } from "@/types/typeVerbs";
-import { PagesUrl } from "@/data/urls";
 import UiChooseList from "@/components/UiChooseList";
 import FooterAction from "@/components/FooterAction";
 
@@ -44,7 +43,7 @@ export default function ChooseTensePage() {
 
   return (
     <div className="flex justify-center">
-      <div className="container mt-6">
+      <div className="container mt-6 px-4">
         <h1 className="text-2xl font-bold mb-4 text-center my-4">
           Select in which tenses you want to practice verbs
         </h1>
