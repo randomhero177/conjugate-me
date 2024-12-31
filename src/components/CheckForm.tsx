@@ -19,14 +19,20 @@ const CheckForm = ({correctAnswer = ''}: Props) => {
 
     return (
         <div>
-            <div>
+            <div className="mb-4">
                 <input
                     type="text"
                     className="px-4 py-2 mr-4 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500"
-                    placeholder="Search..."
+                    placeholder="You're answer"
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
+                    onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                            checkResult();
+                        }
+                    }}
                     autoComplete="off"
+                    style={{ minWidth: 300 }}
                 />
                 <button
                     onClick={() => checkResult()}
@@ -36,7 +42,17 @@ const CheckForm = ({correctAnswer = ''}: Props) => {
                 showResult && (
                     
                     <div>
-                        {isCorrect ? "You're right" : "Try again"}
+                        {isCorrect ? (
+                            <>
+                                <span className="text-green-500">&#x2714;</span> {/* Checkmark icon */}
+                                <span className="font-bold text-green-500">You're right!</span>
+                            </>
+                        ) : (
+                            <>
+                                <span className="text-red-500">&#x2716;</span> {/* Cross icon */}
+                                <span className="font-bold text-red-500">Try again!</span>
+                            </>
+                        )}
                         <div>
                             {!isCorrect && wantTooSee && (
                                 <div>The correct answer is {correctAnswer}</div>

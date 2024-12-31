@@ -106,7 +106,7 @@ export default function AllVerbsPage() {
           (item, index) => (
             <li
               key={`Dictionary_${index}`}
-              className="p-4 bg-gray-200 rounded-lg shadow-md flex items-center cursor-pointer"
+              className="p-4 bg-gray-500 rounded-lg shadow-md flex items-center cursor-pointer text-white"
               onClick={() => selectVerb(item)}
             >
               {item}
