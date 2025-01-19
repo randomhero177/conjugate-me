@@ -6,8 +6,6 @@ interface VerbsListProps {
 }
 
 export default function VerbsList({ verbsList, onChange }: VerbsListProps) {
-  console.log();
-
   return (
     <ul>
       {verbsList.map((verb) => (
