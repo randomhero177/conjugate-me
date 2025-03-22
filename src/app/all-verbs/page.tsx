@@ -48,8 +48,8 @@ export default function AllVerbsPage() {
   };
   return (
     <main className="flex min-h-screen flex-col items-center p-24">
-      <h1 className="text-2xl font-bold mb-4">
-        Select verbs for practics ({Dictionary.length})
+      <h1 className="text-3xl font-bold mb-12">
+        Select verbs to practice ({Dictionary.length})
       </h1>
       <div className="mb-6 inline-flex flex-wrap items-center">
         {selectedVerbs.map((item, index) => (
@@ -85,6 +85,36 @@ export default function AllVerbsPage() {
           </button>
         )}
       </div>
+      <div className="max-w-4xl grid gap-8 sm:grid-cols-1 md:grid-cols-2">
+        <div className="group">
+          <div className="p-6 bg-white shadow-lg rounded-2xl flex flex-col items-center transition-transform transform hover:scale-105">
+            <div className="mb-4 w-14 h-14 flex items-center justify-center text-xl font-semibold text-white bg-gray-600 rounded-full transition-colors duration-300 group-hover:bg-gray-900">
+              1
+            </div>
+            <h2 className="text-xl font-semibold text-gray-700 mb-2">
+              Use text field
+            </h2>
+            <p className="text-gray-600 text-center">
+              You can either search for a specific verb using the input field
+            </p>
+          </div>
+        </div>
+
+        <div className="group">
+          <div className="p-6 bg-white shadow-lg rounded-2xl flex flex-col items-center transition-transform transform hover:scale-105">
+            <div className="mb-4 w-14 h-14 flex items-center justify-center text-xl font-semibold text-white bg-gray-600 rounded-full transition-colors duration-300 group-hover:bg-gray-900">
+              2
+            </div>
+            <h2 className="text-xl font-semibold text-gray-700 mb-2">
+              Or find in the list of all verbs
+            </h2>
+            <p className="text-gray-600 text-center">
+              scroll through the full list below. Click on a verb to select or
+              deselect it.
+            </p>
+          </div>
+        </div>
+      </div>
 
       <div className="mb-16">
         <div className="lg:min-w-[540px]">
@@ -96,6 +126,7 @@ export default function AllVerbsPage() {
             updateFilteredOptions={setFilteredVerbs}
             onChange={(verbs: string[]) => dispatch(setSelectedVerbs(verbs))} // Update selected verbs
             selectedOptions={selectedVerbs} // Pass the current selected verbs
+            label="Find a verb by query"
           />
         </div>
       </div>
