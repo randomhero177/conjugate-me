@@ -6,6 +6,7 @@ import { setSelectedTenses } from "@/features/selectedTensesSlice";
 import { RootState } from "@/types/typeVerbs";
 import { useRouter } from "next/navigation";
 import { PagesUrl } from "@/data/urls";
+import Tense from "@/data/tense";
 import UiChooseList from "@/components/UiChooseList";
 import FooterAction from "@/components/FooterAction";
 
@@ -39,11 +40,7 @@ export default function ChooseTensePage() {
     console.log(
       SpanishVerbs.getConjugation("abortar", "INDICATIVE_PRETERITE", 5),
     );
-    setRecomputedTenses(
-      SpanishVerbs.validTenses.map((tense: string) =>
-        tense.replaceAll("_", " "),
-      ),
-    );
+    setRecomputedTenses(Object.values(Tense));
   }, []);
 
   return (
