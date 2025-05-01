@@ -77,7 +77,7 @@ export default function AllVerbsPage() {
               Find it in the list of all verbs to select
             </h2>
             <p className="text-gray-600 text-center">
-              scroll through the full list below. Click on a verb to select or
+              Scroll through the full list below. Click on a verb to select or
               deselect it.
             </p>
           </div>
