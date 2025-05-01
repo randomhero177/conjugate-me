@@ -88,7 +88,7 @@ const UiCombobox = ({
     if (onChange) onChange(updatedSelection);
   };
 
-  const removeSelected = (index) => {
+  const removeSelected = (index: number) => {
     const updatedSelection = selectedOptions.filter((_, i) => i !== index);
     if (onChange) onChange(updatedSelection);
   };
@@ -103,7 +103,7 @@ const UiCombobox = ({
       <div className="relative">
         <input
           type="text"
-          className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500"
+          className="w-full px-6 py-4 mt-1 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500"
           placeholder="Search..."
           value={query}
           onChange={handleInputChange}

@@ -62,17 +62,33 @@ export default function PracticeSelected() {
 
   return (
     <div className="flex min-h-screen flex-col items-center p-24">
-      <div className="mb-24">
-        <div className="mb-4 text-center">Verbs selected to practice: </div>
-        <div className="flex flex-wrap gap-2">
-          {selectedVerbs.map((item) => (
-            <span
-              key={`selectedVerbs_item_${item}`}
-              className="inline-flex items-center px-3 py-1 text-sm font-medium text-white bg-indigo-500 rounded-full"
-            >
-              {item}
-            </span>
-          ))}
+      <div className="flex mb-24">
+        <div className="me-6">
+          <div className="mb-4 text-center">Verbs selected to practice: </div>
+          <div className="flex flex-wrap gap-2 mb-4">
+            {selectedVerbs.map((item) => (
+              <span
+                key={`selectedVerbs_item_${item}`}
+                className="inline-flex items-center px-3 py-1 text-sm font-medium text-white bg-indigo-500 rounded-full"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="ms-6">
+          <div className="mb-4 text-center">Tenses selected to practice: </div>
+          <div className="flex flex-wrap gap-2">
+            {selectedTenses.map((item) => (
+              <span
+                key={`selectedVerbs_item_${item}`}
+                className="inline-flex items-center px-3 py-1 text-sm font-medium text-white bg-indigo-500 rounded-full"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -88,20 +104,12 @@ export default function PracticeSelected() {
           in {currentTense}
         </div>
       </div>
-      <div className="flex items-start">
-        <CheckForm
-          key={resetKey}
-          correctAnswer={getCurrentConjugated()}
-        ></CheckForm>
-        <div className="">
-          <button
-            className="ml-4 px-6 py-2 bg-green-500 text-white font-bold rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50 transition"
-            onClick={() => randomiseVerbsAndTense()}
-          >
-            Next
-          </button>
-        </div>
-      </div>
+
+      <CheckForm
+        key={resetKey}
+        correctAnswer={getCurrentConjugated()}
+        goToNext={randomiseVerbsAndTense}
+      ></CheckForm>
     </div>
   );
 }

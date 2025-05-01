@@ -25,8 +25,14 @@ const UiChooseList = ({ options, selectedOptions, onChange }: Props) => {
           className="p-4 bg-gray-500 rounded-lg shadow-md flex items-center cursor-pointer text-white"
           onClick={() => handleChange(option)}
         >
+          <input
+            type="checkbox"
+            checked={isActive(option)}
+            readOnly
+            className="h-5 w-5 mr-2 text-blue-600 bg-white border-gray-300 rounded focus:ring-2 focus:ring-blue-500"
+          />
           {option}
-          {isActive(option) && (
+          {/*{isActive(option) && (
             <span className="ml-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -43,7 +49,7 @@ const UiChooseList = ({ options, selectedOptions, onChange }: Props) => {
                 />
               </svg>
             </span>
-          )}
+          )}*/}
         </li>
       ))}
     </ul>

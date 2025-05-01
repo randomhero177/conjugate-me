@@ -48,9 +48,56 @@ export default function AllVerbsPage() {
   };
   return (
     <main className="flex min-h-screen flex-col items-center p-24">
-      <h1 className="text-2xl font-bold mb-4">
-        Select verbs for practics ({Dictionary.length})
+      <h1 className="text-3xl font-bold mb-12">
+        Select verbs to practice ({Dictionary.length})
       </h1>
+
+      <div className="flex items-center">
+        <div className="group">
+          <div className="p-6 bg-white shadow-lg rounded-2xl flex flex-col items-center transition-transform transform hover:scale-105">
+            <div className="mb-4 w-14 h-14 flex items-center justify-center text-xl font-semibold text-white bg-gray-600 rounded-full transition-colors duration-300 group-hover:bg-gray-900">
+              1
+            </div>
+            <h2 className="text-xl font-semibold text-gray-700 mb-2">
+              Use text field
+            </h2>
+            <p className="text-gray-600 text-center">
+              You can either search for a specific verb using the input field
+            </p>
+          </div>
+        </div>
+        <div className="px-4 text-2xl font-bold">or</div>
+
+        <div className="group">
+          <div className="p-6 bg-white shadow-lg rounded-2xl flex flex-col items-center transition-transform transform hover:scale-105">
+            <div className="mb-4 w-14 h-14 flex items-center justify-center text-xl font-semibold text-white bg-gray-600 rounded-full transition-colors duration-300 group-hover:bg-gray-900">
+              2
+            </div>
+            <h2 className="text-xl font-semibold text-gray-700 mb-2">
+              Find it in the list of all verbs to select
+            </h2>
+            <p className="text-gray-600 text-center">
+              Scroll through the full list below. Click on a verb to select or
+              deselect it.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="mb-16">
+        <div className="lg:min-w-[540px]">
+          <UiCombobox
+            options={Dictionary}
+            isMultiple={true}
+            showSelectedChips={false}
+            minSearchLength={2}
+            updateFilteredOptions={setFilteredVerbs}
+            onChange={(verbs: string[]) => dispatch(setSelectedVerbs(verbs))} // Update selected verbs
+            selectedOptions={selectedVerbs} // Pass the current selected verbs
+            label="Find a verb by query"
+          />
+        </div>
+      </div>
       <div className="mb-6 inline-flex flex-wrap items-center">
         {selectedVerbs.map((item, index) => (
           <span
@@ -85,20 +132,6 @@ export default function AllVerbsPage() {
           </button>
         )}
       </div>
-
-      <div className="mb-16">
-        <div className="lg:min-w-[540px]">
-          <UiCombobox
-            options={Dictionary}
-            isMultiple={true}
-            showSelectedChips={false}
-            minSearchLength={2}
-            updateFilteredOptions={setFilteredVerbs}
-            onChange={(verbs: string[]) => dispatch(setSelectedVerbs(verbs))} // Update selected verbs
-            selectedOptions={selectedVerbs} // Pass the current selected verbs
-          />
-        </div>
-      </div>
       <ul className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
         {(filteredVerbs?.length ? filteredVerbs : Dictionary).map(
           (item, index) => (
@@ -107,8 +140,14 @@ export default function AllVerbsPage() {
               className="p-4 bg-gray-500 rounded-lg shadow-md flex items-center cursor-pointer text-white"
               onClick={() => selectVerb(item)}
             >
+              <input
+                type="checkbox"
+                checked={selectedVerbs.includes(item)}
+                readOnly
+                className="h-5 w-5 mr-2 text-blue-600 bg-white border-gray-300 rounded focus:ring-2 focus:ring-blue-500"
+              />
               {item}
-              {isVerbAdded(item) && (
+              {/*{isVerbAdded(item) && (
                 <span className="ml-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -125,7 +164,7 @@ export default function AllVerbsPage() {
                     />
                   </svg>
                 </span>
-              )}
+              )}*/}
             </li>
           ),
         )}
