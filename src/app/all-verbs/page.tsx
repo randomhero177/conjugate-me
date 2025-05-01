@@ -51,40 +51,7 @@ export default function AllVerbsPage() {
       <h1 className="text-3xl font-bold mb-12">
         Select verbs to practice ({Dictionary.length})
       </h1>
-      <div className="mb-6 inline-flex flex-wrap items-center">
-        {selectedVerbs.map((item, index) => (
-          <span
-            key={`selectedVerbsMap${index}`}
-            className="flex items-center me-2 mb-2 px-2 py-1 text-lg font-semibold text-indigo-700 bg-indigo-100 rounded"
-          >
-            {item}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="size-6 ml-1 cursor-pointer"
-              onClick={() => removeVerbWrap(item)}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 9.75 14.25 12m0 0 2.25 2.25M14.25 12l2.25-2.25M14.25 12 12 14.25m-2.58 4.92-6.374-6.375a1.125 1.125 0 0 1 0-1.59L9.42 4.83c.21-.211.497-.33.795-.33H19.5a2.25 2.25 0 0 1 2.25 2.25v10.5a2.25 2.25 0 0 1-2.25 2.25h-9.284c-.298 0-.585-.119-.795-.33Z"
-              />
-            </svg>
-          </span>
-        ))}
 
-        {selectedVerbs.length > 0 && (
-          <button
-            onClick={() => goPractice()}
-            className="ml-4 px-6 py-2 mb-2 bg-green-500 text-white font-bold rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50 transition"
-          >
-            Practice
-          </button>
-        )}
-      </div>
       <div className="flex items-center">
         <div className="group">
           <div className="p-6 bg-white shadow-lg rounded-2xl flex flex-col items-center transition-transform transform hover:scale-105">
@@ -130,6 +97,40 @@ export default function AllVerbsPage() {
             label="Find a verb by query"
           />
         </div>
+      </div>
+      <div className="mb-6 inline-flex flex-wrap items-center">
+        {selectedVerbs.map((item, index) => (
+          <span
+            key={`selectedVerbsMap${index}`}
+            className="flex items-center me-2 mb-2 px-2 py-1 text-lg font-semibold text-indigo-700 bg-indigo-100 rounded"
+          >
+            {item}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="size-6 ml-1 cursor-pointer"
+              onClick={() => removeVerbWrap(item)}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M12 9.75 14.25 12m0 0 2.25 2.25M14.25 12l2.25-2.25M14.25 12 12 14.25m-2.58 4.92-6.374-6.375a1.125 1.125 0 0 1 0-1.59L9.42 4.83c.21-.211.497-.33.795-.33H19.5a2.25 2.25 0 0 1 2.25 2.25v10.5a2.25 2.25 0 0 1-2.25 2.25h-9.284c-.298 0-.585-.119-.795-.33Z"
+              />
+            </svg>
+          </span>
+        ))}
+
+        {selectedVerbs.length > 0 && (
+          <button
+            onClick={() => goPractice()}
+            className="ml-4 px-6 py-2 mb-2 bg-green-500 text-white font-bold rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50 transition"
+          >
+            Practice
+          </button>
+        )}
       </div>
       <ul className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
         {(filteredVerbs?.length ? filteredVerbs : Dictionary).map(
