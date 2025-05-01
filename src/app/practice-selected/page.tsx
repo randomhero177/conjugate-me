@@ -88,20 +88,12 @@ export default function PracticeSelected() {
           in {currentTense}
         </div>
       </div>
-      <div className="flex items-start">
-        <CheckForm
-          key={resetKey}
-          correctAnswer={getCurrentConjugated()}
-        ></CheckForm>
-        <div className="">
-          <button
-            className="ml-4 px-6 py-2 bg-green-500 text-white font-bold rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50 transition"
-            onClick={() => randomiseVerbsAndTense()}
-          >
-            Next
-          </button>
-        </div>
-      </div>
+
+      <CheckForm
+        key={resetKey}
+        correctAnswer={getCurrentConjugated()}
+        goToNext={randomiseVerbsAndTense}
+      ></CheckForm>
     </div>
   );
 }
