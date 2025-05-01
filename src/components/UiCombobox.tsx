@@ -88,7 +88,7 @@ const UiCombobox = ({
     if (onChange) onChange(updatedSelection);
   };
 
-  const removeSelected = (index) => {
+  const removeSelected = (index: number) => {
     const updatedSelection = selectedOptions.filter((_, i) => i !== index);
     if (onChange) onChange(updatedSelection);
   };

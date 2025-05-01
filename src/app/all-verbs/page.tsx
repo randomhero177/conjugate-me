@@ -85,7 +85,7 @@ export default function AllVerbsPage() {
           </button>
         )}
       </div>
-      <div className="max-w-4xl grid gap-8 sm:grid-cols-1 md:grid-cols-2">
+      <div className="flex items-center">
         <div className="group">
           <div className="p-6 bg-white shadow-lg rounded-2xl flex flex-col items-center transition-transform transform hover:scale-105">
             <div className="mb-4 w-14 h-14 flex items-center justify-center text-xl font-semibold text-white bg-gray-600 rounded-full transition-colors duration-300 group-hover:bg-gray-900">
@@ -99,6 +99,7 @@ export default function AllVerbsPage() {
             </p>
           </div>
         </div>
+        <div className="px-4 text-2xl font-bold">or</div>
 
         <div className="group">
           <div className="p-6 bg-white shadow-lg rounded-2xl flex flex-col items-center transition-transform transform hover:scale-105">
@@ -106,7 +107,7 @@ export default function AllVerbsPage() {
               2
             </div>
             <h2 className="text-xl font-semibold text-gray-700 mb-2">
-              Or find in the list of all verbs
+              Find it in the list of all verbs to select
             </h2>
             <p className="text-gray-600 text-center">
               scroll through the full list below. Click on a verb to select or
@@ -138,8 +139,14 @@ export default function AllVerbsPage() {
               className="p-4 bg-gray-500 rounded-lg shadow-md flex items-center cursor-pointer text-white"
               onClick={() => selectVerb(item)}
             >
+              <input
+                type="checkbox"
+                checked={selectedVerbs.includes(item)}
+                readOnly
+                className="h-5 w-5 mr-2 text-blue-600 bg-white border-gray-300 rounded focus:ring-2 focus:ring-blue-500"
+              />
               {item}
-              {isVerbAdded(item) && (
+              {/*{isVerbAdded(item) && (
                 <span className="ml-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -156,7 +163,7 @@ export default function AllVerbsPage() {
                     />
                   </svg>
                 </span>
-              )}
+              )}*/}
             </li>
           ),
         )}
