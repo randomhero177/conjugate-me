@@ -7,7 +7,7 @@ import {
   setSelectedVerbs,
 } from "@/features/selectedVerbsSlice";
 import UiCombobox from "@/components/UiCombobox";
-import Dictionary from "@/data/dictionary";
+import Dictionary from "@/data/dictionaryNoReflexiv";
 import { useRouter } from "next/navigation";
 import { RootState } from "@/types/typeVerbs";
 import { PagesUrl } from "@/data/urls";
