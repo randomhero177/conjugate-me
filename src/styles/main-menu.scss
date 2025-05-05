@@ -22,4 +22,15 @@
       }
     }
   }
+  &__user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border: 3px solid beige;
+    &_active {
+      border: 10px solid beige;
+    }
+  }
 }
