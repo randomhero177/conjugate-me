@@ -69,7 +69,7 @@ export default function PracticeSelected() {
             {selectedVerbs.map((item) => (
               <span
                 key={`selectedVerbs_item_${item}`}
-                className="inline-flex items-center px-3 py-1 text-sm font-medium text-white bg-indigo-500 rounded-full"
+                className="inline-flex items-center px-3 py-1 text-sm font-medium text-white bg-indigo-500"
               >
                 {item}
               </span>
@@ -83,7 +83,7 @@ export default function PracticeSelected() {
             {selectedTenses.map((item) => (
               <span
                 key={`selectedVerbs_item_${item}`}
-                className="inline-flex items-center px-3 py-1 text-sm font-medium text-white bg-indigo-500 rounded-full"
+                className="inline-flex items-center px-3 py-1 text-sm font-medium text-white bg-indigo-500"
               >
                 {item}
               </span>
