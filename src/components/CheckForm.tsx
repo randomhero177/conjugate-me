@@ -83,7 +83,7 @@ const CheckForm = ({ correctAnswer = "", goToNext }: Props) => {
             <div className="">
               <button
                 className={`ml-4 px-6 py-2 text-white font-bold shadow-md  focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 transition
-                ${isCorrect ? "bg-blue-500 hover:bg-blue-600 " : "bg-yellow-700 hover:bg-yellow-800"}
+                ${isCorrect ? "bg-cyan-600 hover:bg-cyan-600 " : "bg-yellow-700 hover:bg-yellow-800"}
                 `}
                 onClick={() => goToNext()}
               >
