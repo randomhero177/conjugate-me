@@ -54,7 +54,7 @@ export default function AllVerbsPage() {
 
       <div className="flex items-center">
         <div className="group">
-          <div className="p-6 bg-white shadow-lg rounded-2xl flex flex-col items-center transition-transform transform hover:scale-105">
+          <div className="p-6 bg-white shadow-lg flex flex-col items-center transition-transform transform hover:scale-105">
             <div className="mb-4 w-14 h-14 flex items-center justify-center text-xl font-semibold text-white bg-gray-600 rounded-full transition-colors duration-300 group-hover:bg-gray-900">
               1
             </div>
@@ -66,10 +66,10 @@ export default function AllVerbsPage() {
             </p>
           </div>
         </div>
-        <div className="px-4 text-2xl font-bold">or</div>
+        <div className="px-8 text-2xl font-bold">or</div>
 
         <div className="group">
-          <div className="p-6 bg-white shadow-lg rounded-2xl flex flex-col items-center transition-transform transform hover:scale-105">
+          <div className="p-6 bg-white shadow-lg flex flex-col items-center transition-transform transform hover:scale-105">
             <div className="mb-4 w-14 h-14 flex items-center justify-center text-xl font-semibold text-white bg-gray-600 rounded-full transition-colors duration-300 group-hover:bg-gray-900">
               2
             </div>
@@ -126,9 +126,9 @@ export default function AllVerbsPage() {
         {selectedVerbs.length > 0 && (
           <button
             onClick={() => goPractice()}
-            className="ml-4 px-6 py-2 mb-2 bg-green-500 text-white font-bold rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50 transition"
+            className="ml-4 px-6 py-2 mb-2 bg-green-500 text-white font-bold shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50 transition"
           >
-            Practice
+            Next
           </button>
         )}
       </div>
@@ -137,14 +137,14 @@ export default function AllVerbsPage() {
           (item, index) => (
             <li
               key={`Dictionary_${index}`}
-              className="p-4 bg-gray-500 rounded-lg shadow-md flex items-center cursor-pointer text-white"
+              className="p-4 bg-gray-500 shadow-md flex items-center cursor-pointer text-white"
               onClick={() => selectVerb(item)}
             >
               <input
                 type="checkbox"
                 checked={selectedVerbs.includes(item)}
                 readOnly
-                className="h-5 w-5 mr-2 text-blue-600 bg-white border-gray-300 rounded focus:ring-2 focus:ring-blue-500"
+                className="h-5 w-5 mr-2 text-blue-600 bg-white border-gray-300 focus:ring-2 focus:ring-blue-500"
               />
               {item}
               {/*{isVerbAdded(item) && (
@@ -172,7 +172,7 @@ export default function AllVerbsPage() {
       <FooterAction
         selectedOptions={selectedVerbs}
         emptyText="Choose verbs you would like to practice"
-        btnText="Practice"
+        btnText="Next"
         mainAction={goPractice}
       />
     </main>
