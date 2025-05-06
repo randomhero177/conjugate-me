@@ -27,9 +27,11 @@ export async function GET(req: Request) {
       { status: 200 },
     );
   } catch (error) {
+    const errorMessage =
+      error instanceof Error ? error.message : "Unknown error";
     // Respond with an error if token verification fails
     return NextResponse.json(
-      { message: "Invalid or expired token", error: error.message },
+      { message: "Invalid or expired token", error: errorMessage },
       { status: 401 },
     );
   }
