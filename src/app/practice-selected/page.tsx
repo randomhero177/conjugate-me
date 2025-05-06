@@ -80,19 +80,38 @@ export default function PracticeSelected() {
         <div className="flex mb-24">
           <div className="group me-6 flex-1">
             <div className="p-6 bg-white shadow-lg">
-              <div className="mb-4 text-xl font-bold">
-                Verbs selected to practice:{" "}
-              </div>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {selectedVerbs.map((item) => (
-                  <span
-                    key={`selectedVerbs_item_${item}`}
-                    className="inline-flex items-center px-3 py-1 text-sm font-medium text-white bg-indigo-500"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
+              {selectedVerbs.length === 0 ? (
+                <div>
+                  <div className="text-xl">
+                    Good, <b>but not enough!</b> I'll still ask you to choose
+                    verbs as well
+                    <div className="mt-4">
+                      <button
+                        className="bg-yellow-500 hover:bg-yellow-600 text-beige font-bold shadow-md px-8 py-4 cursor-pointer"
+                        onClick={() => goToVerbsList()}
+                      >
+                        Select verbs
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div>
+                  <div className="mb-4 text-xl font-bold">
+                    Verbs selected to practice:{" "}
+                  </div>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {selectedVerbs.map((item) => (
+                      <span
+                        key={`selectedVerbs_item_${item}`}
+                        className="inline-flex items-center px-3 py-1 text-sm font-medium text-white bg-indigo-500"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 
@@ -101,10 +120,10 @@ export default function PracticeSelected() {
               {selectedTenses.length === 0 ? (
                 <div className="text-xl">
                   Good, <b>but not enough!</b> I'll still ask you to choose the
-                  tenses first
+                  tenses as well
                   <div className="mt-4">
                     <button
-                      className="bg-yellow-500 hover:bg-yellow-600 text-beige font-bold shadow-md px-6 py-2 cursor-pointer"
+                      className="bg-yellow-500 hover:bg-yellow-600 text-beige font-bold shadow-md px-8 py-4 cursor-pointer"
                       onClick={() => goToTensesList()}
                     >
                       Select tenses
@@ -140,9 +159,12 @@ export default function PracticeSelected() {
                 Riding too fast, amigo!
               </h2>
               <div className="text-gray-600 text-center">
-                To start testing your conjugation skills please select first{" "}
-                <b>verbs</b> to practice as well as <b>tenses</b>. <br />
-                Both steps are mandatories!! <br /> You little cheater!
+                To start testing your conjugation skills please select{" "}
+                <b>verbs</b> first. <br />
+                Then to really to practice you'll have to chose <b>tenses</b> as
+                well . <br />
+                <br />
+                Both steps are mandatories!! You little cheater!
                 <div className="mt-4">
                   <button
                     className="bg-yellow-500 hover:bg-yellow-600 text-beige font-bold shadow-md px-6 py-2"
