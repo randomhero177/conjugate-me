@@ -11,7 +11,7 @@ export default function VerbsList({ verbsList, onChange }: VerbsListProps) {
       {verbsList.map((verb) => (
         <li
           key={`verb-list_${verb}`}
-          className="p-4 bg-gray-200 rounded-lg shadow-md flex items-center"
+          className="p-4 bg-gray-200 shadow-md flex items-center"
         >
           {verb}
         </li>

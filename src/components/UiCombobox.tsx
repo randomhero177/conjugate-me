@@ -103,7 +103,7 @@ const UiCombobox = ({
       <div className="relative">
         <input
           type="text"
-          className="w-full px-6 py-4 mt-1 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500"
+          className="w-full px-6 py-4 mt-1 border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500"
           placeholder="Search..."
           value={query}
           onChange={handleInputChange}
@@ -135,7 +135,7 @@ const UiCombobox = ({
       </div>
 
       {isOpen && filteredOptions.length > 0 && (
-        <ul className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-48 overflow-y-auto">
+        <ul className="absolute z-10 w-full mt-1 bg-white border border-gray-300 shadow-lg max-h-48 overflow-y-auto">
           {filteredOptions.map((option) => (
             <li
               key={option}

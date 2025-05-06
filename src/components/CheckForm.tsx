@@ -31,7 +31,7 @@ const CheckForm = ({ correctAnswer = "", goToNext }: Props) => {
         <div className="mb-4">
           <input
             type="text"
-            className="px-4 py-2 mr-4 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500"
+            className="px-4 py-2 mr-4 border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500"
             placeholder="You're answer"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -45,7 +45,7 @@ const CheckForm = ({ correctAnswer = "", goToNext }: Props) => {
           />
           <button
             onClick={() => checkResult()}
-            className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 focus:outline-none focus:shadow-outline"
           >
             Check answer
           </button>
@@ -82,8 +82,8 @@ const CheckForm = ({ correctAnswer = "", goToNext }: Props) => {
             </div>
             <div className="">
               <button
-                className={`ml-4 px-6 py-2 text-white font-bold rounded-lg shadow-md  focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 transition
-                ${isCorrect ? "bg-blue-500 hover:bg-blue-600 " : "bg-yellow-700 hover:bg-yellow-800"}
+                className={`ml-4 px-6 py-2 text-white font-bold shadow-md  focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 transition
+                ${isCorrect ? "bg-cyan-600 hover:bg-cyan-600 " : "bg-yellow-700 hover:bg-yellow-800"}
                 `}
                 onClick={() => goToNext()}
               >

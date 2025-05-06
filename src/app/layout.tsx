@@ -6,6 +6,7 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import "./globals.css";
 import "../styles/main.scss";
+import "@/styles/main-menu.scss";
 const inter = Inter({ subsets: ["latin"] });
 import Providers from "./Providers";
 import MainMenu from "@/components/MainMenu";
@@ -23,12 +24,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="flex justify-center">
-          <div className="container">
-            <MainMenu />
-          </div>
+        <div className="">
+          <MainMenu />
         </div>
-        <Providers>{children}</Providers>
+        <div className="pt-36">
+          <Providers>{children}</Providers>
+        </div>
       </body>
     </html>
   );

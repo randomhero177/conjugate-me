@@ -1,20 +1,51 @@
+"use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { PagesUrl } from "@/data/urls";
+import { User } from "lucide-react";
 
 const MainMenu = () => {
+  const pathname = usePathname();
+  const isActive = (path: string) => pathname === path;
   return (
-    <div className="flex justify-center">
-      <Link href={PagesUrl.home} className="p-4">
-        Home
+    <div
+      className={`main-menu flex justify-center items-center bg-cyan-600 px-4`}
+    >
+      <Link href={PagesUrl.home} className="p-4 me-auto">
+        <img
+          src="/CME_logo_book.png"
+          alt="Logo"
+          style={{ width: "150px", height: "auto" }}
+        />
       </Link>
-      <Link href={PagesUrl.register} className="p-4">
-        registration
-      </Link>
-      <Link href={PagesUrl.lang} className="p-4">
+
+      {/*<Link href={PagesUrl.lang} className="p-4">
         Choose lang templ
-      </Link>
-      <Link href={PagesUrl.verbs} className="p-4">
+      </Link>*/}
+      <Link
+        href={PagesUrl.verbs}
+        className={`main-menu__item pe-12  font-bold text-amber-50 ${isActive(PagesUrl.verbs) ? "main-menu__item_active" : ""}`}
+      >
         All verbs
+      </Link>
+      <Link
+        href={PagesUrl.tense}
+        className={`main-menu__item pe-12 ms-12 font-bold text-amber-50 ${isActive(PagesUrl.tense) ? "main-menu__item_active" : "hui"}`}
+      >
+        Select tenses
+      </Link>
+      <Link
+        href={PagesUrl.practiseSelected}
+        className={`main-menu__item pe-12 ms-12 font-bold text-amber-50 ${isActive(PagesUrl.practiseSelected) ? "main-menu__item_active" : ""}`}
+      >
+        Practice
+      </Link>
+      <Link href={PagesUrl.register} className={`p-4 ms-auto `}>
+        <span
+          className={`main-menu__user ${isActive(PagesUrl.register) ? "main-menu__user_active" : ""}`}
+        >
+          <User size={32} color={"#fff"} />
+        </span>
       </Link>
     </div>
   );
