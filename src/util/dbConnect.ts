@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
 
-const MONGODB_URI = process.env.MONGODB_URI;
+const MONGODB_URI: string = process.env.MONGODB_URI
+  ? process.env.MONGODB_URI
+  : "mongodb://localhost/";
 
 if (!MONGODB_URI) {
   throw new Error("Please add your Mongo URI to .env.local");

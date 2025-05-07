@@ -2,11 +2,12 @@
 "use client";
 import { useEffect, useState } from "react";
 import UiCombobox from "@/components/UiCombobox";
+import { setSelectedVerbs } from "@/features/selectedVerbsSlice";
 
 export default function Page() {
   const [connectionStatus, setConnectionStatus] = useState("");
-  const [selectedFruits, setSelectedFruits] = useState([]);
-  const [selectedVegetable, setSelectedVegetable] = useState(null);
+  const [selectedFruits, setSelectedFruits] = useState<string[]>([]);
+  const [selectedVegetable, setSelectedVegetable] = useState<string[]>([]);
   const fruits = ["Apple", "Banana", "Cherry", "Date", "Elderberry"];
   const vegetables = ["Carrot", "Broccoli", "Spinach", "Peas"];
 
@@ -30,15 +31,17 @@ export default function Page() {
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
         asdasd - {connectionStatus}
       </div>
-      <div className="flex justify-between">
+      {/*<div className="flex justify-between">
         <div>
           <UiCombobox
             options={fruits}
             label="Select multiple fruits"
             isMultiple={true}
-            onChange={setSelectedFruits}
+            onChange={(fruits: string[]) => setSelectedFruits(fruits)}
+            updateFilteredOptions={() => console.log("asd")}
             minSearchLength={2}
             showSelectedChips={false}
+            selectedOptions={selectedFruits}
           />
           <div className="mt-2">
             Selected Fruits: {selectedFruits.join(", ")}
@@ -49,7 +52,9 @@ export default function Page() {
             options={fruits}
             label="Select multiple fruits"
             isMultiple={true}
-            onChange={setSelectedFruits}
+            onChange={(fruits: string[]) => setSelectedFruits(fruits)}
+            updateFilteredOptions={() => console.log("asd")}
+            selectedOptions={selectedFruits}
             minSearchLength={2}
           />
           <div className="mt-2">
@@ -62,11 +67,13 @@ export default function Page() {
             options={vegetables}
             label="Select a vegetable"
             isMultiple={false}
-            onChange={setSelectedVegetable}
+            onChange={(fruits: string[]) => setSelectedVegetable(fruits)}
+            selectedOptions={selectedVegetable}
+            updateFilteredOptions={() => console.log("asd")}
           />
           <div className="mt-2">Selected Vegetable: {selectedVegetable}</div>
         </div>
-      </div>
+      </div>*/}
     </main>
   );
 }

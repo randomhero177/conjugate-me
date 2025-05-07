@@ -25,9 +25,9 @@ const UiCombobox = ({
   showSelectedChips = true,
 }: UiComboboxProps) => {
   const [query, setQuery] = useState("");
-  const [filteredOptions, setFilteredOptions] = useState([]);
+  const [filteredOptions, setFilteredOptions] = useState<string[]>([]);
   const [isOpen, setIsOpen] = useState(false);
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Initialize selectedOptions with preselectedOptions only once when the component mounts
@@ -54,10 +54,10 @@ const UiCombobox = ({
   }, [filteredOptions, updateFilteredOptions]);
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
+    const handleClickOutside = (event: MouseEvent) => {
       if (
         containerRef.current &&
-        !containerRef.current.contains(event.target)
+        !containerRef.current.contains(event.target as Node)
       ) {
         setIsOpen(false);
       }
@@ -67,15 +67,15 @@ const UiCombobox = ({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     const filteredValue = value.replace(/[^a-zA-Z]/g, "");
     setQuery(filteredValue);
     setIsOpen(filteredValue.length >= minSearchLength);
   };
 
-  const handleOptionClick = (option) => {
-    let updatedSelection;
+  const handleOptionClick = (option: string) => {
+    let updatedSelection: string | string[];
     if (isMultiple) {
       updatedSelection = selectedOptions.includes(option)
         ? selectedOptions.filter((item) => item !== option)
@@ -85,7 +85,13 @@ const UiCombobox = ({
       setQuery(option);
       setIsOpen(false);
     }
-    if (onChange) onChange(updatedSelection);
+
+    if (onChange) {
+      const normalizedSelection = Array.isArray(updatedSelection)
+        ? updatedSelection
+        : [updatedSelection];
+      onChange(normalizedSelection);
+    }
   };
 
   const removeSelected = (index: number) => {
