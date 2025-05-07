@@ -1,7 +1,11 @@
 // features/selectedTensesSlice.js
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
+interface SelectedTensesState {
+  selectedTenses: string[];
+}
+
+const initialState: SelectedTensesState = {
   selectedTenses: [],
 };
 

@@ -1,7 +1,11 @@
 // features/selectedVerbsSlice.js
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
+interface SelectedVerbsState {
+  selectedVerbs: string[];
+}
+
+const initialState: SelectedVerbsState = {
   selectedVerbs: [],
 };
 
