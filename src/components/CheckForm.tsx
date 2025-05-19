@@ -31,7 +31,7 @@ const CheckForm = ({ correctAnswer = "", goToNext }: Props) => {
         <div className="mb-4">
           <input
             type="text"
-            className="px-4 py-2 mr-4 border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500"
+            className="px-4 py-2 mt-2 mr-4 border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500"
             placeholder="You're answer"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -45,7 +45,7 @@ const CheckForm = ({ correctAnswer = "", goToNext }: Props) => {
           />
           <button
             onClick={() => checkResult()}
-            className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 focus:outline-none focus:shadow-outline"
+            className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 mt-2 focus:outline-none focus:shadow-outline"
           >
             Check answer
           </button>

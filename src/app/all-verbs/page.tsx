@@ -47,7 +47,7 @@ export default function AllVerbsPage() {
     router.push(PagesUrl.tense);
   };
   return (
-    <main className="flex min-h-screen flex-col items-center lg:p-24 pb-32 lg:pb-4">
+    <main className="flex min-h-screen flex-col items-center lg:p-24 lg:pb-48 pb-32 lg:pb-4">
       <h1 className="text-3xl font-bold mb-12 text-center">
         Select verbs to practice ({Dictionary.length})
       </h1>
@@ -137,15 +137,18 @@ export default function AllVerbsPage() {
           (item, index) => (
             <li
               key={`Dictionary_${index}`}
-              className="p-4 bg-gray-500 shadow-md flex items-center cursor-pointer text-white"
+              className="p-2 lg:p-4 bg-gray-500 shadow-md flex items-center cursor-pointer text-white"
               onClick={() => selectVerb(item)}
             >
-              <input
-                type="checkbox"
-                checked={selectedVerbs.includes(item)}
-                readOnly
-                className="h-5 w-5 mr-2 text-blue-600 bg-white border-gray-300 focus:ring-2 focus:ring-blue-500"
-              />
+              <div>
+                <input
+                  type="checkbox"
+                  checked={selectedVerbs.includes(item)}
+                  readOnly
+                  className="h-5 w-5 mr-2 text-blue-600 bg-white border-gray-300 focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+
               {item}
               {/*{isVerbAdded(item) && (
                 <span className="ml-2">

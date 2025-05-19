@@ -75,10 +75,10 @@ export default function PracticeSelected() {
   }, []);
 
   return (
-    <div className="flex min-h-screen flex-col items-center p-12">
+    <div className="flex min-h-screen flex-col items-center px-4 lg:p-12 ">
       {!nothingSelected && (
-        <div className="flex mb-24">
-          <div className="group me-6 flex-1">
+        <div className="lg:flex mb-8 lg:mb-24">
+          <div className="group lg:me-6 mb-4 flex-1">
             <div className="p-6 bg-white shadow-lg">
               {selectedVerbs.length === 0 ? (
                 <div>
@@ -115,7 +115,7 @@ export default function PracticeSelected() {
             </div>
           </div>
 
-          <div className="group ms-6 flex-1">
+          <div className="group lg:ms-6 flex-1">
             <div className="p-6 bg-white shadow-lg">
               {selectedTenses.length === 0 ? (
                 <div className="text-xl">
@@ -179,7 +179,7 @@ export default function PracticeSelected() {
         </div>
       )}
       {selectedVerbs.length > 0 && selectedTenses.length > 0 && (
-        <div>
+        <div className="p-6 bg-white shadow-lg">
           <div>
             <div className="mb-4">
               <div className="mb-4 text-3xl font-bold text-gray-800 text-center">
