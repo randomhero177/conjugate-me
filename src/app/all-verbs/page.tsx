@@ -47,12 +47,12 @@ export default function AllVerbsPage() {
     router.push(PagesUrl.tense);
   };
   return (
-    <main className="flex min-h-screen flex-col items-center p-24">
-      <h1 className="text-3xl font-bold mb-12">
+    <main className="flex min-h-screen flex-col items-center lg:p-24 pb-32 lg:pb-4">
+      <h1 className="text-3xl font-bold mb-12 text-center">
         Select verbs to practice ({Dictionary.length})
       </h1>
 
-      <div className="flex items-center">
+      <div className="lg:flex items-center">
         <div className="group">
           <div className="p-6 bg-white shadow-lg flex flex-col items-center transition-transform transform hover:scale-105">
             <div className="mb-4 w-14 h-14 flex items-center justify-center text-xl font-semibold text-white bg-gray-600 rounded-full transition-colors duration-300 group-hover:bg-gray-900">
@@ -66,7 +66,7 @@ export default function AllVerbsPage() {
             </p>
           </div>
         </div>
-        <div className="px-8 text-2xl font-bold">or</div>
+        <div className="px-8 text-2xl font-bold text-center my-8">or</div>
 
         <div className="group">
           <div className="p-6 bg-white shadow-lg flex flex-col items-center transition-transform transform hover:scale-105">
