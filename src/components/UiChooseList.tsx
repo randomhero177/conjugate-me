@@ -22,15 +22,18 @@ const UiChooseList = ({ options, selectedOptions, onChange }: Props) => {
       {(options as any).map((option: string, index: number) => (
         <li
           key={`Choose-list_${index}`}
-          className="p-4 bg-gray-500 shadow-md flex items-center cursor-pointer text-white"
+          className="p-2 lg:p-4 bg-gray-500 shadow-md flex items-center cursor-pointer text-white"
           onClick={() => handleChange(option)}
         >
-          <input
-            type="checkbox"
-            checked={isActive(option)}
-            readOnly
-            className="h-5 w-5 mr-2 text-blue-600 bg-white border-gray-300 focus:ring-2 focus:ring-blue-500"
-          />
+          <div>
+            <input
+              type="checkbox"
+              checked={isActive(option)}
+              readOnly
+              className="h-5 w-5 mr-2 text-blue-600 bg-white border-gray-300 focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
           {option}
           {/*{isActive(option) && (
             <span className="ml-2">
