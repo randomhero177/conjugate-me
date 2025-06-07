@@ -11,6 +11,7 @@ import Dictionary from "@/data/dictionaryNoReflexiv";
 import { useRouter } from "next/navigation";
 import { RootState } from "@/types/typeVerbs";
 import { PagesUrl } from "@/data/urls";
+import VerbsPresets from "@/components/VerbsPresets";
 import FooterAction from "@/components/FooterAction";
 
 export default function AllVerbsPage() {
@@ -97,6 +98,9 @@ export default function AllVerbsPage() {
             label="Find a verb by query"
           />
         </div>
+      </div>
+      <div>
+        <VerbsPresets />
       </div>
       <div className="mb-6 inline-flex flex-wrap items-center">
         {selectedVerbs.map((item, index) => (
