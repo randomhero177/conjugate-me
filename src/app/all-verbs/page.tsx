@@ -11,6 +11,7 @@ import Dictionary from "@/data/dictionaryNoReflexiv";
 import { useRouter } from "next/navigation";
 import { RootState } from "@/types/typeVerbs";
 import { PagesUrl } from "@/data/urls";
+import VerbsPresets from "@/components/VerbsPresets";
 import FooterAction from "@/components/FooterAction";
 
 export default function AllVerbsPage() {
@@ -52,13 +53,13 @@ export default function AllVerbsPage() {
         Select verbs to practice ({Dictionary.length})
       </h1>
 
-      <div className="lg:flex items-center">
-        <div className="group">
-          <div className="p-6 bg-white shadow-lg flex flex-col items-center transition-transform transform hover:scale-105">
+      <div className="lg:flex mb-8">
+        <div className="group flex-1 flex justify-center bg-white shadow-lg  transition-transform transform hover:scale-105">
+          <div className="p-6 flex flex-col items-center">
             <div className="mb-4 w-14 h-14 flex items-center justify-center text-xl font-semibold text-white bg-gray-600 rounded-full transition-colors duration-300 group-hover:bg-gray-900">
               1
             </div>
-            <h2 className="text-xl font-semibold text-gray-700 mb-2">
+            <h2 className="text-xl text-center font-semibold text-gray-700 mb-2">
               Use text field
             </h2>
             <p className="text-gray-600 text-center">
@@ -66,14 +67,35 @@ export default function AllVerbsPage() {
             </p>
           </div>
         </div>
-        <div className="px-8 text-2xl font-bold text-center my-8">or</div>
+        <div className="px-8 text-2xl font-bold text-center my-8 lg:flex items-center">
+          or
+        </div>
 
-        <div className="group">
-          <div className="p-6 bg-white shadow-lg flex flex-col items-center transition-transform transform hover:scale-105">
+        <div className="group flex-1 flex justify-center bg-white shadow-lg transition-transform transform hover:scale-105">
+          <div className="p-6 flex flex-col items-center ">
             <div className="mb-4 w-14 h-14 flex items-center justify-center text-xl font-semibold text-white bg-gray-600 rounded-full transition-colors duration-300 group-hover:bg-gray-900">
               2
             </div>
-            <h2 className="text-xl font-semibold text-gray-700 mb-2">
+            <h2 className="text-xl text-center font-semibold text-gray-700 mb-2">
+              Select a preset
+            </h2>
+            <p className="text-gray-600 text-center">
+              Quickly start practicing by choosing from curated verb sets — like
+              most common verbs, regular only, irregular only, or thematic
+              groups.
+            </p>
+          </div>
+        </div>
+        <div className="px-8 text-2xl font-bold text-center my-8 lg:flex items-center">
+          or
+        </div>
+
+        <div className="group flex-1 flex justify-center bg-white shadow-lg transition-transform transform hover:scale-105">
+          <div className="p-6 flex flex-col items-center ">
+            <div className="mb-4 w-14 h-14 flex items-center justify-center text-xl font-semibold text-white bg-gray-600 rounded-full transition-colors duration-300 group-hover:bg-gray-900">
+              3
+            </div>
+            <h2 className="text-xl text-center font-semibold text-gray-700 mb-2">
               Find it in the list of all verbs to select
             </h2>
             <p className="text-gray-600 text-center">
@@ -81,21 +103,6 @@ export default function AllVerbsPage() {
               deselect it.
             </p>
           </div>
-        </div>
-      </div>
-
-      <div className="mb-16">
-        <div className="lg:min-w-[540px]">
-          <UiCombobox
-            options={Dictionary}
-            isMultiple={true}
-            showSelectedChips={false}
-            minSearchLength={2}
-            updateFilteredOptions={setFilteredVerbs}
-            onChange={(verbs: string[]) => dispatch(setSelectedVerbs(verbs))} // Update selected verbs
-            selectedOptions={selectedVerbs} // Pass the current selected verbs
-            label="Find a verb by query"
-          />
         </div>
       </div>
       <div className="mb-6 inline-flex flex-wrap items-center">
@@ -132,6 +139,27 @@ export default function AllVerbsPage() {
           </button>
         )}
       </div>
+      <div className="mb-8">
+        <div className="lg:min-w-[540px]">
+          <UiCombobox
+            options={Dictionary}
+            isMultiple={true}
+            showSelectedChips={false}
+            minSearchLength={2}
+            updateFilteredOptions={setFilteredVerbs}
+            onChange={(verbs: string[]) => dispatch(setSelectedVerbs(verbs))} // Update selected verbs
+            selectedOptions={selectedVerbs} // Pass the current selected verbs
+            label="Find a verb by query"
+          />
+        </div>
+      </div>
+      <div className="mb-8">
+        <VerbsPresets />
+      </div>
+
+      <h4 className="mb-4 block text-xl font-medium text-gray-700">
+        List of all verbs
+      </h4>
       <ul className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
         {(filteredVerbs?.length ? filteredVerbs : Dictionary).map(
           (item, index) => (
@@ -148,26 +176,7 @@ export default function AllVerbsPage() {
                   className="h-5 w-5 mr-2 text-blue-600 bg-white border-gray-300 focus:ring-2 focus:ring-blue-500"
                 />
               </div>
-
               {item}
-              {/*{isVerbAdded(item) && (
-                <span className="ml-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="size-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="m4.5 12.75 6 6 9-13.5"
-                    />
-                  </svg>
-                </span>
-              )}*/}
             </li>
           ),
         )}
