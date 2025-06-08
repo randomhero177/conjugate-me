@@ -45,7 +45,7 @@ export const verbsPresets = [
     ],
   },
   {
-    key: "top 10 Regular AR",
+    key: 'top 10 Regular "AR"',
     verbs: [
       "hablar",
       "estudiar",
@@ -60,7 +60,7 @@ export const verbsPresets = [
     ],
   },
   {
-    key: "top 10 Regular ER",
+    key: 'top 10 Regular "ER"',
     verbs: [
       "comer",
       "beber",
@@ -75,7 +75,7 @@ export const verbsPresets = [
     ],
   },
   {
-    key: "top 10 Regular IR",
+    key: 'top 10 Regular "IR"',
     verbs: [
       "vivir",
       "escribir",
