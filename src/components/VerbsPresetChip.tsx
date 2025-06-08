@@ -13,14 +13,10 @@ interface Props {
 }
 
 const VerbsPresets = ({ verbConfig }: Props) => {
-  console.log("VerbsPresets selected");
-  console.log(verbsPresets);
-  console.log(verbConfig);
   const dispatch = useDispatch();
 
   function choosePreset(verbConfig: VerbConfig): any {
     const verbsList = verbConfig.verbs;
-    console.log(verbsList);
     dispatch(mergeSelectedVerbs(verbsList));
   }
 

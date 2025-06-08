@@ -2,8 +2,6 @@ import { verbsPresets } from "@/data/verbsPresets";
 import VerbsPresetChip from "@/components/VerbsPresetChip";
 
 const VerbsPresets = () => {
-  console.log("VerbsPresets selected");
-
   return (
     <div>
       <h4 className="mb-4 block text-xl text-center font-medium text-gray-700">
