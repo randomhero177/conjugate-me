@@ -102,7 +102,7 @@ const UiCombobox = ({
   return (
     <div className="relative w-full max-w-sm mx-auto mt-10" ref={containerRef}>
       {label && (
-        <label className="block text-sm font-medium text-gray-700">
+        <label className="block text-xl font-medium text-gray-700 text-center mb-4">
           {label}
         </label>
       )}

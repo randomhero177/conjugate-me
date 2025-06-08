@@ -6,9 +6,15 @@ const VerbsPresets = () => {
 
   return (
     <div>
-      <ul>
+      <h4 className="mb-4 block text-xl font-medium text-gray-700">
+        Choose from the preset
+      </h4>
+      <ul className="flex flex-wrap gap-2 mb-4 justify-center">
         {verbsPresets.map((presetVerb, index) => (
-          <li key={`verbsPresets_${index}`}>
+          <li
+            key={`verbsPresets_${index}`}
+            className="inline-flex items-center px-3 py-1 text-sm font-medium text-white bg-indigo-500"
+          >
             <VerbsPresetChip verbConfig={presetVerb} />
           </li>
         ))}

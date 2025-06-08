@@ -1,4 +1,7 @@
 import { verbsPresets } from "@/data/verbsPresets";
+import { mergeSelectedVerbs } from "@/features/selectedVerbsSlice";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 interface VerbConfig {
   key: string;
@@ -13,15 +16,19 @@ const VerbsPresets = ({ verbConfig }: Props) => {
   console.log("VerbsPresets selected");
   console.log(verbsPresets);
   console.log(verbConfig);
+  const dispatch = useDispatch();
 
-  function choosePreset(key: string): any {
-    console.log(key);
-    const verbsList = verbsPresets.find((elem) => elem.key === key);
+  function choosePreset(verbConfig: VerbConfig): any {
+    const verbsList = verbConfig.verbs;
+    console.log(verbsList);
+    dispatch(mergeSelectedVerbs(verbsList));
   }
 
   return (
     <div>
-      <div>{verbConfig.key}</div>
+      <div onClick={() => choosePreset(verbConfig)}>
+        {verbConfig.key.toUpperCase()}
+      </div>
     </div>
   );
 };
