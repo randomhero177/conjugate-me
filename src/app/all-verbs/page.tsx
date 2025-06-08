@@ -53,7 +53,7 @@ export default function AllVerbsPage() {
         Select verbs to practice ({Dictionary.length})
       </h1>
 
-      <div className="lg:flex">
+      <div className="lg:flex mb-8">
         <div className="group flex-1 flex justify-center bg-white shadow-lg  transition-transform transform hover:scale-105">
           <div className="p-6 flex flex-col items-center">
             <div className="mb-4 w-14 h-14 flex items-center justify-center text-xl font-semibold text-white bg-gray-600 rounded-full transition-colors duration-300 group-hover:bg-gray-900">
@@ -105,28 +105,7 @@ export default function AllVerbsPage() {
           </div>
         </div>
       </div>
-
-      <div className="mb-8">
-        <div className="lg:min-w-[540px]">
-          <UiCombobox
-            options={Dictionary}
-            isMultiple={true}
-            showSelectedChips={false}
-            minSearchLength={2}
-            updateFilteredOptions={setFilteredVerbs}
-            onChange={(verbs: string[]) => dispatch(setSelectedVerbs(verbs))} // Update selected verbs
-            selectedOptions={selectedVerbs} // Pass the current selected verbs
-            label="Find a verb by query"
-          />
-        </div>
-      </div>
-      <div className="mb-8">
-        <VerbsPresets />
-      </div>
       <div className="mb-6 inline-flex flex-wrap items-center">
-        <h4 className="mb-4 block text-xl font-medium text-gray-700">
-          List of all verbs
-        </h4>
         {selectedVerbs.map((item, index) => (
           <span
             key={`selectedVerbsMap${index}`}
@@ -160,6 +139,27 @@ export default function AllVerbsPage() {
           </button>
         )}
       </div>
+      <div className="mb-8">
+        <div className="lg:min-w-[540px]">
+          <UiCombobox
+            options={Dictionary}
+            isMultiple={true}
+            showSelectedChips={false}
+            minSearchLength={2}
+            updateFilteredOptions={setFilteredVerbs}
+            onChange={(verbs: string[]) => dispatch(setSelectedVerbs(verbs))} // Update selected verbs
+            selectedOptions={selectedVerbs} // Pass the current selected verbs
+            label="Find a verb by query"
+          />
+        </div>
+      </div>
+      <div className="mb-8">
+        <VerbsPresets />
+      </div>
+
+      <h4 className="mb-4 block text-xl font-medium text-gray-700">
+        List of all verbs
+      </h4>
       <ul className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
         {(filteredVerbs?.length ? filteredVerbs : Dictionary).map(
           (item, index) => (
