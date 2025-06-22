@@ -13,6 +13,8 @@ import { RootState } from "@/types/typeVerbs";
 import { PagesUrl } from "@/data/urls";
 import VerbsPresets from "@/components/VerbsPresets";
 import FooterAction from "@/components/FooterAction";
+import ChipItem from "@/components/ChipItem";
+import ClearAllVerbs from "@/components/ClearAllVerbs";
 
 export default function AllVerbsPage() {
   const router = useRouter();
@@ -38,7 +40,6 @@ export default function AllVerbsPage() {
   };
 
   const removeVerbWrap = (verb: string) => {
-    console.log(verb);
     dispatch(removeVerb(verb));
   };
 
@@ -47,6 +48,7 @@ export default function AllVerbsPage() {
   const goPractice = () => {
     router.push(PagesUrl.tense);
   };
+
   return (
     <main className="flex min-h-screen flex-col items-center lg:p-24 lg:pb-48 pb-32 lg:pb-4">
       <h1 className="text-3xl font-bold mb-12 text-center">
@@ -105,40 +107,30 @@ export default function AllVerbsPage() {
           </div>
         </div>
       </div>
-      <div className="mb-6 inline-flex flex-wrap items-center">
-        {selectedVerbs.map((item, index) => (
-          <span
-            key={`selectedVerbsMap${index}`}
-            className="flex items-center me-2 mb-2 px-2 py-1 text-lg font-semibold text-indigo-700 bg-indigo-100 rounded"
-          >
-            {item}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="size-6 ml-1 cursor-pointer"
-              onClick={() => removeVerbWrap(item)}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 9.75 14.25 12m0 0 2.25 2.25M14.25 12l2.25-2.25M14.25 12 12 14.25m-2.58 4.92-6.374-6.375a1.125 1.125 0 0 1 0-1.59L9.42 4.83c.21-.211.497-.33.795-.33H19.5a2.25 2.25 0 0 1 2.25 2.25v10.5a2.25 2.25 0 0 1-2.25 2.25h-9.284c-.298 0-.585-.119-.795-.33Z"
+      {selectedVerbs.length > 0 && (
+        <div className="mb-6 bg-white shadow-lg p-6 pb-4">
+          <h2 className="text-xl text-center font-semibold text-gray-700 mb-6">
+            Currently selected
+          </h2>
+          <div className="inline-flex flex-wrap items-center ">
+            {selectedVerbs.map((item, index) => (
+              <ChipItem
+                key={`selectedVerbsMap${index}`}
+                callback={removeVerbWrap}
+                item={item}
               />
-            </svg>
-          </span>
-        ))}
+            ))}
 
-        {selectedVerbs.length > 0 && (
-          <button
-            onClick={() => goPractice()}
-            className="ml-4 px-6 py-2 mb-2 bg-green-500 text-white font-bold shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50 transition"
-          >
-            Next
-          </button>
-        )}
-      </div>
+            <button
+              onClick={() => goPractice()}
+              className="ml-4 px-6 py-2 mb-2 bg-green-500 text-white font-bold shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50 transition"
+            >
+              Next
+            </button>
+            <ClearAllVerbs />
+          </div>
+        </div>
+      )}
       <div className="mb-8">
         <div className="lg:min-w-[540px]">
           <UiCombobox
