@@ -14,6 +14,7 @@ import { PagesUrl } from "@/data/urls";
 import VerbsPresets from "@/components/VerbsPresets";
 import FooterAction from "@/components/FooterAction";
 import ChipItem from "@/components/ChipItem";
+import ClearAllVerbs from "@/components/ClearAllVerbs";
 
 export default function AllVerbsPage() {
   const router = useRouter();
@@ -47,6 +48,7 @@ export default function AllVerbsPage() {
   const goPractice = () => {
     router.push(PagesUrl.tense);
   };
+
   return (
     <main className="flex min-h-screen flex-col items-center lg:p-24 lg:pb-48 pb-32 lg:pb-4">
       <h1 className="text-3xl font-bold mb-12 text-center">
@@ -105,24 +107,30 @@ export default function AllVerbsPage() {
           </div>
         </div>
       </div>
-      <div className="mb-6 inline-flex flex-wrap items-center">
-        {selectedVerbs.map((item, index) => (
-          <ChipItem
-            key={`selectedVerbsMap${index}`}
-            callback={removeVerbWrap}
-            item={item}
-          />
-        ))}
+      {selectedVerbs.length > 0 && (
+        <div className="mb-6 bg-white shadow-lg p-6 pb-4">
+          <h2 className="text-xl text-center font-semibold text-gray-700 mb-6">
+            Currently selected
+          </h2>
+          <div className="inline-flex flex-wrap items-center ">
+            {selectedVerbs.map((item, index) => (
+              <ChipItem
+                key={`selectedVerbsMap${index}`}
+                callback={removeVerbWrap}
+                item={item}
+              />
+            ))}
 
-        {selectedVerbs.length > 0 && (
-          <button
-            onClick={() => goPractice()}
-            className="ml-4 px-6 py-2 mb-2 bg-green-500 text-white font-bold shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50 transition"
-          >
-            Next
-          </button>
-        )}
-      </div>
+            <button
+              onClick={() => goPractice()}
+              className="ml-4 px-6 py-2 mb-2 bg-green-500 text-white font-bold shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50 transition"
+            >
+              Next
+            </button>
+            <ClearAllVerbs />
+          </div>
+        </div>
+      )}
       <div className="mb-8">
         <div className="lg:min-w-[540px]">
           <UiCombobox

@@ -1,5 +1,5 @@
 interface Props {
-  callback: () => void;
+  callback: (item: string) => void;
   item: string;
 }
 

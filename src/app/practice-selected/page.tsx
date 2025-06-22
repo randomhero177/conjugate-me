@@ -10,8 +10,10 @@ import { useRouter } from "next/navigation";
 import getRandomInRange from "@/util/getRandom";
 import getKeyByValue from "@/util/getKeyByValue";
 import ChipItem from "@/components/ChipItem";
+import ClearAllVerbs from "@/components/ClearAllVerbs";
 import { PagesUrl } from "@/data/urls";
 import { removeVerb } from "@/features/selectedVerbsSlice";
+import { removeTense } from "@/features/selectedTensesSlice";
 
 export default function PracticeSelected() {
   const router = useRouter();
@@ -31,6 +33,7 @@ export default function PracticeSelected() {
   const [resetKey, setResetKey] = useState(0);
 
   function getCurrentConjugated() {
+    console.log("getCurrentConjugated +++++++++++++++++++++++++++++++++++++=");
     console.log(currentPronomb);
     let conjugatedVerb = "";
     if (currentVerb && currentTense) {
@@ -76,9 +79,13 @@ export default function PracticeSelected() {
     dispatch(removeVerb(verb));
   };
 
-  /*useEffect(() => {
+  const removeTenseWrap = (tense: string) => {
+    dispatch(removeTense(tense));
+  };
+
+  useEffect(() => {
     randomiseVerbsAndTense();
-  }, []);*/
+  }, []);
 
   return (
     <div className="flex min-h-screen flex-col items-center px-4 lg:p-12 ">
@@ -106,21 +113,15 @@ export default function PracticeSelected() {
                   <div className="mb-4 text-xl font-bold">
                     Verbs selected to practice:{" "}
                   </div>
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="flex flex-wrap items-center gap-2 mb-4">
                     {selectedVerbs.map((item, index) => (
-                      /*<span
-                        key={`selectedVerbs_item_${item}`}
-                        className="inline-flex items-center px-3 py-1 text-sm font-medium text-white bg-indigo-500"
-                      >
-                        {item}
-                      </span>*/
-
                       <ChipItem
                         key={`selectedVerbs_practice_item_${index}`}
                         callback={removeVerbWrap}
                         item={item}
                       />
                     ))}
+                    <ClearAllVerbs />
                   </div>
                 </div>
               )}
@@ -148,13 +149,12 @@ export default function PracticeSelected() {
                     Tenses selected to practice:{" "}
                   </div>
                   <div className="flex flex-wrap gap-2">
-                    {selectedTenses.map((item) => (
-                      <span
-                        key={`selectedVerbs_item_${item}`}
-                        className="inline-flex items-center px-3 py-1 text-sm font-medium text-white bg-indigo-500"
-                      >
-                        {item}
-                      </span>
+                    {selectedTenses.map((item, index) => (
+                      <ChipItem
+                        callback={removeTenseWrap}
+                        item={item}
+                        key={`selectedTensesPratctice_item_${index}`}
+                      />
                     ))}
                   </div>
                 </div>
