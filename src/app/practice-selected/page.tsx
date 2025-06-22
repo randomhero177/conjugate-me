@@ -9,7 +9,9 @@ import Tense from "@/data/tense";
 import { useRouter } from "next/navigation";
 import getRandomInRange from "@/util/getRandom";
 import getKeyByValue from "@/util/getKeyByValue";
+import ChipItem from "@/components/ChipItem";
 import { PagesUrl } from "@/data/urls";
+import { removeVerb } from "@/features/selectedVerbsSlice";
 
 export default function PracticeSelected() {
   const router = useRouter();
@@ -70,9 +72,13 @@ export default function PracticeSelected() {
   const nothingSelected =
     selectedVerbs.length === 0 && selectedTenses.length === 0;
 
-  useEffect(() => {
+  const removeVerbWrap = (verb: string) => {
+    dispatch(removeVerb(verb));
+  };
+
+  /*useEffect(() => {
     randomiseVerbsAndTense();
-  }, []);
+  }, []);*/
 
   return (
     <div className="flex min-h-screen flex-col items-center px-4 lg:p-12 ">
@@ -101,13 +107,19 @@ export default function PracticeSelected() {
                     Verbs selected to practice:{" "}
                   </div>
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {selectedVerbs.map((item) => (
-                      <span
+                    {selectedVerbs.map((item, index) => (
+                      /*<span
                         key={`selectedVerbs_item_${item}`}
                         className="inline-flex items-center px-3 py-1 text-sm font-medium text-white bg-indigo-500"
                       >
                         {item}
-                      </span>
+                      </span>*/
+
+                      <ChipItem
+                        key={`selectedVerbs_practice_item_${index}`}
+                        callback={removeVerbWrap}
+                        item={item}
+                      />
                     ))}
                   </div>
                 </div>
