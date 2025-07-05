@@ -35,14 +35,6 @@ const CheckForm = ({
     setIsCorrect(localQuery === localAnswer);
   }
 
-  function onNextClick() {
-    if (isCorrect) {
-      goToNext();
-    } else {
-      console.log("Next clicked");
-    }
-  }
-
   return (
     <div className="flex items-start">
       <div>
