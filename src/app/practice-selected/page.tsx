@@ -31,6 +31,7 @@ export default function PracticeSelected() {
   const [currentVerb, setCurrentVerb] = useState("");
   const [currentTense, setCurrentTense] = useState("");
   const [resetKey, setResetKey] = useState(0);
+  const [useSpecialCharacters, setUseSpecialCharacters] = useState(true);
 
   function getCurrentConjugated() {
     console.log("getCurrentConjugated +++++++++++++++++++++++++++++++++++++=");
@@ -210,6 +211,8 @@ export default function PracticeSelected() {
               key={resetKey}
               correctAnswer={getCurrentConjugated()}
               goToNext={randomiseVerbsAndTense}
+              useSpecialCharacters={useSpecialCharacters}
+              setUseSpecialCharacters={setUseSpecialCharacters}
             ></CheckForm>
           </div>
         </div>
