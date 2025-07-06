@@ -11,7 +11,7 @@ const VerbsPresets = () => {
         {verbsPresets.map((presetVerb, index) => (
           <li
             key={`verbsPresets_${index}`}
-            className="inline-flex items-center px-4 py-2 font-medium text-white bg-indigo-500 cursor-pointer"
+            className="inline-flex items-center px-4 py-2 font-medium text-white bg-cyan-600 cursor-pointer"
           >
             <VerbsPresetChip verbConfig={presetVerb} />
           </li>
