@@ -5,7 +5,7 @@ interface Props {
 
 const ChipItem = ({ callback, item }: Props) => {
   return (
-    <span className="flex items-center me-2 mb-2 px-2 py-1 text-lg font-semibold text-white bg-indigo-500">
+    <span className="flex items-center me-2 mb-2 px-2 py-1 text-lg font-semibold text-white bg-cyan-600">
       {item}
       <svg
         xmlns="http://www.w3.org/2000/svg"

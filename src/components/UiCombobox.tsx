@@ -146,9 +146,9 @@ const UiCombobox = ({
             <li
               key={option}
               onClick={() => handleOptionClick(option)}
-              className={`px-4 py-2 hover:bg-indigo-500 hover:text-white cursor-pointer ${
+              className={`px-4 py-2 hover:bg-cyan-600 hover:text-white cursor-pointer ${
                 isMultiple && selectedOptions.includes(option)
-                  ? "bg-indigo-500 text-white"
+                  ? "bg-cyan-600 text-white"
                   : ""
               }`}
             >
