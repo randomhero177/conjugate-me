@@ -102,7 +102,7 @@ const CheckForm = ({
             </div>
           </div>
         )}
-        <div className="flex align-items-center mt-4">
+        <label className="flex align-items-center mt-4">
           <input
             checked={useSpecialCharacters}
             onChange={(e) => setUseSpecialCharacters(e.target.checked)}
@@ -110,9 +110,9 @@ const CheckForm = ({
             className="w-5 h-5 text-blue-600 bg-white border-gray-300 rounded focus:ring-2 focus:ring-blue-500"
           />
           <span className="ps-2">
-            Don't count spanish special characters as error{" "}
+            Don't count spanish special characters as error
           </span>
-        </div>
+        </label>
       </div>
     </div>
   );
