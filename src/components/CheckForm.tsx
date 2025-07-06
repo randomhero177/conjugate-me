@@ -3,26 +3,36 @@ import { useState } from "react";
 interface Props {
   correctAnswer: string;
   goToNext: () => void;
+  useSpecialCharacters: boolean;
+  setUseSpecialCharacters: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const CheckForm = ({ correctAnswer = "", goToNext }: Props) => {
+const CheckForm = ({
+  correctAnswer = "",
+  goToNext,
+  useSpecialCharacters = true,
+  setUseSpecialCharacters,
+}: Props) => {
   const [query, setQuery] = useState("");
   const [showResult, setshowResult] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
   const [wantTooSee, setWantTooSee] = useState(false);
 
-  function checkResult() {
-    console.log(correctAnswer);
-    setshowResult(true);
-    setIsCorrect(query.toLowerCase() === correctAnswer.toLowerCase());
+  function removeAccents(str: string) {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   }
 
-  function onNextClick() {
-    if (isCorrect) {
-      goToNext();
-    } else {
-      console.log("Next clicked");
-    }
+  function checkResult() {
+    console.log(correctAnswer);
+    console.log(useSpecialCharacters);
+    const localQuery = useSpecialCharacters
+      ? removeAccents(query.toLowerCase())
+      : query.toLowerCase();
+    const localAnswer = useSpecialCharacters
+      ? removeAccents(correctAnswer.toLowerCase())
+      : correctAnswer.toLowerCase();
+    setshowResult(true);
+    setIsCorrect(localQuery === localAnswer);
   }
 
   return (
@@ -92,6 +102,17 @@ const CheckForm = ({ correctAnswer = "", goToNext }: Props) => {
             </div>
           </div>
         )}
+        <label className="flex align-items-center mt-4 cursor-pointer">
+          <input
+            checked={useSpecialCharacters}
+            onChange={(e) => setUseSpecialCharacters(e.target.checked)}
+            type="checkbox"
+            className="w-5 h-5 text-blue-600 bg-white border-gray-300 rounded focus:ring-2 focus:ring-blue-500"
+          />
+          <span className="ps-2">
+            Don't count spanish special characters as error
+          </span>
+        </label>
       </div>
     </div>
   );
