@@ -102,7 +102,7 @@ const CheckForm = ({
             </div>
           </div>
         )}
-        <label className="flex align-items-center mt-4">
+        <label className="flex align-items-center mt-4 cursor-pointer">
           <input
             checked={useSpecialCharacters}
             onChange={(e) => setUseSpecialCharacters(e.target.checked)}
