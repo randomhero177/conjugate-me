@@ -192,7 +192,7 @@ export default function PracticeSelected() {
         </div>
       )}
       {selectedVerbs.length > 0 && selectedTenses.length > 0 && (
-        <div className="p-6 bg-white shadow-lg">
+        <div className="p-8 bg-white shadow-lg">
           <div>
             <div className="mb-4">
               <div className="mb-4 text-3xl font-bold text-gray-800 text-center">

@@ -42,7 +42,7 @@ const CheckForm = ({
           <input
             type="text"
             className="px-4 py-2 mt-2 mr-4 border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500"
-            placeholder="You're answer"
+            placeholder="Conjugated verb"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={(e) => {
@@ -51,7 +51,7 @@ const CheckForm = ({
               }
             }}
             autoComplete="off"
-            style={{ minWidth: 300 }}
+            style={{ minWidth: 400 }}
           />
           <button
             onClick={() => checkResult()}
