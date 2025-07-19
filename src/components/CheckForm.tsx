@@ -37,11 +37,11 @@ const CheckForm = ({
 
   return (
     <div className="flex items-start">
-      <div>
+      <div className="grow">
         <div className="mb-4">
           <input
             type="text"
-            className="px-4 py-2 mt-2 mr-4 border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500"
+            className="px-4 py-2 mt-2 border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 check-form__input"
             placeholder="Conjugated verb"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -51,7 +51,6 @@ const CheckForm = ({
               }
             }}
             autoComplete="off"
-            style={{ minWidth: 400 }}
           />
           <button
             onClick={() => checkResult()}

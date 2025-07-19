@@ -34,8 +34,6 @@ export default function PracticeSelected() {
   const [useSpecialCharacters, setUseSpecialCharacters] = useState(true);
 
   function getCurrentConjugated() {
-    console.log("getCurrentConjugated +++++++++++++++++++++++++++++++++++++=");
-    console.log(currentPronomb);
     let conjugatedVerb = "";
     if (currentVerb && currentTense) {
       const tenseKey = getKeyByValue(Tense, currentTense);
@@ -46,7 +44,6 @@ export default function PracticeSelected() {
       );
     }
 
-    console.log(conjugatedVerb);
     return conjugatedVerb;
   }
 
@@ -90,6 +87,32 @@ export default function PracticeSelected() {
 
   return (
     <div className="flex min-h-screen flex-col items-center px-4 lg:p-12 ">
+      {selectedVerbs.length > 0 && selectedTenses.length > 0 && (
+        <div className="p-8 bg-white shadow-lg w-full mb-12">
+          <div>
+            <div className="mb-4">
+              <div className="mb-4 text-3xl font-bold text-gray-800 text-center">
+                Conjugate this
+              </div>
+              <div className="text-xl">
+                {currentPronomb}{" "}
+                <i>
+                  <b>({currentVerb})</b>
+                </i>{" "}
+                in {currentTense}
+              </div>
+            </div>
+
+            <CheckForm
+              key={resetKey}
+              correctAnswer={getCurrentConjugated()}
+              goToNext={randomiseVerbsAndTense}
+              useSpecialCharacters={useSpecialCharacters}
+              setUseSpecialCharacters={setUseSpecialCharacters}
+            ></CheckForm>
+          </div>
+        </div>
+      )}
       {!nothingSelected && (
         <div className="lg:flex mb-8 lg:mb-24">
           <div className="group lg:me-6 mb-4 flex-1">
@@ -188,32 +211,6 @@ export default function PracticeSelected() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      )}
-      {selectedVerbs.length > 0 && selectedTenses.length > 0 && (
-        <div className="p-8 bg-white shadow-lg">
-          <div>
-            <div className="mb-4">
-              <div className="mb-4 text-3xl font-bold text-gray-800 text-center">
-                Conjugate this
-              </div>
-              <div className="text-xl">
-                {currentPronomb}{" "}
-                <i>
-                  <b>({currentVerb})</b>
-                </i>{" "}
-                in {currentTense}
-              </div>
-            </div>
-
-            <CheckForm
-              key={resetKey}
-              correctAnswer={getCurrentConjugated()}
-              goToNext={randomiseVerbsAndTense}
-              useSpecialCharacters={useSpecialCharacters}
-              setUseSpecialCharacters={setUseSpecialCharacters}
-            ></CheckForm>
           </div>
         </div>
       )}
