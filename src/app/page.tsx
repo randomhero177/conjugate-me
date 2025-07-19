@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-6">
+    <div className="bg-gray-100 flex flex-col items-center justify-center p-6">
       <div className="lg:-mt-32 mb-16 lg:mb-32 font-bold text-xl text-center">
         Mastering verb conjugation is essential for clear and confident
         communication in any language. <br />
