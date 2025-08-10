@@ -101,7 +101,7 @@ export default function AllVerbsPage() {
       <h4 className="mb-4 block text-xl font-medium text-gray-700">
         List of all verbs
       </h4>
-      <ul className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+      <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
         {(filteredVerbs?.length ? filteredVerbs : Dictionary).map(
           (item, index) => (
             <li
