@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { CardSlider } from "@/components/CardSlider";
 
 export default function HomePage() {
   return (
@@ -58,7 +57,6 @@ export default function HomePage() {
           </div>
         </Link>
       </div>
-      <CardSlider />
     </div>
   );
 }
