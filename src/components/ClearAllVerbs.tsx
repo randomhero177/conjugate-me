@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { setSelectedVerbs } from "@/features/selectedVerbsSlice";
+import { setSelectedVerbs } from "@/store/modules/selectedVerbsSlice";
 
 const ClearAllVerbs = () => {
   const dispatch = useDispatch();
