@@ -1,24 +1,33 @@
 .embla {
   overflow: hidden;
-}
-.embla__container {
-  display: flex;
-}
-.embla__slide {
-  flex: 0 0 100%;
-  min-width: 0;
+  &__container {
+    display: flex;
+  }
+  &__slide {
+    flex: 0 0 100%;
+    min-width: 0;
+  }
 }
 
-.card-list__slide {
-  display: flex;
-  flex: 1 1 0%;
+
+.card-list {
+  &__slide {
+    display: flex;
+    flex: 1 1 0%;
+  }
 }
 
 @media screen and (max-width: 768px) {
-  .card-list__slide {
-    display: flex;
-    flex-direction: column;
-    flex: 0 0 100%;
-    padding: 0 .5rem 0 1rem;
+  .card-list {
+    &__slide {
+      display: flex;
+      flex-direction: column;
+      flex: 0 0 100%;
+      padding: 0 .5rem 0 1rem;
+    }
+    &__buttons {
+      position: relative;
+      z-index: 99;
+    }
   }
 }

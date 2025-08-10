@@ -18,6 +18,7 @@ export default function ChooseStepsDescription() {
       title: "Find it in the list of all verbs to select",
       description:
         "Scroll through the full list below. Click on a verb to select&nbsp;or&nbsp;deselect&nbsp;it.",
+      separator: "or",
     },
   ];
   return (

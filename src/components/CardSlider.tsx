@@ -55,20 +55,57 @@ export function CardSlider({ cardsList }: CardConfigList) {
                 />
               </div>
             </div>
-            {cardItem.separator && (
-              <div className="px-8 text-2xl font-bold text-center my-2 md:my-8 lg:flex items-center">
-                {cardItem.separator}
-              </div>
-            )}
+            {cardItem.separator &&
+              !(!isMobile && index === cardsList.length - 1) && (
+                <div className="px-8 text-2xl font-bold text-center my-2 md:my-8 lg:flex items-center">
+                  {cardItem.separator}
+                </div>
+              )}
           </div>
         ))}
       </div>
-      <button className="embla__prev" onClick={scrollPrev}>
-        Prev
-      </button>
-      <button className="embla__next" onClick={scrollNext}>
-        Next
-      </button>
+      {isMobile && (
+        <div className="card-list__buttons flex justify-between items-center mt-4 ps-4 -mt-8">
+          <button
+            className="embla__prev px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 shadow transition"
+            onClick={scrollPrev}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+          <button
+            className="embla__next ml-2 px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 shadow transition"
+            onClick={scrollNext}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
+        </div>
+      )}
     </div>
   );
 }
