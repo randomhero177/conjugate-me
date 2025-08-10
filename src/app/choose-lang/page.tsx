@@ -2,7 +2,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import UiCombobox from "@/components/UiCombobox";
-import { setSelectedVerbs } from "@/features/selectedVerbsSlice";
+import { setSelectedVerbs } from "@/store/modules/selectedVerbsSlice";
 
 export default function Page() {
   const [connectionStatus, setConnectionStatus] = useState("");

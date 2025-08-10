@@ -5,7 +5,7 @@ import {
   addVerb,
   removeVerb,
   setSelectedVerbs,
-} from "@/features/selectedVerbsSlice";
+} from "@/store/modules/selectedVerbsSlice";
 import ChooseStepsDescription from "@/app/all-verbs/components/ChooseStepsDescription";
 import UiCombobox from "@/components/UiCombobox";
 import Dictionary from "@/data/dictionaryNoReflexiv";

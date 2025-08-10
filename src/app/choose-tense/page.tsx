@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setSelectedTenses } from "@/features/selectedTensesSlice";
+import { setSelectedTenses } from "@/store/modules/selectedTensesSlice";
 import { RootState } from "@/types/typeVerbs";
 import { useRouter } from "next/navigation";
 import { PagesUrl } from "@/data/urls";

@@ -1,5 +1,5 @@
 import { verbsPresets } from "@/data/verbsPresets";
-import { mergeSelectedVerbs } from "@/features/selectedVerbsSlice";
+import { mergeSelectedVerbs } from "@/store/modules/selectedVerbsSlice";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 

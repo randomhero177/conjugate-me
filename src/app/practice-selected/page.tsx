@@ -12,8 +12,8 @@ import getKeyByValue from "@/util/getKeyByValue";
 import ChipItem from "@/components/ChipItem";
 import ClearAllVerbs from "@/components/ClearAllVerbs";
 import { PagesUrl } from "@/data/urls";
-import { removeVerb } from "@/features/selectedVerbsSlice";
-import { removeTense } from "@/features/selectedTensesSlice";
+import { removeVerb } from "@/store/modules/selectedVerbsSlice";
+import { removeTense } from "@/store/modules/selectedTensesSlice";
 
 export default function PracticeSelected() {
   const router = useRouter();

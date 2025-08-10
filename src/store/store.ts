@@ -1,7 +1,7 @@
 // store/store.js
 import { configureStore } from "@reduxjs/toolkit";
-import selectedVerbsReducer from "@/features/selectedVerbsSlice";
-import selectedTensesReducer from "@/features/selectedTensesSlice";
+import selectedVerbsReducer from "@/store/modules/selectedVerbsSlice";
+import selectedTensesReducer from "@/store/modules/selectedTensesSlice";
 
 const store = configureStore({
   reducer: {
