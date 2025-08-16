@@ -50,7 +50,7 @@ const CheckForm = ({
         <div className="mb-4">
           <input
             type="text"
-            className="px-4 py-2 mt-2 border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 check-form__input md:mr-4"
+            className="px-4 py-2 mt-2 border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 check-form__input md:mr-4 text-gray-800"
             placeholder="Conjugated verb"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -118,7 +118,7 @@ const CheckForm = ({
             type="checkbox"
             className="w-5 h-5 text-blue-600 bg-white border-gray-300 rounded focus:ring-2 focus:ring-blue-500"
           />
-          <span className="ps-2">
+          <span className="ps-2 text-gray-800">
             Don't count spanish special characters as error
           </span>
         </label>
