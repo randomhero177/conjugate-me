@@ -12,7 +12,7 @@ import MainMenu from "@/components/MainMenu";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Free conjugation trainer",
+  title: "Free Spanish conjugation trainer",
   description:
     "Train spanish verb conjugation for free in all the       tenses you know",
 };

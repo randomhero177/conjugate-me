@@ -104,7 +104,7 @@ export default function PracticeSelected() {
             </div>
 
             <CheckForm
-              key={resetKey}
+              key={`check_form-${resetKey}`}
               correctAnswer={getCurrentConjugated()}
               goToNext={randomiseVerbsAndTense}
               useSpecialCharacters={useSpecialCharacters}

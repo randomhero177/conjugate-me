@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface Props {
   correctAnswer: string;
@@ -17,14 +17,17 @@ const CheckForm = ({
   const [showResult, setshowResult] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
   const [wantTooSee, setWantTooSee] = useState(false);
+  const inputRef = useRef(null);
 
   function removeAccents(str: string) {
     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   }
 
   function checkResult() {
-    console.log(correctAnswer);
-    console.log(useSpecialCharacters);
+    if (isCorrect) {
+      goToNext();
+    }
+
     const localQuery = useSpecialCharacters
       ? removeAccents(query.toLowerCase())
       : query.toLowerCase();
@@ -35,13 +38,19 @@ const CheckForm = ({
     setIsCorrect(localQuery === localAnswer);
   }
 
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, []);
+
   return (
     <div className="flex items-start">
       <div className="grow">
         <div className="mb-4">
           <input
             type="text"
-            className="px-4 py-2 mt-2 border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 check-form__input"
+            className="px-4 py-2 mt-2 border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 check-form__input md:mr-4"
             placeholder="Conjugated verb"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -51,6 +60,7 @@ const CheckForm = ({
               }
             }}
             autoComplete="off"
+            ref={inputRef}
           />
           <button
             onClick={() => checkResult()}
