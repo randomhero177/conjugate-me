@@ -46,7 +46,7 @@ export default function ChooseTensePage() {
   return (
     <div className="flex justify-center">
       <div className="container lg:mt-6 px-4 pb-24">
-        <h1 className="text-2xl font-bold mb-8 text-center my-4">
+        <h1 className="text-2xl font-bold mb-8 text-center my-4 text-gray-800">
           Select in which tenses you want to conjugate the verbs
         </h1>
         <div className="py-4">
