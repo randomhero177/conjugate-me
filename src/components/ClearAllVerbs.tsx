@@ -4,7 +4,6 @@ import { setSelectedVerbs } from "@/store/modules/selectedVerbsSlice";
 const ClearAllVerbs = () => {
   const dispatch = useDispatch();
   const clearAllVerbs = () => {
-    console.log("asdasdasd");
     dispatch(setSelectedVerbs([]));
   };
   return (

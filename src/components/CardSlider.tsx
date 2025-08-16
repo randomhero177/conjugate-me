@@ -57,7 +57,7 @@ export function CardSlider({ cardsList }: CardConfigList) {
             </div>
             {cardItem.separator &&
               !(!isMobile && index === cardsList.length - 1) && (
-                <div className="px-8 text-2xl font-bold text-center my-2 md:my-8 lg:flex items-center">
+                <div className="px-8 text-2xl font-bold text-center my-2 md:my-8 lg:flex items-center text-gray-800">
                   {cardItem.separator}
                 </div>
               )}

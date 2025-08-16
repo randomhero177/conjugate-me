@@ -52,7 +52,7 @@ export default function AllVerbsPage() {
 
   return (
     <main className="flex min-h-screen flex-col items-center lg:p-24 lg:pb-48 pb-32 lg:pb-4">
-      <h1 className="text-3xl font-bold mb-12 text-center">
+      <h1 className="text-3xl font-bold mb-12 text-center text-gray-800">
         Select verbs to practice ({Dictionary.length})
       </h1>
       <ChooseStepsDescription />
