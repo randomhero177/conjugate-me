@@ -119,7 +119,7 @@ export default function PracticeSelected() {
             <div className="p-6 bg-white shadow-lg">
               {selectedVerbs.length === 0 ? (
                 <div>
-                  <div className="text-xl">
+                  <div className="text-xl text-gray-800">
                     Good, <b>but not enough!</b> I'll still ask you to choose
                     verbs as well
                     <div className="mt-4">
@@ -134,7 +134,7 @@ export default function PracticeSelected() {
                 </div>
               ) : (
                 <div>
-                  <div className="mb-4 text-xl font-bold">
+                  <div className="mb-4 text-xl font-bold text-gray-800">
                     Verbs selected to practice:{" "}
                   </div>
                   <div className="flex flex-wrap items-center gap-2 mb-4">
@@ -155,7 +155,7 @@ export default function PracticeSelected() {
           <div className="group lg:ms-6 flex-1">
             <div className="p-6 bg-white shadow-lg">
               {selectedTenses.length === 0 ? (
-                <div className="text-xl">
+                <div className="text-xl text-gray-800">
                   Good, <b>but not enough!</b> I'll still ask you to choose the
                   tenses as well
                   <div className="mt-4">
@@ -169,7 +169,7 @@ export default function PracticeSelected() {
                 </div>
               ) : (
                 <div>
-                  <div className="mb-4 text-xl font-bold">
+                  <div className="mb-4 text-xl font-bold text-gray-800">
                     Tenses selected to practice:{" "}
                   </div>
                   <div className="flex flex-wrap gap-2">

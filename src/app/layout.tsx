@@ -23,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en text-gray-800">
       <body className={inter.className}>
         <div className="">
           <MainMenu />
