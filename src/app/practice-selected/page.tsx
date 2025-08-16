@@ -94,9 +94,9 @@ export default function PracticeSelected() {
               <div className="mb-4 text-3xl font-bold text-gray-800 text-center">
                 Conjugate this
               </div>
-              <div className="text-xl">
+              <div className="text-xl text-gray-800">
                 {currentPronomb}{" "}
-                <i>
+                <i className="text-gray-800">
                   <b>({currentVerb})</b>
                 </i>{" "}
                 in {currentTense}
