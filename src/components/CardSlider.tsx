@@ -65,7 +65,7 @@ export function CardSlider({ cardsList }: CardConfigList) {
         ))}
       </div>
       {isMobile && (
-        <div className="card-list__buttons flex justify-between items-center mt-4 ps-4 -mt-8">
+        <div className="card-list__buttons flex justify-between items-center ps-4 -mt-8">
           <button
             className="embla__prev px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 shadow transition"
             onClick={scrollPrev}
