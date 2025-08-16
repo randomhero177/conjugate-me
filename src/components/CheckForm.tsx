@@ -17,7 +17,7 @@ const CheckForm = ({
   const [showResult, setshowResult] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
   const [wantTooSee, setWantTooSee] = useState(false);
-  const inputRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   function removeAccents(str: string) {
     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
