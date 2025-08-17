@@ -28,7 +28,7 @@ export default function RootLayout({
         <div className="">
           <MainMenu />
         </div>
-        <div className="pt-24 main-wrapper">
+        <div className="main-wrapper">
           <Providers>{children}</Providers>
         </div>
         {/* Google Analytics */}

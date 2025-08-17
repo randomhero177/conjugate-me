@@ -30,4 +30,11 @@
       z-index: 99;
     }
   }
+
+  .embla {
+    &__next {
+      position: relative;
+      left: -10px;
+    }
+  }
 }
