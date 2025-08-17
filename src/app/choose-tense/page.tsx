@@ -23,7 +23,6 @@ export default function ChooseTensePage() {
   );
 
   const handleUpdate = (data: string[]) => {
-    console.log(data);
     dispatch(setSelectedTenses(data));
   };
 
@@ -34,19 +33,13 @@ export default function ChooseTensePage() {
   };
 
   useEffect(() => {
-    console.log(SpanishVerbs);
-    console.log(SpanishVerbs.validTenses);
-    console.log(SpanishVerbs.getConjugation("hablar", "INDICATIVE_PRESENT", 2));
-    console.log(
-      SpanishVerbs.getConjugation("abortar", "INDICATIVE_PRETERITE", 5),
-    );
     setRecomputedTenses(Object.values(Tense));
   }, []);
 
   return (
     <div className="flex justify-center">
-      <div className="container lg:mt-6 px-4 pb-24">
-        <h1 className="text-2xl font-bold mb-8 text-center my-4 text-gray-800">
+      <div className="container lg:mt-6 px-4 pb-24 pt-24 md:pt-0">
+        <h1 className="text-2xl md:text-3xl font-bold mb-8 text-center mb-4 text-gray-800">
           Select in which tenses you want to conjugate the verbs
         </h1>
         <div className="py-4">
