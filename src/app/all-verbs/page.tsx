@@ -51,8 +51,8 @@ export default function AllVerbsPage() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center lg:p-24 lg:pb-48 pb-32 lg:pb-4">
-      <h1 className="text-3xl font-bold mb-12 text-center text-gray-800">
+    <main className="flex min-h-screen flex-col items-center lg:p-24 lg:pt-32 lg:pb-48 pb-32 pt-8">
+      <h1 className="text-2xl md:text-3xl font-bold mb-4 md:mb-12 text-center text-gray-800 pt-12 md:pt-0">
         Select verbs to practice ({Dictionary.length})
       </h1>
       <ChooseStepsDescription />

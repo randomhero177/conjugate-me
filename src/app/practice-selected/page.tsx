@@ -86,7 +86,7 @@ export default function PracticeSelected() {
   }, []);
 
   return (
-    <div className="flex min-h-screen flex-col items-center px-4 lg:p-12 ">
+    <div className="flex min-h-screen flex-col items-center justify-center px-4 lg:p-12 pt-24 lg:pt-32">
       {selectedVerbs.length > 0 && selectedTenses.length > 0 && (
         <div className="p-8 bg-white shadow-lg w-full mb-12">
           <div>

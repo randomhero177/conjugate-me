@@ -2,13 +2,13 @@ import Link from "next/link";
 
 export default function HomePage() {
   return (
-    <div className="bg-gray-100 flex flex-col items-center justify-center p-6">
-      <div className="lg:-mt-32 mb-16 lg:mb-32 font-bold text-xl text-center text-gray-800">
+    <div className="bg-gray-100 flex flex-col items-center justify-center p-6 pt-32 lg:pt-0">
+      <div className="mb-16 lg:mb-32 font-bold text-xl text-center text-gray-800">
         Mastering verb conjugation is essential for clear and confident
-        communication in any language. <br />
+        communication in&nbsp;any language. <br />
         It opens the door to expressing yourself with accuracy and ease.
       </div>
-      <h1 className="text-4xl font-bold text-gray-800 mb-10 text-center">
+      <h1 className="text-2xl lg:text-4xl font-bold text-gray-800 mb-10 text-center">
         Practice Spanish Verb Conjugations in 3 Easy Steps
       </h1>
       <div className="max-w-4xl grid gap-8 sm:grid-cols-1 md:grid-cols-3">
