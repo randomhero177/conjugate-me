@@ -5,7 +5,7 @@ export default function ChooseStepsDescription() {
     {
       title: "Use text field",
       description:
-        "You can either search for a specific verb using the input field",
+        "You can either search for a specific verb using the input field. Just start typing",
       separator: "or",
     },
     {
