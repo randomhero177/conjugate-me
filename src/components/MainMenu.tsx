@@ -15,7 +15,7 @@ const MainMenu = () => {
         <img
           src="/CME_logo_book.png"
           alt="Logo"
-          style={{ width: "150px", height: "auto" }}
+          style={{ width: "60px", height: "auto" }}
         />
       </Link>
 

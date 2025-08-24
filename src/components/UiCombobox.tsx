@@ -109,7 +109,7 @@ const UiCombobox = ({
       <div className="relative">
         <input
           type="text"
-          className="w-full px-6 py-4 mt-1 border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500"
+          className="w-full px-6 py-4 mt-1 border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 text-black"
           placeholder="Search..."
           value={query}
           onChange={handleInputChange}
