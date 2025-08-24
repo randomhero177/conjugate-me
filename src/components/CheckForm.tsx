@@ -68,23 +68,30 @@ const CheckForm = ({
           >
             Check answer
           </button>
+
+          <button
+            className={`lg:hidden mt-2 float-right ml-4 px-6 py-2 text-white font-bold shadow-md  focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 transition
+                ${isCorrect ? "bg-cyan-600 hover:bg-cyan-600 " : "bg-yellow-700 hover:bg-yellow-800"}
+                `}
+            onClick={() => goToNext()}
+          >
+            {isCorrect ? "Next" : "Skip"}
+          </button>
         </div>
         {showResult && (
-          <div className="flex align-middle items-center">
+          <div className="lg:flex align-middle items-center">
             {isCorrect ? (
               <>
                 <span className="text-green-500">&#x2714;</span>{" "}
-                {/* Checkmark icon */}
                 <span className="font-bold text-green-500">You're right!</span>
               </>
             ) : (
               <>
                 <span className="text-red-500">&#x2716;</span>{" "}
-                {/* Cross icon */}
                 <span className="font-bold text-red-500">Try again!</span>
               </>
             )}
-            <div className="flex  ms-4">
+            <div className="lg:flex ms-4 text-gray-800">
               {!isCorrect && wantTooSee && (
                 <div>
                   The correct answer is <b>{correctAnswer}</b>
@@ -92,14 +99,14 @@ const CheckForm = ({
               )}
               {!isCorrect && !wantTooSee && (
                 <div
-                  className="underline cursor-pointer italic"
+                  className="underline cursor-pointer italic text-gray-800"
                   onClick={() => setWantTooSee(true)}
                 >
                   Show correct answer
                 </div>
               )}
             </div>
-            <div className="">
+            <div className="mt-4 lg:mt-0 hidden lg:block">
               <button
                 className={`ml-4 px-6 py-2 text-white font-bold shadow-md  focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 transition
                 ${isCorrect ? "bg-cyan-600 hover:bg-cyan-600 " : "bg-yellow-700 hover:bg-yellow-800"}
@@ -111,7 +118,7 @@ const CheckForm = ({
             </div>
           </div>
         )}
-        <label className="flex align-items-center mt-4 cursor-pointer">
+        <label className="flex align-items-center mt-8 lg:mt-4 cursor-pointer">
           <input
             checked={useSpecialCharacters}
             onChange={(e) => setUseSpecialCharacters(e.target.checked)}
