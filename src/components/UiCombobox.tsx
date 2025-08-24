@@ -152,7 +152,7 @@ const UiCombobox = ({
                   : ""
               }`}
             >
-              {option} 1
+              {option}
             </li>
           ))}
         </ul>
