@@ -1,4 +1,5 @@
 import Link from "next/link";
+import FooterContact from "@/components/FooterContact";
 
 export default function HomePage() {
   return (
@@ -11,7 +12,7 @@ export default function HomePage() {
       <h1 className="text-2xl lg:text-4xl font-bold text-gray-800 mb-10 text-center">
         Practice Spanish Verb Conjugations in 3 Easy Steps
       </h1>
-      <div className="max-w-4xl grid gap-8 sm:grid-cols-1 md:grid-cols-3">
+      <div className="max-w-4xl grid gap-8 sm:grid-cols-1 md:grid-cols-3 pb-32 lg:pb-0">
         <Link href="/all-verbs" className="group">
           <div className="p-6 bg-white shadow-lg flex flex-col items-center transition-transform transform hover:scale-105">
             <div className="mb-4 w-14 h-14 flex items-center justify-center text-xl font-semibold text-white bg-gray-600 rounded-full transition-colors duration-300 group-hover:bg-gray-900">
@@ -57,6 +58,7 @@ export default function HomePage() {
           </div>
         </Link>
       </div>
+      <FooterContact />
     </div>
   );
 }

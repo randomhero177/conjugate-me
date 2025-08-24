@@ -11,6 +11,7 @@ import getRandomInRange from "@/util/getRandom";
 import getKeyByValue from "@/util/getKeyByValue";
 import ChipItem from "@/components/ChipItem";
 import ClearAllVerbs from "@/components/ClearAllVerbs";
+import FooterContact from "@/components/FooterContact";
 import { PagesUrl } from "@/data/urls";
 import { removeVerb } from "@/store/modules/selectedVerbsSlice";
 import { removeTense } from "@/store/modules/selectedTensesSlice";
@@ -214,6 +215,7 @@ export default function PracticeSelected() {
           </div>
         </div>
       )}
+      <FooterContact />
     </div>
   );
 }
