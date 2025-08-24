@@ -1,5 +1,3 @@
-import UiChooseList from "@/components/UiChooseList";
-
 interface Props {
   selectedOptions: string[];
   mainAction: () => void;
