@@ -141,7 +141,7 @@ const UiCombobox = ({
       </div>
 
       {isOpen && filteredOptions.length > 0 && (
-        <ul className="absolute z-10 w-full mt-1 bg-white border border-gray-300 shadow-lg max-h-48 overflow-y-auto">
+        <ul className="absolute z-10 w-full mt-1 bg-white border border-gray-300 shadow-lg max-h-48 overflow-y-auto text-black">
           {filteredOptions.map((option) => (
             <li
               key={option}
@@ -152,7 +152,7 @@ const UiCombobox = ({
                   : ""
               }`}
             >
-              {option}
+              {option} 1
             </li>
           ))}
         </ul>
