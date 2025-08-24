@@ -12,10 +12,11 @@ const FooterContact = () => {
         >
           randomhero177
         </a>{" "}
-        with&nbsp;❤️ and&nbsp;<span className="text-2xl">🍺</span>
+        with&nbsp;❤️ and&nbsp;
+        <span className="text-2xl">🍺</span>
       </div>
       <div className="flex footer-contact__icons pe-4 text-center justify-center mt-2 lg:mt-0">
-        <UiTooltip text="Have something to say? Leeve some feedback">
+        <UiTooltip text="Have something to say? Leave feedback">
           <a
             href="https://forms.gle/vSBNHNh5M4HdL83D8"
             target="_blank"
@@ -35,7 +36,7 @@ const FooterContact = () => {
             🫰
           </a>
         </UiTooltip>
-        <UiTooltip text="Check out some of my music">
+        <UiTooltip text="In the meantime check out some music">
           <a
             href="https://open.spotify.com/artist/4rRIYs9j2BA6UgIpP8l35u"
             target="_blank"
