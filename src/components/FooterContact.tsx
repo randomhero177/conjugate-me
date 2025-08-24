@@ -2,7 +2,7 @@ import UiTooltip from "@/components/UiTooltip";
 
 const FooterContact = () => {
   return (
-    <div className="footer-contact lg:flex flex-1 justify-center text-center py-4 bg-cyan-50">
+    <div className="footer-contact lg:flex flex-1 justify-center text-center py-4 bg-cyan-50 text-gray-800">
       <div className="flex-1">
         Hello! It's a free opensource app that was developed by{" "}
         <a

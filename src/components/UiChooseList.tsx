@@ -33,26 +33,7 @@ const UiChooseList = ({ options, selectedOptions, onChange }: Props) => {
               className="h-5 w-5 mr-2 text-blue-600 bg-white border-gray-300 focus:ring-2 focus:ring-blue-500"
             />
           </div>
-
           {option}
-          {/*{isActive(option) && (
-            <span className="ml-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="size-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="m4.5 12.75 6 6 9-13.5"
-                />
-              </svg>
-            </span>
-          )}*/}
         </li>
       ))}
     </ul>
