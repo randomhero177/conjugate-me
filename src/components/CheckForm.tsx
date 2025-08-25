@@ -35,7 +35,7 @@ const CheckForm = ({
       ? removeAccents(correctAnswer.toLowerCase())
       : correctAnswer.toLowerCase();
     setshowResult(true);
-    setIsCorrect(localQuery === localAnswer);
+    setIsCorrect(localQuery.trim() === localAnswer.trim());
   }
 
   useEffect(() => {
