@@ -313,6 +313,7 @@ const Dictionary = [
   "guiar",
   "gustar",
   "hablar",
+  "haber",
   "hacer",
   "hallar",
   "helar",
