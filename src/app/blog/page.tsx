@@ -9,17 +9,19 @@ const articles = [
 
 export default function BlogPage() {
   return (
-    <div>
-      <h1>Blog</h1>
-      <ul>
+    <div className="max-w-5xl mx-auto px-6 py-12">
+      <h1 className="text-4xl font-bold mb-8 text-center">Blog</h1>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {articles.map((article) => (
-          <li key={article.slug}>
-            <Link href={`/blog/${article.slug}`} className="default-link">
-              {article.title}
-            </Link>
-          </li>
+          <Link
+            key={article.slug}
+            href={`/blog/${article.slug}`}
+            className="block p-6 rounded-2xl shadow-md hover:shadow-lg bg-white transition transform hover:-translate-y-1"
+          >
+            <h2 className="text-xl font-semibold mb-2">{article.title}</h2>
+          </Link>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
