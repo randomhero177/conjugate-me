@@ -29,6 +29,9 @@ const CheckForm = ({
   }
 
   function checkResult() {
+    if (isCorrect) {
+      goToNext(!hasMadeMistake);
+    }
     const localQuery = useSpecialCharacters
       ? removeAccents(query.toLowerCase())
       : query.toLowerCase();
@@ -48,9 +51,9 @@ const CheckForm = ({
       }
 
       // 👇 Only go to next if correct, but send "false" if a mistake happened before
-      if (correctNow) {
+      /* if (correctNow) {
         goToNext(!hasMadeMistake);
-      }
+      }*/
     }
   }
 
@@ -91,7 +94,7 @@ const CheckForm = ({
             className={`lg:hidden mt-2 float-right ml-4 px-6 py-2 text-white font-bold shadow-md  focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 transition
                 ${isCorrect ? "bg-cyan-600 hover:bg-cyan-600 " : "bg-yellow-700 hover:bg-yellow-800"}
                 `}
-            onClick={() => goToNext(isCorrect)}
+            onClick={() => goToNext(!hasMadeMistake)}
           >
             {isCorrect ? "Next" : "Skip"}
           </button>
@@ -129,7 +132,7 @@ const CheckForm = ({
                 className={`ml-4 px-6 py-2 text-white font-bold shadow-md  focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 transition
                 ${isCorrect ? "bg-cyan-600 hover:bg-cyan-600 " : "bg-yellow-700 hover:bg-yellow-800"}
                 `}
-                onClick={() => goToNext(isCorrect)}
+                onClick={() => goToNext(!hasMadeMistake)}
               >
                 {isCorrect ? "Next" : "Skip"}
               </button>
@@ -147,8 +150,6 @@ const CheckForm = ({
             Don't count spanish special characters as error
           </span>
         </label>
-        <pre>{JSON.stringify(answerResults, null, 2)}</pre>
-        <div>{answerCounter}</div>
       </div>
     </div>
   );

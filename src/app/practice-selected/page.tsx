@@ -33,7 +33,6 @@ export default function PracticeSelected() {
     correct: 0,
     wrong: 0,
   });
-  const [answerCounter, setAnswerCounter] = useState(0);
   const [currentPronomb, setCurrentPronomb] = useState("");
   const [currentVerb, setCurrentVerb] = useState("");
   const [currentTense, setCurrentTense] = useState("");
@@ -100,7 +99,6 @@ export default function PracticeSelected() {
       wrong: isCorrect ? prev.wrong : prev.wrong + 1,
     }));
 
-    setAnswerCounter((prevAnswer) => prevAnswer++);
     setResetKey((prevKey) => prevKey + 1);
   };
 
@@ -111,7 +109,7 @@ export default function PracticeSelected() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center px-4 lg:p-12 pt-24 lg:pt-32 pb-44 lg:pb-4">
       {selectedVerbs.length > 0 && selectedTenses.length > 0 && (
-        <div className="p-8 bg-white shadow-lg w-full mb-6 lg:mb-12">
+        <div className="p-8 bg-white shadow-lg w-full mb-2">
           <div>
             <div className="mb-4">
               <div className="mb-4 text-3xl font-bold text-gray-800 text-center">
@@ -138,6 +136,28 @@ export default function PracticeSelected() {
           </div>
         </div>
       )}
+      <div className="mt-2 flex flex-col gap-4 lg:mb-6 mb-2">
+        <div className="flex w-full max-w-xs justify-between rounded-2xl px-6 py-2">
+          <div className="text-center px-2">
+            <p className="text-sm text-gray-500">✅ Correct</p>
+            <p className="text-lg font-semibold text-green-600">
+              {answerResults?.correct}
+            </p>
+          </div>
+          <div className="text-center px-2">
+            <p className="text-sm text-gray-500">❌ Wrong</p>
+            <p className="text-lg font-semibold text-red-500">
+              {answerResults?.wrong}
+            </p>
+          </div>
+          <div className="text-center px-2">
+            <p className="text-sm text-gray-500">🧮 Total </p>
+            <p className="text-lg font-semibold text-blue-500">
+              {resetKey ? resetKey - 1 : 0}
+            </p>
+          </div>
+        </div>
+      </div>
       {!nothingSelected && (
         <div className="lg:flex mb-8 lg:mb-24">
           <div className="group lg:me-6 mb-6 flex-1">
