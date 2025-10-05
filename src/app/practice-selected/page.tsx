@@ -15,6 +15,7 @@ import FooterContact from "@/components/FooterContact";
 import { PagesUrl } from "@/data/urls";
 import { removeVerb } from "@/store/modules/selectedVerbsSlice";
 import { removeTense } from "@/store/modules/selectedTensesSlice";
+import { AnswerResults } from "@/types/typeAnswers";
 
 export default function PracticeSelected() {
   const router = useRouter();
@@ -28,6 +29,11 @@ export default function PracticeSelected() {
     (state: RootState) => state.selectedTenses.selectedTenses,
   );
 
+  const [answerResults, setAnswerResults] = useState<AnswerResults>({
+    correct: 0,
+    wrong: 0,
+  });
+  const [answerCounter, setAnswerCounter] = useState(0);
   const [currentPronomb, setCurrentPronomb] = useState("");
   const [currentVerb, setCurrentVerb] = useState("");
   const [currentTense, setCurrentTense] = useState("");
@@ -48,8 +54,11 @@ export default function PracticeSelected() {
     return conjugatedVerb;
   }
 
-  function randomiseVerbsAndTense() {
-    setResetKey((prevKey) => prevKey + 1);
+  function randomiseVerbsAndTense(isCorrect: boolean) {
+    if (resetKey > 0) {
+      updateAnswerResults(isCorrect);
+    }
+
     setCurrentVerb(
       selectedVerbs.length > 1
         ? selectedVerbs[getRandomInRange(0, selectedVerbs.length - 1)]
@@ -82,8 +91,19 @@ export default function PracticeSelected() {
     dispatch(removeTense(tense));
   };
 
+  const updateAnswerResults = (isCorrect: boolean) => {
+    console.log("indeed the answer is correct - " + isCorrect);
+    setAnswerResults((prev) => ({
+      correct: isCorrect ? prev.correct + 1 : prev.correct,
+      wrong: isCorrect ? prev.wrong : prev.wrong + 1,
+    }));
+
+    setAnswerCounter((prevAnswer) => prevAnswer++);
+    setResetKey((prevKey) => prevKey + 1);
+  };
+
   useEffect(() => {
-    randomiseVerbsAndTense();
+    randomiseVerbsAndTense(false);
   }, []);
 
   return (
@@ -110,6 +130,8 @@ export default function PracticeSelected() {
               goToNext={randomiseVerbsAndTense}
               useSpecialCharacters={useSpecialCharacters}
               setUseSpecialCharacters={setUseSpecialCharacters}
+              answerResults={answerResults}
+              answerCounter={resetKey}
             ></CheckForm>
           </div>
         </div>

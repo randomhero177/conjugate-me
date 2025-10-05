@@ -1,10 +1,12 @@
 import { useState, useEffect, useRef } from "react";
-
+import { AnswerResults } from "@/types/typeAnswers";
 interface Props {
   correctAnswer: string;
-  goToNext: () => void;
+  goToNext: (isCorrect: boolean) => void;
   useSpecialCharacters: boolean;
   setUseSpecialCharacters: React.Dispatch<React.SetStateAction<boolean>>;
+  answerResults?: AnswerResults;
+  answerCounter?: number;
 }
 
 const CheckForm = ({
@@ -12,9 +14,11 @@ const CheckForm = ({
   goToNext,
   useSpecialCharacters = true,
   setUseSpecialCharacters,
+  answerResults,
+  answerCounter,
 }: Props) => {
   const [query, setQuery] = useState("");
-  const [showResult, setshowResult] = useState(false);
+  const [showResult, setShowResult] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
   const [wantTooSee, setWantTooSee] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -25,20 +29,21 @@ const CheckForm = ({
 
   function checkResult() {
     if (isCorrect) {
-      goToNext();
+      goToNext(true);
     }
-
     const localQuery = useSpecialCharacters
       ? removeAccents(query.toLowerCase())
       : query.toLowerCase();
     const localAnswer = useSpecialCharacters
       ? removeAccents(correctAnswer.toLowerCase())
       : correctAnswer.toLowerCase();
-    setshowResult(true);
+    setShowResult(true);
     setIsCorrect(localQuery.trim() === localAnswer.trim());
   }
 
   useEffect(() => {
+    console.log("+");
+    console.log(answerResults);
     if (inputRef.current) {
       inputRef.current.focus();
     }
@@ -73,7 +78,7 @@ const CheckForm = ({
             className={`lg:hidden mt-2 float-right ml-4 px-6 py-2 text-white font-bold shadow-md  focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 transition
                 ${isCorrect ? "bg-cyan-600 hover:bg-cyan-600 " : "bg-yellow-700 hover:bg-yellow-800"}
                 `}
-            onClick={() => goToNext()}
+            onClick={() => goToNext(isCorrect)}
           >
             {isCorrect ? "Next" : "Skip"}
           </button>
@@ -111,7 +116,7 @@ const CheckForm = ({
                 className={`ml-4 px-6 py-2 text-white font-bold shadow-md  focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 transition
                 ${isCorrect ? "bg-cyan-600 hover:bg-cyan-600 " : "bg-yellow-700 hover:bg-yellow-800"}
                 `}
-                onClick={() => goToNext()}
+                onClick={() => goToNext(isCorrect)}
               >
                 {isCorrect ? "Next" : "Skip"}
               </button>
@@ -129,6 +134,8 @@ const CheckForm = ({
             Don't count spanish special characters as error
           </span>
         </label>
+        <pre>{JSON.stringify(answerResults, null, 2)}</pre>
+        <div>{answerCounter}</div>
       </div>
     </div>
   );
