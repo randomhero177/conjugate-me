@@ -14,7 +14,7 @@ import Script from "next/script";
 export const metadata: Metadata = {
   title: "Free Spanish conjugation trainer",
   description:
-    "Train spanish verb conjugation for free in all the       tenses you know",
+    "Conjugate spanish verbs for free in all the tenses you know. Choose verbs, pick a tense, and start practicing",
 };
 
 export default function RootLayout({
@@ -44,6 +44,21 @@ export default function RootLayout({
             gtag('config', 'G-2GFZBRSB69');
           `}
         </Script>
+
+        {/* Structured data for Google */}
+        <Script
+          id="structured-data"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "Conjugate Me",
+              url: "https://conjugate-me.vercel.app",
+            }),
+          }}
+        />
       </body>
     </html>
   );
