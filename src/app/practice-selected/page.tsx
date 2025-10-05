@@ -93,7 +93,6 @@ export default function PracticeSelected() {
   };
 
   const updateAnswerResults = (isCorrect: boolean) => {
-    console.log("indeed the answer is correct - " + isCorrect);
     setAnswerResults((prev) => ({
       correct: isCorrect ? prev.correct + 1 : prev.correct,
       wrong: isCorrect ? prev.wrong : prev.wrong + 1,

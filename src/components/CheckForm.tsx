@@ -38,8 +38,7 @@ const CheckForm = ({
     const localAnswer = useSpecialCharacters
       ? removeAccents(correctAnswer.toLowerCase())
       : correctAnswer.toLowerCase();
-    console.log(localQuery);
-    console.log(localQuery.length);
+
     if (localQuery.length) {
       const correctNow = localQuery.trim() === localAnswer.trim();
       setShowResult(true);
@@ -58,8 +57,6 @@ const CheckForm = ({
   }
 
   useEffect(() => {
-    console.log("+");
-    console.log(answerResults);
     if (inputRef.current) {
       inputRef.current.focus();
     }
