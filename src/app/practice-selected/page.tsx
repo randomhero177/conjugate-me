@@ -57,6 +57,8 @@ export default function PracticeSelected() {
   function randomiseVerbsAndTense(isCorrect: boolean) {
     if (resetKey > 0) {
       updateAnswerResults(isCorrect);
+    } else {
+      setResetKey((prevKey) => prevKey + 1);
     }
 
     setCurrentVerb(

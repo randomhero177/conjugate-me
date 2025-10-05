@@ -21,6 +21,7 @@ const CheckForm = ({
   const [showResult, setShowResult] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
   const [wantTooSee, setWantTooSee] = useState(false);
+  const [hasMadeMistake, setHasMadeMistake] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
   function removeAccents(str: string) {
@@ -28,17 +29,29 @@ const CheckForm = ({
   }
 
   function checkResult() {
-    if (isCorrect) {
-      goToNext(true);
-    }
     const localQuery = useSpecialCharacters
       ? removeAccents(query.toLowerCase())
       : query.toLowerCase();
     const localAnswer = useSpecialCharacters
       ? removeAccents(correctAnswer.toLowerCase())
       : correctAnswer.toLowerCase();
-    setShowResult(true);
-    setIsCorrect(localQuery.trim() === localAnswer.trim());
+    console.log(localQuery);
+    console.log(localQuery.length);
+    if (localQuery.length) {
+      const correctNow = localQuery.trim() === localAnswer.trim();
+      setShowResult(true);
+      setIsCorrect(correctNow);
+
+      // 👇 If wrong for the first time, record that mistake
+      if (!correctNow && !hasMadeMistake) {
+        setHasMadeMistake(true);
+      }
+
+      // 👇 Only go to next if correct, but send "false" if a mistake happened before
+      if (correctNow) {
+        goToNext(!hasMadeMistake);
+      }
+    }
   }
 
   useEffect(() => {
