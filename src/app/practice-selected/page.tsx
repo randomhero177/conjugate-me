@@ -15,6 +15,7 @@ import FooterContact from "@/components/FooterContact";
 import { PagesUrl } from "@/data/urls";
 import { removeVerb } from "@/store/modules/selectedVerbsSlice";
 import { removeTense } from "@/store/modules/selectedTensesSlice";
+import { AnswerResults } from "@/types/typeAnswers";
 
 export default function PracticeSelected() {
   const router = useRouter();
@@ -28,6 +29,10 @@ export default function PracticeSelected() {
     (state: RootState) => state.selectedTenses.selectedTenses,
   );
 
+  const [answerResults, setAnswerResults] = useState<AnswerResults>({
+    correct: 0,
+    wrong: 0,
+  });
   const [currentPronomb, setCurrentPronomb] = useState("");
   const [currentVerb, setCurrentVerb] = useState("");
   const [currentTense, setCurrentTense] = useState("");
@@ -48,8 +53,13 @@ export default function PracticeSelected() {
     return conjugatedVerb;
   }
 
-  function randomiseVerbsAndTense() {
-    setResetKey((prevKey) => prevKey + 1);
+  function randomiseVerbsAndTense(isCorrect: boolean) {
+    if (resetKey > 0) {
+      updateAnswerResults(isCorrect);
+    } else {
+      setResetKey((prevKey) => prevKey + 1);
+    }
+
     setCurrentVerb(
       selectedVerbs.length > 1
         ? selectedVerbs[getRandomInRange(0, selectedVerbs.length - 1)]
@@ -82,14 +92,23 @@ export default function PracticeSelected() {
     dispatch(removeTense(tense));
   };
 
+  const updateAnswerResults = (isCorrect: boolean) => {
+    setAnswerResults((prev) => ({
+      correct: isCorrect ? prev.correct + 1 : prev.correct,
+      wrong: isCorrect ? prev.wrong : prev.wrong + 1,
+    }));
+
+    setResetKey((prevKey) => prevKey + 1);
+  };
+
   useEffect(() => {
-    randomiseVerbsAndTense();
+    randomiseVerbsAndTense(false);
   }, []);
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center px-4 lg:p-12 pt-24 lg:pt-32 pb-44 lg:pb-4">
       {selectedVerbs.length > 0 && selectedTenses.length > 0 && (
-        <div className="p-8 bg-white shadow-lg w-full mb-6 lg:mb-12">
+        <div className="p-8 bg-white shadow-lg w-full mb-2">
           <div>
             <div className="mb-4">
               <div className="mb-4 text-3xl font-bold text-gray-800 text-center">
@@ -110,10 +129,34 @@ export default function PracticeSelected() {
               goToNext={randomiseVerbsAndTense}
               useSpecialCharacters={useSpecialCharacters}
               setUseSpecialCharacters={setUseSpecialCharacters}
+              answerResults={answerResults}
+              answerCounter={resetKey}
             ></CheckForm>
           </div>
         </div>
       )}
+      <div className="mt-2 flex flex-col gap-4 lg:mb-6 mb-2">
+        <div className="flex w-full max-w-xs justify-between rounded-2xl px-6 py-2">
+          <div className="text-center px-2">
+            <p className="text-sm text-gray-500">✅ Correct</p>
+            <p className="text-lg font-semibold text-green-600">
+              {answerResults?.correct}
+            </p>
+          </div>
+          <div className="text-center px-2">
+            <p className="text-sm text-gray-500">❌ Wrong</p>
+            <p className="text-lg font-semibold text-red-500">
+              {answerResults?.wrong}
+            </p>
+          </div>
+          <div className="text-center px-2">
+            <p className="text-sm text-gray-500">🧮 Total </p>
+            <p className="text-lg font-semibold text-blue-500">
+              {resetKey ? resetKey - 1 : 0}
+            </p>
+          </div>
+        </div>
+      </div>
       {!nothingSelected && (
         <div className="lg:flex mb-8 lg:mb-24">
           <div className="group lg:me-6 mb-6 flex-1">
