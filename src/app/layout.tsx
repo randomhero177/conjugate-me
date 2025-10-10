@@ -22,6 +22,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const env = process.env.IS_LOCAL;
+  console.log("env", env);
   return (
     <html lang="en text-gray-800">
       <body className={inter.className}>
@@ -31,19 +33,24 @@ export default function RootLayout({
         <div className="main-wrapper">
           <Providers>{children}</Providers>
         </div>
+
         {/* Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-2GFZBRSB69"
-          strategy="afterInteractive"
-        />
-        <Script id="gtag-init" strategy="afterInteractive">
-          {`
+        {env != "true" && (
+          <div>
+            <Script
+              src="https://www.googletagmanager.com/gtag/js?id=G-2GFZBRSB69"
+              strategy="afterInteractive"
+            />
+            <Script id="gtag-init" strategy="afterInteractive">
+              {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-2GFZBRSB69');
           `}
-        </Script>
+            </Script>
+          </div>
+        )}
 
         {/* Structured data for Google */}
         <Script
