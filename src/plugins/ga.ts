@@ -1,21 +1,14 @@
-// lib/ga.ts
+// plugins/ga.ts
 export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID || "";
 
-export const event = ({
-  action,
-  category,
-  label,
-  value,
-}: {
-  action: string;
+type GAEventParams = {
   category: string;
   label?: string;
   value?: number;
-}) => {
+  [key: string]: any; // for extra custom params like arrays
+};
+
+export const event = (action: string, params: GAEventParams) => {
   if (!GA_TRACKING_ID) return;
-  window.gtag("event", action, {
-    event_category: category,
-    event_label: label,
-    value: value,
-  });
+  window.gtag("event", action, params);
 };
