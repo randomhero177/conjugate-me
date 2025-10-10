@@ -22,8 +22,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const env = process.env.IS_LOCAL;
-  console.log("env", env);
+  const isLocal = process.env.NEXT_PUBLIC_IS_LOCAL === "true";
+  const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID || "";
+
   return (
     <html lang="en text-gray-800">
       <body className={inter.className}>
@@ -33,12 +34,11 @@ export default function RootLayout({
         <div className="main-wrapper">
           <Providers>{children}</Providers>
         </div>
-
         {/* Google Analytics */}
-        {env != "true" && (
-          <div>
+        {!isLocal && (
+          <>
             <Script
-              src="https://www.googletagmanager.com/gtag/js?id=G-2GFZBRSB69"
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
               strategy="afterInteractive"
             />
             <Script id="gtag-init" strategy="afterInteractive">
@@ -46,12 +46,11 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-2GFZBRSB69');
+            gtag('config', '${GA_TRACKING_ID}');
           `}
             </Script>
-          </div>
+          </>
         )}
-
         {/* Structured data for Google */}
         <Script
           id="structured-data"

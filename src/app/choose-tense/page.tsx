@@ -9,7 +9,7 @@ import { PagesUrl } from "@/data/urls";
 import Tense from "@/data/tense";
 import UiChooseList from "@/components/UiChooseList";
 import FooterAction from "@/components/FooterAction";
-
+import * as ga from "@/plugins/ga";
 export default function ChooseTensePage() {
   const router = useRouter();
   const SpanishVerbs = require("spanish-verbs");
@@ -23,6 +23,11 @@ export default function ChooseTensePage() {
   );
 
   const handleUpdate = (data: string[]) => {
+    ga.event("chose_tense", {
+      category: "via_full_list",
+      label: "select tense",
+      attempted_verb: data,
+    });
     dispatch(setSelectedTenses(data));
   };
 
@@ -34,6 +39,9 @@ export default function ChooseTensePage() {
 
   useEffect(() => {
     setRecomputedTenses(Object.values(Tense));
+    ga.event("load_page", {
+      category: "choose_tense",
+    });
   }, []);
 
   return (

@@ -8,6 +8,7 @@ interface Props {
   answerResults?: AnswerResults;
   answerCounter?: number;
 }
+import * as ga from "@/plugins/ga";
 
 const CheckForm = ({
   correctAnswer = "",
@@ -29,6 +30,10 @@ const CheckForm = ({
   }
 
   function checkResult() {
+    ga.event("check_form", {
+      category: "check_your_answer",
+      label: "check answer",
+    });
     if (isCorrect) {
       goToNext(!hasMadeMistake);
     }
@@ -44,16 +49,18 @@ const CheckForm = ({
       setShowResult(true);
       setIsCorrect(correctNow);
 
-      // 👇 If wrong for the first time, record that mistake
       if (!correctNow && !hasMadeMistake) {
         setHasMadeMistake(true);
       }
-
-      // 👇 Only go to next if correct, but send "false" if a mistake happened before
-      /* if (correctNow) {
-        goToNext(!hasMadeMistake);
-      }*/
     }
+  }
+
+  function showCorrectAnswer() {
+    ga.event("check_form", {
+      category: "show_correct_answer",
+      label: "show correct answer",
+    });
+    setWantTooSee(true);
   }
 
   useEffect(() => {
@@ -118,7 +125,7 @@ const CheckForm = ({
               {!isCorrect && !wantTooSee && (
                 <div
                   className="underline cursor-pointer italic text-gray-800"
-                  onClick={() => setWantTooSee(true)}
+                  onClick={() => showCorrectAnswer()}
                 >
                   Show correct answer
                 </div>

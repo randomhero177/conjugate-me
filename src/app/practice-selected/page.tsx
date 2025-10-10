@@ -16,6 +16,7 @@ import { PagesUrl } from "@/data/urls";
 import { removeVerb } from "@/store/modules/selectedVerbsSlice";
 import { removeTense } from "@/store/modules/selectedTensesSlice";
 import { AnswerResults } from "@/types/typeAnswers";
+import * as ga from "@/plugins/ga";
 
 export default function PracticeSelected() {
   const router = useRouter();
@@ -103,6 +104,9 @@ export default function PracticeSelected() {
 
   useEffect(() => {
     randomiseVerbsAndTense(false);
+    ga.event("load_page", {
+      category: "practice_selected",
+    });
   }, []);
 
   return (

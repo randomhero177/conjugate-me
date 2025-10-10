@@ -1,5 +1,6 @@
 // components/UiCombobox.js
 import { useState, useEffect, useRef } from "react";
+import * as ga from "@/plugins/ga";
 
 interface UiComboboxProps {
   options: string[];
@@ -92,6 +93,11 @@ const UiCombobox = ({
         : [updatedSelection];
       onChange(normalizedSelection);
     }
+    ga.event("chose_verbs", {
+      category: "via_combobox",
+      label: "select option",
+      attempted_verb: option,
+    });
   };
 
   const removeSelected = (index: number) => {

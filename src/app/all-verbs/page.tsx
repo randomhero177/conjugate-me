@@ -16,6 +16,7 @@ import VerbsPresets from "@/components/VerbsPresets";
 import FooterAction from "@/components/FooterAction";
 import ChipItem from "@/components/ChipItem";
 import ClearAllVerbs from "@/components/ClearAllVerbs";
+import * as ga from "@/plugins/ga";
 
 export default function AllVerbsPage() {
   const router = useRouter();
@@ -34,6 +35,11 @@ export default function AllVerbsPage() {
   const selectVerb = (verb: string) => {
     console.log(verb);
     if (!isVerbAdded(verb)) {
+      ga.event("chose_verbs", {
+        category: "via_full_list",
+        label: "select verb",
+        attempted_verb: verb,
+      });
       dispatch(addVerb(verb));
     } else {
       removeVerbWrap(verb);
