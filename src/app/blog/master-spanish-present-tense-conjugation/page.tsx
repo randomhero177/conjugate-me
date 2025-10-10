@@ -225,13 +225,12 @@ export default function ArticleMasterPresent() {
               practice makes it easier to remember.
             </li>
           </ol>
-
-          <a
-            href="#"
+          <Link
+            href={PagesUrl.tense}
             className="inline-flex items-center justify-center rounded-xl border border-slate-300 px-4 py-2 text-sm font-medium text-slate-800 hover:bg-slate-50 transition"
           >
             Practice Present Tense in the Trainer
-          </a>
+          </Link>
         </section>
 
         <section className="space-y-4">
