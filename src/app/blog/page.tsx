@@ -9,6 +9,10 @@ const articles = [
     slug: "top-50-verbs-for-begginers",
     title: "Top 50 Spanish Verbs Every Beginner Must Know",
   },
+  {
+    slug: "action-verbs-for-daily-life",
+    title: "Action Verbs for Daily Life",
+  },
 ];
 
 export default function BlogPage() {
