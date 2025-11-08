@@ -9,6 +9,7 @@ type GAEventParams = {
 };
 
 export const event = (action: string, params: GAEventParams) => {
-  if (!GA_TRACKING_ID) return;
+  if (!GA_TRACKING_ID || typeof window.gtag !== "function") return;
+  console.log(window.gtag);
   window.gtag("event", action, params);
 };
