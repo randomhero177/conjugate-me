@@ -13,6 +13,10 @@ const articles = [
     slug: "action-verbs-for-daily-life",
     title: "Action Verbs for Daily Life",
   },
+  {
+    slug: "ser-vs-estar",
+    title: "Ser vs Estar",
+  },
 ];
 
 export default function BlogPage() {
