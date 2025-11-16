@@ -25,7 +25,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const env = process.env.IS_LOCAL;
+  const env = process.env.NEXT_PUBLIC_IS_LOCAL;
   console.log("env", env);
   return (
     <html lang="en text-gray-800">
@@ -52,6 +52,46 @@ export default function RootLayout({
             gtag('config', 'G-2GFZBRSB69');
           `}
             </Script>
+
+            {/* YANDEX METRIKA */}
+            <Script id="yandex-metrika" strategy="afterInteractive">
+              {`
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {
+              if (document.scripts[j].src === r) { return; }
+            }
+            k=e.createElement(t),
+            a=e.getElementsByTagName(t)[0],
+            k.async=1,
+            k.src=r,
+            a.parentNode.insertBefore(k,a)
+        })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js?id=105334657", "ym");
+
+        ym(105334657, "init", {
+          ssr: true,
+          webvisor: true,
+          clickmap: true,
+          ecommerce: "dataLayer",
+          accurateTrackBounce: true,
+          trackLinks: true
+        });
+      `}
+            </Script>
+
+            {/* NOSCRIPT fallback */}
+            <noscript>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: `
+            <img src="https://mc.yandex.ru/watch/105334657"
+                 style="position:absolute; left:-9999px;"
+                 alt="" />
+          `,
+                }}
+              />
+            </noscript>
           </div>
         )}
 
