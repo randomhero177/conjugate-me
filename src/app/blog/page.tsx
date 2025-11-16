@@ -17,6 +17,10 @@ const articles = [
     slug: "ser-vs-estar",
     title: "Ser vs Estar",
   },
+  {
+    slug: "spanish-stem-changing-verbs",
+    title: "Spanish Stem-Changing Verbs Article",
+  },
 ];
 
 export default function BlogPage() {
