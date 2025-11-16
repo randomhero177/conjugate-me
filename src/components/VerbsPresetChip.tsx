@@ -1,7 +1,6 @@
-import { verbsPresets } from "@/data/verbsPresets";
 import { mergeSelectedVerbs } from "@/store/modules/selectedVerbsSlice";
-import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import * as ga from "@/plugins/ga";
 
 interface VerbConfig {
   key: string;
@@ -17,6 +16,12 @@ const VerbsPresets = ({ verbConfig }: Props) => {
 
   function choosePreset(verbConfig: VerbConfig): any {
     const verbsList = verbConfig.verbs;
+
+    ga.event("chose_verbs", {
+      category: "via_presets",
+      label: "select preset",
+      attempted_verbs: verbsList,
+    });
     dispatch(mergeSelectedVerbs(verbsList));
   }
 

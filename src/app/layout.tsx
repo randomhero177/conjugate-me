@@ -25,8 +25,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const env = process.env.NEXT_PUBLIC_IS_LOCAL;
-  console.log("env", env);
+  const isLocal = process.env.NEXT_PUBLIC_IS_LOCAL === "true";
+  const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID || "";
+
   return (
     <html lang="en text-gray-800">
       <body className={inter.className}>
@@ -38,10 +39,10 @@ export default function RootLayout({
         </div>
 
         {/* Google Analytics */}
-        {env != "true" && (
-          <div>
+        {!isLocal && (
+          <>
             <Script
-              src="https://www.googletagmanager.com/gtag/js?id=G-2GFZBRSB69"
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
               strategy="afterInteractive"
             />
             <Script id="gtag-init" strategy="afterInteractive">
@@ -49,13 +50,12 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-2GFZBRSB69');
+            gtag('config', '${GA_TRACKING_ID}');
           `}
             </Script>
-
-            {/* YANDEX METRIKA */}
-            <Script id="yandex-metrika" strategy="afterInteractive">
-              {`
+              {/* YANDEX METRIKA */}
+              <Script id="yandex-metrika" strategy="afterInteractive">
+                  {`
         (function(m,e,t,r,i,k,a){
             m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
             m[i].l=1*new Date();
@@ -78,21 +78,21 @@ export default function RootLayout({
           trackLinks: true
         });
       `}
-            </Script>
+              </Script>
 
-            {/* NOSCRIPT fallback */}
-            <noscript>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: `
+              {/* NOSCRIPT fallback */}
+              <noscript>
+                  <div
+                      dangerouslySetInnerHTML={{
+                          __html: `
             <img src="https://mc.yandex.ru/watch/105334657"
                  style="position:absolute; left:-9999px;"
                  alt="" />
           `,
-                }}
-              />
-            </noscript>
-          </div>
+                      }}
+                  />
+              </noscript>
+          </>
         )}
 
         {/* Structured data for Google */}
