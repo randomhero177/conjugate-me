@@ -5,6 +5,10 @@ const articles = [
     slug: "master-spanish-present-tense-conjugation",
     title: "Spanish Present Tense Conjugations",
   },
+  {
+    slug: "spanish-stem-changing-verbs",
+    title: "Spanish Stem-Changing Verbs Article",
+  },
 ];
 
 export default function BlogPage() {
