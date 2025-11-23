@@ -21,6 +21,10 @@ const articles = [
     slug: "spanish-stem-changing-verbs",
     title: "Spanish Stem-Changing Verbs Article",
   },
+  {
+    slug: "gustar-and-similar-verbs",
+    title: "Gustar and Similar Verbs: Stop Translating Directly!",
+  },
 ];
 
 export default function BlogPage() {
