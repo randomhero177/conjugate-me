@@ -30,6 +30,8 @@ export default function AllVerbsPage() {
   useEffect(() => {
     const SpanishVerbs = require("spanish-verbs");
     console.log(SpanishVerbs.validTenses);
+    console.log(SpanishVerbs);
+    console.log(SpanishVerbs.getConjugation("estar", "INDICATIVE_PRESENT", 0));
   }, []);
 
   const selectVerb = (verb: string) => {
