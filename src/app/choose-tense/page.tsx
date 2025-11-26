@@ -12,7 +12,6 @@ import FooterAction from "@/components/FooterAction";
 import * as ga from "@/plugins/ga";
 export default function ChooseTensePage() {
   const router = useRouter();
-  const SpanishVerbs = require("spanish-verbs");
   const dispatch = useDispatch();
   const selectedVerbs = useSelector(
     (state: RootState) => state.selectedVerbs.selectedVerbs,
