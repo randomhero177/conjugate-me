@@ -30,9 +30,20 @@ const selectedVerbsSlice = createSlice({
       const merge = new Set([...state.selectedVerbs, ...action.payload]);
       state.selectedVerbs = Array.from(merge);
     },
+    removeFromSelectedVerbs: (state, action) => {
+      const merge = new Set([...state.selectedVerbs, ...action.payload]);
+      state.selectedVerbs = state.selectedVerbs.filter(
+        (el) => !action.payload.includes(el),
+      );
+    },
   },
 });
 
-export const { setSelectedVerbs, addVerb, removeVerb, mergeSelectedVerbs } =
-  selectedVerbsSlice.actions;
+export const {
+  setSelectedVerbs,
+  addVerb,
+  removeVerb,
+  mergeSelectedVerbs,
+  removeFromSelectedVerbs,
+} = selectedVerbsSlice.actions;
 export default selectedVerbsSlice.reducer;
