@@ -31,7 +31,6 @@ const selectedVerbsSlice = createSlice({
       state.selectedVerbs = Array.from(merge);
     },
     removeFromSelectedVerbs: (state, action) => {
-      const merge = new Set([...state.selectedVerbs, ...action.payload]);
       state.selectedVerbs = state.selectedVerbs.filter(
         (el) => !action.payload.includes(el),
       );
