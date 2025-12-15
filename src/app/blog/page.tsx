@@ -25,6 +25,10 @@ const articles = [
     slug: "gustar-and-similar-verbs",
     title: "Gustar and Similar Verbs: Stop Translating Directly!",
   },
+  {
+    slug: "conjugation-practice-article",
+    title: "Practicing Verb Conjugation Is the Key",
+  },
 ];
 
 export default function BlogPage() {
