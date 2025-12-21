@@ -29,6 +29,10 @@ const articles = [
     slug: "conjugation-practice-article",
     title: "Practicing Verb Conjugation Is the Key",
   },
+  {
+    slug: "spanish-verb-conjugation-practice",
+    title: "Spanish Verb Conjugation Practice: How to Actually Learn It",
+  },
 ];
 
 export default function BlogPage() {
