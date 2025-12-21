@@ -8,13 +8,20 @@ import Pronomb from "@/data/pronomb";
 import Tense from "@/data/tense";
 import { useRouter } from "next/navigation";
 import getRandomInRange from "@/util/getRandom";
+import RandomVerbs from "@/app/practice-selected/RandomVerbs";
 import getKeyByValue from "@/util/getKeyByValue";
 import ChipItem from "@/components/ChipItem";
 import ClearAllVerbs from "@/components/ClearAllVerbs";
 import FooterContact from "@/components/FooterContact";
 import { PagesUrl } from "@/data/urls";
-import { removeVerb } from "@/store/modules/selectedVerbsSlice";
-import { removeTense } from "@/store/modules/selectedTensesSlice";
+import {
+  removeVerb,
+  setSelectedVerbs,
+} from "@/store/modules/selectedVerbsSlice";
+import {
+  removeTense,
+  setSelectedTenses,
+} from "@/store/modules/selectedTensesSlice";
 import { AnswerResults } from "@/types/typeAnswers";
 import * as ga from "@/plugins/ga";
 
@@ -55,17 +62,20 @@ export default function PracticeSelected() {
   }
 
   function randomiseVerbsAndTense(isCorrect: boolean) {
+    console.log(resetKey);
     if (resetKey > 0) {
       updateAnswerResults(isCorrect);
     } else {
       setResetKey((prevKey) => prevKey + 1);
     }
-
+    console.log("huuuuui");
+    console.log(selectedVerbs);
     setCurrentVerb(
       selectedVerbs.length > 1
         ? selectedVerbs[getRandomInRange(0, selectedVerbs.length - 1)]
         : selectedVerbs[0],
     );
+    console.log(currentVerb);
     setCurrentTense(
       selectedTenses.length > 1
         ? selectedTenses[getRandomInRange(0, selectedTenses.length - 1)]
@@ -102,8 +112,19 @@ export default function PracticeSelected() {
     setResetKey((prevKey) => prevKey + 1);
   };
 
+  const randomVerbsAction = (verbs, tenses) => {
+    dispatch(setSelectedVerbs(verbs));
+    dispatch(setSelectedTenses(tenses));
+    setTimeout(() => {
+      randomiseVerbsAndTense(false);
+    }, 1500);
+  };
+
   useEffect(() => {
-    randomiseVerbsAndTense(false);
+    if (selectedVerbs.length > 0 && selectedTenses.length > 0) {
+      randomiseVerbsAndTense(false);
+    }
+
     ga.event("load_page", {
       category: "practice_selected",
     });
@@ -259,6 +280,9 @@ export default function PracticeSelected() {
                 </div>
               </div>
             </div>
+          </div>
+          <div>
+            <RandomVerbs mainAction={randomVerbsAction} />
           </div>
         </div>
       )}
