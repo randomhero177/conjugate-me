@@ -14,6 +14,7 @@ const selectedTensesSlice = createSlice({
   initialState,
   reducers: {
     setSelectedTenses: (state, action) => {
+      console.log(action);
       state.selectedTenses = action.payload;
     },
     addTense: (state, action) => {

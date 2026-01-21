@@ -14,6 +14,7 @@ const selectedVerbsSlice = createSlice({
   initialState,
   reducers: {
     setSelectedVerbs: (state, action) => {
+      console.log("SET_SELECTED_VERB", action.payload);
       state.selectedVerbs = action.payload;
     },
     addVerb: (state, action) => {
