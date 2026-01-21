@@ -130,7 +130,7 @@ export default function LearningSpanishWithConjugateMe() {
 
             <div className="flex justify-center">
               <a
-                href="/practice"
+                href="/all-verbs"
                 className="inline-flex items-center justify-center rounded-xl
                            bg-blue-600 px-6 py-3 text-white font-medium
                            hover:bg-blue-700 transition"
