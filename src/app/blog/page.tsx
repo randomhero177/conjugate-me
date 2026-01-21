@@ -33,6 +33,11 @@ const articles = [
     slug: "spanish-verb-conjugation-practice",
     title: "Spanish Verb Conjugation Practice: How to Actually Learn It",
   },
+  {
+    slug: "learning-spanish-with-conjugate-me",
+    title:
+      "Learning Spanish with Conjugate Me: A Smarter Way to Practice Verbs",
+  },
 ];
 
 export default function BlogPage() {
