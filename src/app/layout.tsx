@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     "Conjugate spanish verbs for free in all the tenses you know. Choose verbs, pick a tense, and start practicing",
   other: {
     "yandex-verification": "ee32c79fe1813a4e",
+    google: "notranslate",
   },
 };
 
@@ -29,12 +30,12 @@ export default function RootLayout({
   const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID || "";
 
   return (
-    <html lang="en text-gray-800">
+    <html lang="en" translate="no">
       <body className={inter.className}>
         <div className="">
           <MainMenu />
         </div>
-        <div className="main-wrapper">
+        <div className="main-wrapper text-gray-800">
           <Providers>{children}</Providers>
         </div>
 
@@ -53,9 +54,9 @@ export default function RootLayout({
             gtag('config', '${GA_TRACKING_ID}');
           `}
             </Script>
-              {/* YANDEX METRIKA */}
-              <Script id="yandex-metrika" strategy="afterInteractive">
-                  {`
+            {/* YANDEX METRIKA */}
+            <Script id="yandex-metrika" strategy="afterInteractive">
+              {`
         (function(m,e,t,r,i,k,a){
             m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
             m[i].l=1*new Date();
@@ -78,20 +79,20 @@ export default function RootLayout({
           trackLinks: true
         });
       `}
-              </Script>
+            </Script>
 
-              {/* NOSCRIPT fallback */}
-              <noscript>
-                  <div
-                      dangerouslySetInnerHTML={{
-                          __html: `
+            {/* NOSCRIPT fallback */}
+            <noscript>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: `
             <img src="https://mc.yandex.ru/watch/105334657"
                  style="position:absolute; left:-9999px;"
                  alt="" />
           `,
-                      }}
-                  />
-              </noscript>
+                }}
+              />
+            </noscript>
           </>
         )}
 
