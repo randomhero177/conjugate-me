@@ -157,7 +157,6 @@ export const verbsPresets = [
       "venir",
       "hacer",
       "ver",
-      "oír",
       "olvidar",
       "saber",
       "parecer",
