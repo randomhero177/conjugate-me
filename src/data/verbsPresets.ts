@@ -174,6 +174,7 @@ export const verbsPresets = [
       "ir",
       "llegar",
       "llevar",
+      "oir",
     ],
   },
 ];

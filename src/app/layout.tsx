@@ -39,7 +39,6 @@ export default function RootLayout({
           <Providers>{children}</Providers>
         </div>
 
-        {/* Google Analytics */}
         {!isLocal && (
           <>
             <Script
@@ -54,7 +53,6 @@ export default function RootLayout({
             gtag('config', '${GA_TRACKING_ID}');
           `}
             </Script>
-            {/* YANDEX METRIKA */}
             <Script id="yandex-metrika" strategy="afterInteractive">
               {`
         (function(m,e,t,r,i,k,a){
@@ -80,8 +78,6 @@ export default function RootLayout({
         });
       `}
             </Script>
-
-            {/* NOSCRIPT fallback */}
             <noscript>
               <div
                 dangerouslySetInnerHTML={{
@@ -96,7 +92,6 @@ export default function RootLayout({
           </>
         )}
 
-        {/* Structured data for Google */}
         <Script
           id="structured-data"
           type="application/ld+json"
