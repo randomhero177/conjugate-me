@@ -33,13 +33,7 @@ export default function AllVerbsPage() {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    const SpanishVerbs = require("spanish-verbs");
-    console.log(SpanishVerbs.validTenses);
-  }, []);
-
   const selectVerb = (verb: string) => {
-    console.log(verb);
     if (!isVerbAdded(verb)) {
       ga.event("chose_verbs", {
         category: "via_full_list",
