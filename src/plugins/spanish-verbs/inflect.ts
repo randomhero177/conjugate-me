@@ -4,10 +4,18 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { Formality, Mood, NumberSP, Person, Positivity, Style, Tense } from './interfaces';
-import * as stylesFile from './styles';
-import * as verbsOUEFile from './verbsOUE';
-import * as exceptionsFile from './exceptions';
+import {
+  Formality,
+  Mood,
+  NumberSP,
+  Person,
+  Positivity,
+  Style,
+  Tense,
+} from "./interfaces";
+import * as stylesFile from "./styles";
+import * as verbsOUEFile from "./verbsOUE";
+import * as exceptionsFile from "./exceptions";
 import {
   EndingsPerPerson,
   EndingsPerPersonPerNumber,
@@ -16,48 +24,62 @@ import {
   EndingsAuxPerson,
   EndingsAuxPersonNumber,
   TuVos,
-} from './endings';
+} from "./endings";
 
 const styles = stylesFile.styles;
 const verbsOUE = verbsOUEFile.verbsOUE;
 const exceptions = exceptionsFile.exceptions;
 
-function fixStem(stem: string, ending: string, suffixAllLetters: string, options: Options): string {
+function fixStem(
+  stem: string,
+  ending: string,
+  suffixAllLetters: string,
+  options: Options,
+): string {
   const suffix = suffixAllLetters[0];
   const whole = stem + ending;
   const lastLetter1Stem = stem.substring(stem.length - 1);
   const lastLetter2Stem = stem.substring(stem.length - 2);
   if (
-    (options.mood === 'imperative' || options.tense === 'present') &&
+    (options.mood === "imperative" || options.tense === "present") &&
     verbsOUE.indexOf(whole) > -1 &&
-    (options.person === 'third' || options.number === 'singular')
+    (options.person === "third" || options.number === "singular")
   ) {
-    stem = stem.replace('o', 'ue');
+    stem = stem.replace("o", "ue");
   }
 
   switch (ending) {
-    case 'ar': {
-      if (lastLetter1Stem === 'c' && (suffix === 'e' || suffix === 'é')) {
-        stem = stem.substring(0, stem.length - 1) + 'qu';
-      } else if (lastLetter1Stem === 'g' && (suffix === 'e' || suffix === 'é')) {
-        stem = stem.substring(0, stem.length - 1) + 'gu';
-      } else if (lastLetter1Stem === 'z' && (suffix === 'e' || suffix === 'é')) {
-        stem = stem.substring(0, stem.length - 1) + 'c';
-      }
-      break;
-    }
-    case 'er': {
-      if (
-        (lastLetter2Stem === 'oc' || lastLetter2Stem === 'ec') &&
-        (suffix === 'a' || suffix === 'á' || suffix === 'o')
+    case "ar": {
+      if (lastLetter1Stem === "c" && (suffix === "e" || suffix === "é")) {
+        stem = stem.substring(0, stem.length - 1) + "qu";
+      } else if (
+        lastLetter1Stem === "g" &&
+        (suffix === "e" || suffix === "é")
       ) {
-        stem = stem.substring(0, stem.length - 1) + 'zc';
+        stem = stem.substring(0, stem.length - 1) + "gu";
+      } else if (
+        lastLetter1Stem === "z" &&
+        (suffix === "e" || suffix === "é")
+      ) {
+        stem = stem.substring(0, stem.length - 1) + "c";
       }
       break;
     }
-    case 'ir': {
-      if (lastLetter2Stem === 'uc' && (suffix === 'a' || suffix === 'á' || suffix === 'o')) {
-        stem = stem.substring(0, stem.length - 1) + 'zc';
+    case "er": {
+      if (
+        (lastLetter2Stem === "oc" || lastLetter2Stem === "ec") &&
+        (suffix === "a" || suffix === "á" || suffix === "o")
+      ) {
+        stem = stem.substring(0, stem.length - 1) + "zc";
+      }
+      break;
+    }
+    case "ir": {
+      if (
+        lastLetter2Stem === "uc" &&
+        (suffix === "a" || suffix === "á" || suffix === "o")
+      ) {
+        stem = stem.substring(0, stem.length - 1) + "zc";
       }
       break;
     }
@@ -79,16 +101,16 @@ export interface Options {
 }
 
 const validTenses = [
-  'present',
-  'imperfect',
-  'preterite',
-  'future',
-  'perfect',
-  'pluperfect',
-  'future perfect',
-  'preterite perfect',
-  'imperfect -ra',
-  'imperfect -se',
+  "present",
+  "imperfect",
+  "preterite",
+  "future",
+  "perfect",
+  "pluperfect",
+  "future perfect",
+  "preterite perfect",
+  "imperfect -ra",
+  "imperfect -se",
 ];
 /**
  * Inflect the given verb according to the given parameters.
@@ -219,7 +241,7 @@ const validTenses = [
 export function inflect(verb: string, options: Options): string {
   if (!verb || verb.length < 2) {
     const err = new Error();
-    err.name = 'TypeError';
+    err.name = "TypeError";
     err.message = `invalid verb`;
     throw err;
   }
@@ -235,44 +257,55 @@ export function inflect(verb: string, options: Options): string {
   let stem = verb.substring(0, verb.length - 2);
 
   let person = options.person;
-  if (person != 'first' && person != 'second' && person != 'third') {
+  if (person != "first" && person != "second" && person != "third") {
     const err = new Error();
-    err.name = 'TypeError';
+    err.name = "TypeError";
     err.message = `person must be first second or third`;
     throw err;
   }
 
   const number = options.number;
-  if (number != 'singular' && number != 'plural') {
+  if (number != "singular" && number != "plural") {
     const err = new Error();
-    err.name = 'TypeError';
+    err.name = "TypeError";
     err.message = `number must be singular or plural`;
     throw err;
   }
 
   const mood = options.mood;
-  if (mood != 'indicative' && mood != 'subjunctive' && mood != 'conditional' && mood != 'imperative') {
+  if (
+    mood != "indicative" &&
+    mood != "subjunctive" &&
+    mood != "conditional" &&
+    mood != "imperative"
+  ) {
     const err = new Error();
-    err.name = 'TypeError';
+    err.name = "TypeError";
     err.message = `invalid mood`;
     throw err;
   }
 
   const tense = options.tense;
-  if (mood != 'imperative' && validTenses.indexOf(tense) == -1) {
+  if (mood != "imperative" && validTenses.indexOf(tense) == -1) {
     const err = new Error();
-    err.name = 'TypeError';
+    err.name = "TypeError";
     err.message = `invalid tense`;
     throw err;
   }
 
-  const positivity = (options && options.positivity) || 'affirmative';
-  const styling = (options && options.style && styles[options.style]) || styles['castillano'];
-  const formality = options.formality || 'informal';
+  const positivity = (options && options.positivity) || "affirmative";
+  const styling =
+    (options && options.style && styles[options.style]) || styles["castillano"];
+  const formality = options.formality || "informal";
 
   // ignore for castillano
   // istanbul ignore next
-  if (styling.tuteo && person === 'second' && number === 'singular' && formality === 'formal') {
+  if (
+    styling.tuteo &&
+    person === "second" &&
+    number === "singular" &&
+    formality === "formal"
+  ) {
     // in tuteo regions, you always use tu instead of usted
     // for castillano we don't care
     // istanbul ignore next
@@ -281,76 +314,87 @@ export function inflect(verb: string, options: Options): string {
 
   // ignore for castillano
   // istanbul ignore next
-  if (styling.ustedes && person === 'second' && number === 'plural') {
+  if (styling.ustedes && person === "second" && number === "plural") {
     // in ustedes regions, the plural of tu is not vosotros, but ustedes instead,
     // which is the same as the third person plural
     // for castillano we don't care
     // istanbul ignore next
-    person = 'third';
+    person = "third";
   }
 
-  if (tense === 'perfect' || tense === 'pluperfect' || tense === 'future perfect' || tense === 'preterite perfect') {
+  if (
+    tense === "perfect" ||
+    tense === "pluperfect" ||
+    tense === "future perfect" ||
+    tense === "preterite perfect"
+  ) {
     const personObj: EndingsAuxPerson = endingsAux[person];
     const pluralityObj: EndingsAuxPersonNumber = personObj[number];
-    const moodObj = pluralityObj[mood as 'indicative' | 'subjunctive' | 'conditional'];
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    const moodObj =
+      pluralityObj[mood as "indicative" | "subjunctive" | "conditional"];
     // @ts-ignore
-    const aux: string = moodObj[tense as 'perfect' | 'pluperfect' | 'future perfect' | 'preterite perfect'] as string;
-    const suffix = endingsSuffix[ending as 'ar' | 'ir' | 'er']['past participle'].singular.masculine;
-    const pastParticiple = (exceptions[verb] && exceptions[verb]['past participle']) || stem + suffix;
-    ret = aux + ' ' + pastParticiple;
+    const aux: string = moodObj[
+      tense as "perfect" | "pluperfect" | "future perfect" | "preterite perfect"
+    ] as string;
+    const suffix =
+      endingsSuffix[ending as "ar" | "ir" | "er"]["past participle"].singular
+        .masculine;
+    const pastParticiple =
+      (exceptions[verb] && exceptions[verb]["past participle"]) ||
+      stem + suffix;
+    ret = aux + " " + pastParticiple;
   } else {
     if (exceptions[verb]) {
       // see if the requested options cause an exceptional inflection, else generate the regular inflection below
       if (exceptions[verb] && exceptions[verb][mood]) {
         const moodObj = exceptions[verb][mood];
-        const property = mood === 'imperative' ? positivity : tense;
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        const property = mood === "imperative" ? positivity : tense;
         // @ts-ignore
         const tenseObj = moodObj[property];
         if (tenseObj && tenseObj[number] && tenseObj[number][person]) {
           const exc = tenseObj[number][person];
           // istanbul ignore next
-          if (typeof exc === 'string') {
+          if (typeof exc === "string") {
             ret = exc;
           } else {
             // no such thing in exceptions - it is not used
             // istanbul ignore next
-            ret = exc[styling.voseo ? 'vos' : 'tu'];
+            ret = exc[styling.voseo ? "vos" : "tu"];
           }
         }
       }
     }
 
     if (!ret) {
-      const personObj: EndingsPerPerson = endingsSuffix[ending as 'ar' | 'ir' | 'er'][person];
+      const personObj: EndingsPerPerson =
+        endingsSuffix[ending as "ar" | "ir" | "er"][person];
       const pluralityObj: EndingsPerPersonPerNumber = personObj[number];
       const moodObj = pluralityObj[mood];
 
-      if (typeof moodObj === 'string') {
+      if (typeof moodObj === "string") {
         stem = fixStem(stem, ending, moodObj, options);
         ret = stem + moodObj;
       } else {
-        const property: Positivity | Tense = mood === 'imperative' ? positivity : tense;
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        const property: Positivity | Tense =
+          mood === "imperative" ? positivity : tense;
         // @ts-ignore
         const tenseObj: string | TuVos = moodObj[property] as string | TuVos;
         // istanbul ignore else
         if (tenseObj) {
-          if (typeof tenseObj === 'string') {
+          if (typeof tenseObj === "string") {
             stem = fixStem(stem, ending, tenseObj as string, options);
             ret = stem + tenseObj;
           } else {
             // only castillano at the moment
             // istanbul ignore next
-            const tuVoKey: string = styling.voseo ? 'vos' : 'tu';
+            const tuVoKey: string = styling.voseo ? "vos" : "tu";
             const suffix: string = (tenseObj as TuVos)[tuVoKey as keyof TuVos];
             stem = fixStem(stem, ending, suffix, options);
             ret = stem + suffix;
           }
         } else {
           const err = new Error();
-          err.name = 'DictError';
+          err.name = "DictError";
           err.message = `no ${property} property for ${JSON.stringify(moodObj)}`;
           throw err;
         }
@@ -358,8 +402,8 @@ export function inflect(verb: string, options: Options): string {
 
       // fixes
       // eyeron-eieron-morph construction https://www.fcg-net.org/demos/morphology/inflectional-patterns/
-      if (ret && ret.endsWith('eieron')) {
-        ret = ret.replace(/eieron$/, 'eyeron');
+      if (ret && ret.endsWith("eieron")) {
+        ret = ret.replace(/eieron$/, "eyeron");
       }
     }
   }

@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { Mood, Tense, Positivity, NumberSP, Person } from './interfaces';
+import { Mood, Tense, Positivity, NumberSP, Person } from "./interfaces";
 
 type Exceptions = {
   [key: string]: ExceptionWithGerund;
@@ -14,7 +14,7 @@ type Exception = {
 };
 type ExceptionWithGerund = Exception & {
   gerund?: string;
-  'past participle'?: string;
+  "past participle"?: string;
 };
 
 type ExceptionMood = {
@@ -35,92 +35,92 @@ export const exceptions: Exceptions = {
     indicative: {
       present: {
         singular: {
-          first: 'estoy',
-          second: 'estás',
-          third: 'está',
+          first: "estoy",
+          second: "estás",
+          third: "está",
         },
         plural: {
-          third: 'están',
+          third: "están",
         },
       },
       preterite: {
         singular: {
-          first: 'estuve',
-          second: 'estuviste',
-          third: 'estuvo',
+          first: "estuve",
+          second: "estuviste",
+          third: "estuvo",
         },
         plural: {
-          first: 'estuvimos',
-          second: 'estuvisteis',
-          third: 'estuvieron',
+          first: "estuvimos",
+          second: "estuvisteis",
+          third: "estuvieron",
         },
       },
     },
     subjunctive: {
       present: {
         singular: {
-          first: 'esté',
-          second: 'estés',
-          third: 'esté',
+          first: "esté",
+          second: "estés",
+          third: "esté",
         },
         plural: {
-          third: 'estén',
+          third: "estén",
         },
       },
-      'imperfect -ra': {
+      "imperfect -ra": {
         singular: {
-          first: 'estuviera',
-          second: 'estuvieras',
-          third: 'estuviera',
+          first: "estuviera",
+          second: "estuvieras",
+          third: "estuviera",
         },
         plural: {
-          first: 'estuviéramos',
-          second: 'estuvierais',
-          third: 'estuvieran',
+          first: "estuviéramos",
+          second: "estuvierais",
+          third: "estuvieran",
         },
       },
-      'imperfect -se': {
+      "imperfect -se": {
         singular: {
-          first: 'estuviese',
-          second: 'estuvieses',
-          third: 'estuviese',
+          first: "estuviese",
+          second: "estuvieses",
+          third: "estuviese",
         },
         plural: {
-          first: 'estuviésemos',
-          second: 'estuvieseis',
-          third: 'estuviesen',
+          first: "estuviésemos",
+          second: "estuvieseis",
+          third: "estuviesen",
         },
       },
       future: {
         singular: {
-          first: 'estuviere',
-          second: 'estuvieres',
-          third: 'estuviere',
+          first: "estuviere",
+          second: "estuvieres",
+          third: "estuviere",
         },
         plural: {
-          first: 'estuviéremos',
-          second: 'estuviereis',
-          third: 'estuvieren',
+          first: "estuviéremos",
+          second: "estuviereis",
+          third: "estuvieren",
         },
       },
     },
     imperative: {
       affirmative: {
         singular: {
-          second: 'está',
-          third: 'esté',
+          second: "está",
+          third: "esté",
         },
         plural: {
-          third: 'estén',
+          third: "estén",
         },
       },
       negative: {
         singular: {
-          second: 'estés',
-          third: 'esté',
+          second: "estés",
+          third: "esté",
         },
         plural: {
-          third: 'estén',
+          third: "estén",
         },
       },
     },
@@ -130,112 +130,112 @@ export const exceptions: Exceptions = {
     indicative: {
       present: {
         singular: {
-          first: 'soy',
-          second: 'eres',
-          third: 'es',
+          first: "soy",
+          second: "eres",
+          third: "es",
         },
         plural: {
-          first: 'somos',
-          second: 'sois',
-          third: 'son',
+          first: "somos",
+          second: "sois",
+          third: "son",
         },
       },
       preterite: {
         singular: {
-          first: 'fui',
-          second: 'fuiste',
-          third: 'fue',
+          first: "fui",
+          second: "fuiste",
+          third: "fue",
         },
         plural: {
-          first: 'fuimos',
-          second: 'fuisteis',
-          third: 'fueron',
+          first: "fuimos",
+          second: "fuisteis",
+          third: "fueron",
         },
       },
       imperfect: {
         singular: {
-          first: 'era',
-          second: 'eras',
-          third: 'era',
+          first: "era",
+          second: "eras",
+          third: "era",
         },
         plural: {
-          first: 'éramos',
-          second: 'erais',
-          third: 'eran',
+          first: "éramos",
+          second: "erais",
+          third: "eran",
         },
       },
     },
     subjunctive: {
       present: {
         singular: {
-          first: 'sea',
-          second: 'seas',
-          third: 'sea',
+          first: "sea",
+          second: "seas",
+          third: "sea",
         },
         plural: {
-          first: 'seamos',
-          second: 'seáis',
-          third: 'sean',
+          first: "seamos",
+          second: "seáis",
+          third: "sean",
         },
       },
-      'imperfect -ra': {
+      "imperfect -ra": {
         singular: {
-          first: 'fuera',
-          second: 'fueras',
-          third: 'fuera',
+          first: "fuera",
+          second: "fueras",
+          third: "fuera",
         },
         plural: {
-          first: 'fuéramos',
-          second: 'fuéramos',
-          third: 'fueran',
+          first: "fuéramos",
+          second: "fuéramos",
+          third: "fueran",
         },
       },
-      'imperfect -se': {
+      "imperfect -se": {
         singular: {
-          first: 'fuese',
-          second: 'fueses',
-          third: 'fuese',
+          first: "fuese",
+          second: "fueses",
+          third: "fuese",
         },
         plural: {
-          first: 'fuésemos',
-          second: 'fueseis',
-          third: 'fuesen',
+          first: "fuésemos",
+          second: "fueseis",
+          third: "fuesen",
         },
       },
       future: {
         singular: {
-          first: 'fuere',
-          second: 'fueres',
-          third: 'fuere',
+          first: "fuere",
+          second: "fueres",
+          third: "fuere",
         },
         plural: {
-          first: 'fuéremos',
-          second: 'fuereis',
-          third: 'fueren',
+          first: "fuéremos",
+          second: "fuereis",
+          third: "fueren",
         },
       },
     },
     imperative: {
       affirmative: {
         singular: {
-          second: 'sé',
-          third: 'sea',
+          second: "sé",
+          third: "sea",
         },
         plural: {
-          first: 'seamos',
-          second: 'sed',
-          third: 'sean',
+          first: "seamos",
+          second: "sed",
+          third: "sean",
         },
       },
       negative: {
         singular: {
-          second: 'seas',
-          third: 'sea',
+          second: "seas",
+          third: "sea",
         },
         plural: {
-          first: 'seamos',
-          second: 'seáis',
-          third: 'sean',
+          first: "seamos",
+          second: "seáis",
+          third: "sean",
         },
       },
     },
@@ -245,137 +245,137 @@ export const exceptions: Exceptions = {
     indicative: {
       present: {
         singular: {
-          first: 'he',
-          second: 'has',
-          third: 'hay',
+          first: "he",
+          second: "has",
+          third: "hay",
         },
         plural: {
-          first: 'hemos',
-          third: 'han',
+          first: "hemos",
+          third: "han",
         },
       },
       preterite: {
         singular: {
-          first: 'hube',
-          second: 'hubiste',
-          third: 'hubo',
+          first: "hube",
+          second: "hubiste",
+          third: "hubo",
         },
         plural: {
-          first: 'hubimos',
-          second: 'hubisteis',
-          third: 'hubieron',
+          first: "hubimos",
+          second: "hubisteis",
+          third: "hubieron",
         },
       },
       future: {
         singular: {
-          first: 'habré',
-          second: 'habrás',
-          third: 'habrá',
+          first: "habré",
+          second: "habrás",
+          third: "habrá",
         },
         plural: {
-          first: 'habremos',
-          second: 'habréis',
-          third: 'habrán',
+          first: "habremos",
+          second: "habréis",
+          third: "habrán",
         },
       },
     },
     subjunctive: {
       present: {
         singular: {
-          first: 'haya',
-          second: 'hayas',
-          third: 'haya',
+          first: "haya",
+          second: "hayas",
+          third: "haya",
         },
         plural: {
-          first: 'hayamos',
-          second: 'hayáis',
-          third: 'hayan',
+          first: "hayamos",
+          second: "hayáis",
+          third: "hayan",
         },
       },
-      'imperfect -ra': {
+      "imperfect -ra": {
         singular: {
-          first: 'hubiera',
-          second: 'hubieras',
-          third: 'hubiera',
+          first: "hubiera",
+          second: "hubieras",
+          third: "hubiera",
         },
         plural: {
-          first: 'hubiéramos',
-          second: 'hubierais',
-          third: 'hubieran',
+          first: "hubiéramos",
+          second: "hubierais",
+          third: "hubieran",
         },
       },
-      'imperfect -se': {
+      "imperfect -se": {
         singular: {
-          first: 'hubiese',
-          second: 'hubieses',
-          third: 'hubiese',
+          first: "hubiese",
+          second: "hubieses",
+          third: "hubiese",
         },
         plural: {
-          first: 'hubiésemos',
-          second: 'hubieseis',
-          third: 'hubiesen',
+          first: "hubiésemos",
+          second: "hubieseis",
+          third: "hubiesen",
         },
       },
       future: {
         singular: {
-          first: 'hubiere',
-          second: 'hubieres',
-          third: 'hubiere',
+          first: "hubiere",
+          second: "hubieres",
+          third: "hubiere",
         },
         plural: {
-          first: 'hubiéremos',
-          second: 'hubiereis',
-          third: 'hubieren',
+          first: "hubiéremos",
+          second: "hubiereis",
+          third: "hubieren",
         },
       },
     },
     imperative: {
       affirmative: {
         singular: {
-          second: 'he',
-          third: 'haya',
+          second: "he",
+          third: "haya",
         },
         plural: {
-          first: 'hayamos',
-          second: 'habed',
-          third: 'hayan',
+          first: "hayamos",
+          second: "habed",
+          third: "hayan",
         },
       },
       negative: {
         singular: {
-          second: 'hayes',
-          third: 'haya',
+          second: "hayes",
+          third: "haya",
         },
         plural: {
-          first: 'hayamos',
-          second: 'hayáis',
-          third: 'hayan',
+          first: "hayamos",
+          second: "hayáis",
+          third: "hayan",
         },
       },
     },
     conditional: {
       present: {
         singular: {
-          first: 'habría',
-          second: 'habrías',
-          third: 'habría',
+          first: "habría",
+          second: "habrías",
+          third: "habría",
         },
         plural: {
-          first: 'habríamos',
-          second: 'habríais',
-          third: 'habrían',
+          first: "habríamos",
+          second: "habríais",
+          third: "habrían",
         },
       },
       future: {
         singular: {
-          first: 'habré',
-          second: 'habrás',
-          third: 'habrá',
+          first: "habré",
+          second: "habrás",
+          third: "habrá",
         },
         plural: {
-          first: 'habremos',
-          second: 'habréis',
-          third: 'habrán',
+          first: "habremos",
+          second: "habréis",
+          third: "habrán",
         },
       },
     },
@@ -385,123 +385,123 @@ export const exceptions: Exceptions = {
     indicative: {
       present: {
         singular: {
-          first: 'tengo',
-          second: 'tienes',
-          third: 'tiene',
+          first: "tengo",
+          second: "tienes",
+          third: "tiene",
         },
         plural: {
-          third: 'tienen',
+          third: "tienen",
         },
       },
       preterite: {
         singular: {
-          first: 'tuve',
-          second: 'tuviste',
-          third: 'tuvo',
+          first: "tuve",
+          second: "tuviste",
+          third: "tuvo",
         },
         plural: {
-          first: 'tuvimos',
-          second: 'tuvisteis',
-          third: 'tuvieron',
+          first: "tuvimos",
+          second: "tuvisteis",
+          third: "tuvieron",
         },
       },
       future: {
         singular: {
-          first: 'tendré',
-          second: 'tendrás',
-          third: 'tendrá',
+          first: "tendré",
+          second: "tendrás",
+          third: "tendrá",
         },
         plural: {
-          first: 'tendremos',
-          second: 'tendréis',
-          third: 'tendrán',
+          first: "tendremos",
+          second: "tendréis",
+          third: "tendrán",
         },
       },
     },
     subjunctive: {
       present: {
         singular: {
-          first: 'tenga',
-          second: 'tengas',
-          third: 'tenga',
+          first: "tenga",
+          second: "tengas",
+          third: "tenga",
         },
         plural: {
-          first: 'tengamos',
-          second: 'tengáis',
-          third: 'tengan',
+          first: "tengamos",
+          second: "tengáis",
+          third: "tengan",
         },
       },
-      'imperfect -ra': {
+      "imperfect -ra": {
         singular: {
-          first: 'tuviera',
-          second: 'tuvieras',
-          third: 'tuviera',
+          first: "tuviera",
+          second: "tuvieras",
+          third: "tuviera",
         },
         plural: {
-          first: 'tuviéramos',
-          second: 'tuvierais',
-          third: 'tuvieran',
+          first: "tuviéramos",
+          second: "tuvierais",
+          third: "tuvieran",
         },
       },
-      'imperfect -se': {
+      "imperfect -se": {
         singular: {
-          first: 'tuviese',
-          second: 'tuvieses',
-          third: 'tuviese',
+          first: "tuviese",
+          second: "tuvieses",
+          third: "tuviese",
         },
         plural: {
-          first: 'tuviésemos',
-          second: 'tuvieseis',
-          third: 'tuviesen',
+          first: "tuviésemos",
+          second: "tuvieseis",
+          third: "tuviesen",
         },
       },
       future: {
         singular: {
-          first: 'tuviere',
-          second: 'tuvieres',
-          third: 'tuviere',
+          first: "tuviere",
+          second: "tuvieres",
+          third: "tuviere",
         },
         plural: {
-          first: 'tuviéremos',
-          second: 'tuviereis',
-          third: 'tuvieren',
+          first: "tuviéremos",
+          second: "tuviereis",
+          third: "tuvieren",
         },
       },
     },
     conditional: {
       present: {
         singular: {
-          first: 'tendría',
-          second: 'tendrías',
-          third: 'tendría',
+          first: "tendría",
+          second: "tendrías",
+          third: "tendría",
         },
         plural: {
-          first: 'tendríamos',
-          second: 'tendríais',
-          third: 'tendrían',
+          first: "tendríamos",
+          second: "tendríais",
+          third: "tendrían",
         },
       },
     },
     imperative: {
       affirmative: {
         singular: {
-          second: 'ten',
-          third: 'tenga',
+          second: "ten",
+          third: "tenga",
         },
         plural: {
-          first: 'tengamos',
-          third: 'tengan',
+          first: "tengamos",
+          third: "tengan",
         },
       },
       negative: {
         singular: {
-          second: 'tengas',
-          third: 'tenga',
+          second: "tengas",
+          third: "tenga",
         },
         plural: {
-          first: 'tengamos',
-          second: 'tengáis',
-          third: 'tengan',
+          first: "tengamos",
+          second: "tengáis",
+          third: "tengan",
         },
       },
     },
@@ -511,233 +511,233 @@ export const exceptions: Exceptions = {
     indicative: {
       present: {
         singular: {
-          first: 'puedo',
-          second: 'puedes',
-          third: 'puede',
+          first: "puedo",
+          second: "puedes",
+          third: "puede",
         },
         plural: {
-          third: 'pueden',
+          third: "pueden",
         },
       },
       preterite: {
         singular: {
-          first: 'pude',
-          second: 'pudiste',
-          third: 'pudo',
+          first: "pude",
+          second: "pudiste",
+          third: "pudo",
         },
         plural: {
-          first: 'pudimos',
-          second: 'pudisteis',
-          third: 'pudieron',
+          first: "pudimos",
+          second: "pudisteis",
+          third: "pudieron",
         },
       },
       future: {
         singular: {
-          first: 'podré',
-          second: 'podrás',
-          third: 'podrá',
+          first: "podré",
+          second: "podrás",
+          third: "podrá",
         },
         plural: {
-          first: 'podremos',
-          second: 'podréis',
-          third: 'podrán',
+          first: "podremos",
+          second: "podréis",
+          third: "podrán",
         },
       },
     },
     subjunctive: {
       present: {
         singular: {
-          first: 'pueda',
-          second: 'puedas',
-          third: 'pueda',
+          first: "pueda",
+          second: "puedas",
+          third: "pueda",
         },
         plural: {
-          third: 'puedan',
+          third: "puedan",
         },
       },
-      'imperfect -ra': {
+      "imperfect -ra": {
         singular: {
-          first: 'pudiera',
-          second: 'pudieras',
-          third: 'pudiera',
+          first: "pudiera",
+          second: "pudieras",
+          third: "pudiera",
         },
         plural: {
-          first: 'pudiéramos',
-          second: 'pudierais',
-          third: 'pudieran',
+          first: "pudiéramos",
+          second: "pudierais",
+          third: "pudieran",
         },
       },
-      'imperfect -se': {
+      "imperfect -se": {
         singular: {
-          first: 'pudiese',
-          second: 'pudieses',
-          third: 'pudiese',
+          first: "pudiese",
+          second: "pudieses",
+          third: "pudiese",
         },
         plural: {
-          first: 'pudiésemos',
-          second: 'pudieseis',
-          third: 'pudiesen',
+          first: "pudiésemos",
+          second: "pudieseis",
+          third: "pudiesen",
         },
       },
       future: {
         singular: {
-          first: 'pudiere',
-          second: 'pudieres',
-          third: 'pudiere',
+          first: "pudiere",
+          second: "pudieres",
+          third: "pudiere",
         },
         plural: {
-          first: 'pudiéremos',
-          second: 'pudiereis',
-          third: 'pudieren',
+          first: "pudiéremos",
+          second: "pudiereis",
+          third: "pudieren",
         },
       },
     },
     conditional: {
       present: {
         singular: {
-          first: 'podría',
-          second: 'podrías',
-          third: 'podría',
+          first: "podría",
+          second: "podrías",
+          third: "podría",
         },
         plural: {
-          first: 'podríamos',
-          second: 'podríais',
-          third: 'podrían',
+          first: "podríamos",
+          second: "podríais",
+          third: "podrían",
         },
       },
     },
     imperative: {
       affirmative: {
         singular: {
-          second: 'puede',
-          third: 'pueda',
+          second: "puede",
+          third: "pueda",
         },
         plural: {
-          third: 'puedan',
+          third: "puedan",
         },
       },
       negative: {
         singular: {
-          second: 'puedas',
-          third: 'pueda',
+          second: "puedas",
+          third: "pueda",
         },
         plural: {
-          third: 'puedan',
+          third: "puedan",
         },
       },
     },
   },
 
   ir: {
-    gerund: 'yendo',
+    gerund: "yendo",
     indicative: {
       present: {
         singular: {
-          first: 'voy',
-          second: 'vas',
-          third: 'va',
+          first: "voy",
+          second: "vas",
+          third: "va",
         },
         plural: {
-          first: 'vamos',
-          second: 'vais',
-          third: 'van',
+          first: "vamos",
+          second: "vais",
+          third: "van",
         },
       },
       preterite: {
         singular: {
-          first: 'fui',
-          second: 'fuiste',
-          third: 'fue',
+          first: "fui",
+          second: "fuiste",
+          third: "fue",
         },
         plural: {
-          first: 'fuimos',
-          second: 'fuisteis',
-          third: 'fueron',
+          first: "fuimos",
+          second: "fuisteis",
+          third: "fueron",
         },
       },
       imperfect: {
         singular: {
-          first: 'iba',
-          second: 'ibas',
-          third: 'iba',
+          first: "iba",
+          second: "ibas",
+          third: "iba",
         },
         plural: {
-          first: 'íbamos',
-          second: 'ibais',
-          third: 'iban',
+          first: "íbamos",
+          second: "ibais",
+          third: "iban",
         },
       },
     },
     subjunctive: {
       present: {
         singular: {
-          first: 'vaya',
-          second: 'vayas',
-          third: 'vaya',
+          first: "vaya",
+          second: "vayas",
+          third: "vaya",
         },
         plural: {
-          first: 'vayamos',
-          second: 'vayáis',
-          third: 'vayan',
+          first: "vayamos",
+          second: "vayáis",
+          third: "vayan",
         },
       },
-      'imperfect -ra': {
+      "imperfect -ra": {
         singular: {
-          first: 'fuera',
-          second: 'fueras',
-          third: 'fuera',
+          first: "fuera",
+          second: "fueras",
+          third: "fuera",
         },
         plural: {
-          first: 'fuéramos',
-          second: 'fuerais',
-          third: 'fueran',
+          first: "fuéramos",
+          second: "fuerais",
+          third: "fueran",
         },
       },
-      'imperfect -se': {
+      "imperfect -se": {
         singular: {
-          first: 'fuese',
-          second: 'fueses',
-          third: 'fuese',
+          first: "fuese",
+          second: "fueses",
+          third: "fuese",
         },
         plural: {
-          first: 'fuésemos',
-          second: 'fueseis',
-          third: 'fuesen',
+          first: "fuésemos",
+          second: "fueseis",
+          third: "fuesen",
         },
       },
       future: {
         singular: {
-          first: 'fuere',
-          second: 'fueres',
-          third: 'fuere',
+          first: "fuere",
+          second: "fueres",
+          third: "fuere",
         },
         plural: {
-          first: 'fuéremos',
-          second: 'fuereis',
-          third: 'fueren',
+          first: "fuéremos",
+          second: "fuereis",
+          third: "fueren",
         },
       },
     },
     imperative: {
       affirmative: {
         singular: {
-          second: 've',
-          third: 'vaya',
+          second: "ve",
+          third: "vaya",
         },
         plural: {
-          first: 'vayamos',
-          third: 'vayan',
+          first: "vayamos",
+          third: "vayan",
         },
       },
       negative: {
         singular: {
-          second: 'vayas',
-          third: 'vaya',
+          second: "vayas",
+          third: "vaya",
         },
         plural: {
-          first: 'vayamos',
-          second: 'vayáis',
-          third: 'vayan',
+          first: "vayamos",
+          second: "vayáis",
+          third: "vayan",
         },
       },
     },
@@ -747,84 +747,84 @@ export const exceptions: Exceptions = {
     indicative: {
       present: {
         singular: {
-          first: 'doy',
+          first: "doy",
         },
         plural: {
-          second: 'dais',
+          second: "dais",
         },
       },
       preterite: {
         singular: {
-          first: 'di',
-          second: 'diste',
-          third: 'dio',
+          first: "di",
+          second: "diste",
+          third: "dio",
         },
         plural: {
-          first: 'dimos',
-          second: 'disteis',
-          third: 'dieron',
+          first: "dimos",
+          second: "disteis",
+          third: "dieron",
         },
       },
     },
     subjunctive: {
       present: {
         singular: {
-          first: 'dé',
-          third: 'dé',
+          first: "dé",
+          third: "dé",
         },
         plural: {
-          second: 'deis',
+          second: "deis",
         },
       },
-      'imperfect -ra': {
+      "imperfect -ra": {
         singular: {
-          first: 'diera',
-          second: 'dieras',
-          third: 'diera',
+          first: "diera",
+          second: "dieras",
+          third: "diera",
         },
         plural: {
-          first: 'diéramos',
-          second: 'dierais',
-          third: 'dieran',
+          first: "diéramos",
+          second: "dierais",
+          third: "dieran",
         },
       },
-      'imperfect -se': {
+      "imperfect -se": {
         singular: {
-          first: 'diese',
-          second: 'dieses',
-          third: 'diese',
+          first: "diese",
+          second: "dieses",
+          third: "diese",
         },
         plural: {
-          first: 'diésemos',
-          second: 'dieseis',
-          third: 'diesen',
+          first: "diésemos",
+          second: "dieseis",
+          third: "diesen",
         },
       },
       future: {
         singular: {
-          first: 'diere',
-          second: 'dieres',
-          third: 'diere',
+          first: "diere",
+          second: "dieres",
+          third: "diere",
         },
         plural: {
-          first: 'diéremos',
-          second: 'diereis',
-          third: 'dieren',
+          first: "diéremos",
+          second: "diereis",
+          third: "dieren",
         },
       },
     },
     imperative: {
       affirmative: {
         singular: {
-          third: 'dé',
+          third: "dé",
         },
       },
       negative: {
         singular: {
-          third: 'dé',
+          third: "dé",
         },
         plural: {
-          second: 'deis',
+          second: "deis",
         },
       },
     },
@@ -834,117 +834,117 @@ export const exceptions: Exceptions = {
     indicative: {
       present: {
         singular: {
-          first: 'sé',
+          first: "sé",
         },
       },
       preterite: {
         singular: {
-          first: 'supe',
-          second: 'supiste',
-          third: 'supo',
+          first: "supe",
+          second: "supiste",
+          third: "supo",
         },
         plural: {
-          first: 'supimos',
-          second: 'supisteis',
-          third: 'supieron',
+          first: "supimos",
+          second: "supisteis",
+          third: "supieron",
         },
       },
       future: {
         singular: {
-          first: 'sabré',
-          second: 'sabrás',
-          third: 'sabrá',
+          first: "sabré",
+          second: "sabrás",
+          third: "sabrá",
         },
         plural: {
-          first: 'sabremos',
-          second: 'sabréis',
-          third: 'sabrán',
+          first: "sabremos",
+          second: "sabréis",
+          third: "sabrán",
         },
       },
     },
     subjunctive: {
       present: {
         singular: {
-          first: 'sepa',
-          second: 'sepas',
-          third: 'sepa',
+          first: "sepa",
+          second: "sepas",
+          third: "sepa",
         },
         plural: {
-          first: 'sepamos',
-          second: 'sepáis',
-          third: 'sepan',
+          first: "sepamos",
+          second: "sepáis",
+          third: "sepan",
         },
       },
-      'imperfect -ra': {
+      "imperfect -ra": {
         singular: {
-          first: 'supiera',
-          second: 'supieras',
-          third: 'supiera',
+          first: "supiera",
+          second: "supieras",
+          third: "supiera",
         },
         plural: {
-          first: 'supiéramos',
-          second: 'supierais',
-          third: 'supieran',
+          first: "supiéramos",
+          second: "supierais",
+          third: "supieran",
         },
       },
-      'imperfect -se': {
+      "imperfect -se": {
         singular: {
-          first: 'supiese',
-          second: 'supieses',
-          third: 'supiese',
+          first: "supiese",
+          second: "supieses",
+          third: "supiese",
         },
         plural: {
-          first: 'supiésemos',
-          second: 'supieseis',
-          third: 'supiesen',
+          first: "supiésemos",
+          second: "supieseis",
+          third: "supiesen",
         },
       },
       future: {
         singular: {
-          first: 'supiere',
-          second: 'supieres',
-          third: 'supiere',
+          first: "supiere",
+          second: "supieres",
+          third: "supiere",
         },
         plural: {
-          first: 'supiéremos',
-          second: 'supiereis',
-          third: 'supieren',
+          first: "supiéremos",
+          second: "supiereis",
+          third: "supieren",
         },
       },
     },
     conditional: {
       present: {
         singular: {
-          first: 'sabría',
-          second: 'sabrías',
-          third: 'sabría',
+          first: "sabría",
+          second: "sabrías",
+          third: "sabría",
         },
         plural: {
-          first: 'sabríamos',
-          second: 'sabríais',
-          third: 'sabrían',
+          first: "sabríamos",
+          second: "sabríais",
+          third: "sabrían",
         },
       },
     },
     imperative: {
       affirmative: {
         singular: {
-          third: 'sepa',
+          third: "sepa",
         },
         plural: {
-          first: 'sepamos',
-          third: 'sepan',
+          first: "sepamos",
+          third: "sepan",
         },
       },
       negative: {
         singular: {
-          second: 'sepas',
-          third: 'sepa',
+          second: "sepas",
+          third: "sepa",
         },
         plural: {
-          first: 'sepamos',
-          second: 'sepáis',
-          third: 'sepan',
+          first: "sepamos",
+          second: "sepáis",
+          third: "sepan",
         },
       },
     },
@@ -954,171 +954,171 @@ export const exceptions: Exceptions = {
     indicative: {
       present: {
         singular: {
-          first: 'quiero',
-          second: 'quieres',
-          third: 'quiere',
+          first: "quiero",
+          second: "quieres",
+          third: "quiere",
         },
         plural: {
-          third: 'quieren',
+          third: "quieren",
         },
       },
       preterite: {
         singular: {
-          first: 'quise',
-          second: 'quisiste',
-          third: 'quiso',
+          first: "quise",
+          second: "quisiste",
+          third: "quiso",
         },
         plural: {
-          first: 'quisimos',
-          second: 'quisisteis',
-          third: 'quisieron',
+          first: "quisimos",
+          second: "quisisteis",
+          third: "quisieron",
         },
       },
       future: {
         singular: {
-          first: 'querré',
-          second: 'querrás',
-          third: 'querrá',
+          first: "querré",
+          second: "querrás",
+          third: "querrá",
         },
         plural: {
-          first: 'querremos',
-          second: 'querréis',
-          third: 'querrán',
+          first: "querremos",
+          second: "querréis",
+          third: "querrán",
         },
       },
     },
     subjunctive: {
       present: {
         singular: {
-          first: 'quiera',
-          second: 'quieras',
-          third: 'quiera',
+          first: "quiera",
+          second: "quieras",
+          third: "quiera",
         },
         plural: {
-          third: 'quieran',
+          third: "quieran",
         },
       },
-      'imperfect -ra': {
+      "imperfect -ra": {
         singular: {
-          first: 'quisiera',
-          second: 'quisieras',
-          third: 'quisiera',
+          first: "quisiera",
+          second: "quisieras",
+          third: "quisiera",
         },
         plural: {
-          first: 'quisiéramos',
-          second: 'quisierais',
-          third: 'quisieran',
+          first: "quisiéramos",
+          second: "quisierais",
+          third: "quisieran",
         },
       },
-      'imperfect -se': {
+      "imperfect -se": {
         singular: {
-          first: 'quisiese',
-          second: 'quisieses',
-          third: 'quisiese',
+          first: "quisiese",
+          second: "quisieses",
+          third: "quisiese",
         },
         plural: {
-          first: 'quisiésemos',
-          second: 'quisieseis',
-          third: 'quisiesen',
+          first: "quisiésemos",
+          second: "quisieseis",
+          third: "quisiesen",
         },
       },
       future: {
         singular: {
-          first: 'quisiere',
-          second: 'quisieres',
-          third: 'quisiere',
+          first: "quisiere",
+          second: "quisieres",
+          third: "quisiere",
         },
         plural: {
-          first: 'quisiéremos',
-          second: 'quisiereis',
-          third: 'quisieren',
+          first: "quisiéremos",
+          second: "quisiereis",
+          third: "quisieren",
         },
       },
     },
     conditional: {
       present: {
         singular: {
-          first: 'querría',
-          second: 'querrías',
-          third: 'querría',
+          first: "querría",
+          second: "querrías",
+          third: "querría",
         },
         plural: {
-          first: 'querríamos',
-          second: 'querríais',
-          third: 'querrían',
+          first: "querríamos",
+          second: "querríais",
+          third: "querrían",
         },
       },
     },
     imperative: {
       affirmative: {
         singular: {
-          second: 'quiere',
-          third: 'quiera',
+          second: "quiere",
+          third: "quiera",
         },
         plural: {
-          third: 'quieran',
+          third: "quieran",
         },
       },
       negative: {
         singular: {
-          second: 'quieras',
-          third: 'quiera',
+          second: "quieras",
+          third: "quiera",
         },
         plural: {
-          third: 'quieran',
+          third: "quieran",
         },
       },
     },
   },
 
   creer: {
-    'past participle': 'creido',
-    gerund: 'creyendo',
+    "past participle": "creido",
+    gerund: "creyendo",
     indicative: {
       preterite: {
         singular: {
-          third: 'creyó',
+          third: "creyó",
         },
         plural: {
-          third: 'creyeron',
+          third: "creyeron",
         },
       },
     },
     subjunctive: {
-      'imperfect -ra': {
+      "imperfect -ra": {
         singular: {
-          first: 'creyera',
-          second: 'creyeras',
-          third: 'creyera',
+          first: "creyera",
+          second: "creyeras",
+          third: "creyera",
         },
         plural: {
-          first: 'creyéramos',
-          second: 'creyerais',
-          third: 'creyeran',
+          first: "creyéramos",
+          second: "creyerais",
+          third: "creyeran",
         },
       },
-      'imperfect -se': {
+      "imperfect -se": {
         singular: {
-          first: 'creyese',
-          second: 'creyeses',
-          third: 'creyese',
+          first: "creyese",
+          second: "creyeses",
+          third: "creyese",
         },
         plural: {
-          first: 'creyésemos',
-          second: 'creyeseis',
-          third: 'creyesen',
+          first: "creyésemos",
+          second: "creyeseis",
+          third: "creyesen",
         },
       },
       future: {
         singular: {
-          first: 'creyere',
-          second: 'creyeres',
-          third: 'creyere',
+          first: "creyere",
+          second: "creyeres",
+          third: "creyere",
         },
         plural: {
-          first: 'creyéremos',
-          second: 'creyereis',
-          third: 'creyeren',
+          first: "creyéremos",
+          second: "creyereis",
+          third: "creyeren",
         },
       },
     },
@@ -1128,93 +1128,93 @@ export const exceptions: Exceptions = {
     indicative: {
       present: {
         singular: {
-          first: 'sigo',
-          second: 'sigues',
-          third: 'sigue',
+          first: "sigo",
+          second: "sigues",
+          third: "sigue",
         },
         plural: {
-          third: 'siguen',
+          third: "siguen",
         },
       },
       preterite: {
         singular: {
-          third: 'siguió',
+          third: "siguió",
         },
         plural: {
-          third: 'siguieron',
+          third: "siguieron",
         },
       },
     },
     subjunctive: {
       present: {
         singular: {
-          first: 'siga',
-          second: 'sigas',
-          third: 'siga',
+          first: "siga",
+          second: "sigas",
+          third: "siga",
         },
         plural: {
-          first: 'sigamos',
-          second: 'sigáis',
-          third: 'sigan',
+          first: "sigamos",
+          second: "sigáis",
+          third: "sigan",
         },
       },
-      'imperfect -ra': {
+      "imperfect -ra": {
         singular: {
-          first: 'siguiera',
-          second: 'siguieras',
-          third: 'siguiera',
+          first: "siguiera",
+          second: "siguieras",
+          third: "siguiera",
         },
         plural: {
-          first: 'siguiéramos',
-          second: 'siguierais',
-          third: 'siguieran',
+          first: "siguiéramos",
+          second: "siguierais",
+          third: "siguieran",
         },
       },
-      'imperfect -se': {
+      "imperfect -se": {
         singular: {
-          first: 'siguiese',
-          second: 'siguieses',
-          third: 'siguiese',
+          first: "siguiese",
+          second: "siguieses",
+          third: "siguiese",
         },
         plural: {
-          first: 'siguiésemos',
-          second: 'siguieseis',
-          third: 'siguiesen',
+          first: "siguiésemos",
+          second: "siguieseis",
+          third: "siguiesen",
         },
       },
       future: {
         singular: {
-          first: 'siguiere',
-          second: 'siguieres',
-          third: 'siguiere',
+          first: "siguiere",
+          second: "siguieres",
+          third: "siguiere",
         },
         plural: {
-          first: 'siguiéremos',
-          second: 'siguiereis',
-          third: 'siguieren',
+          first: "siguiéremos",
+          second: "siguiereis",
+          third: "siguieren",
         },
       },
     },
     imperative: {
       affirmative: {
         singular: {
-          second: 'sigue',
-          third: 'siga',
+          second: "sigue",
+          third: "siga",
         },
         plural: {
-          first: 'sigamos',
-          third: 'sigan',
+          first: "sigamos",
+          third: "sigan",
         },
       },
       negative: {
         singular: {
-          second: 'sigas',
-          third: 'siga',
+          second: "sigas",
+          third: "siga",
         },
         plural: {
-          first: 'sigamos',
-          second: 'sigáis',
-          third: 'sigan',
+          first: "sigamos",
+          second: "sigáis",
+          third: "sigan",
         },
       },
     },
@@ -1224,546 +1224,546 @@ export const exceptions: Exceptions = {
     indicative: {
       present: {
         singular: {
-          first: 'consigo',
-          second: 'consigues',
-          third: 'consigue',
+          first: "consigo",
+          second: "consigues",
+          third: "consigue",
         },
         plural: {
-          third: 'consiguen',
+          third: "consiguen",
         },
       },
       preterite: {
         singular: {
-          third: 'consiguió',
+          third: "consiguió",
         },
         plural: {
-          third: 'consiguieron',
+          third: "consiguieron",
         },
       },
     },
     subjunctive: {
       present: {
         singular: {
-          first: 'consiga',
-          second: 'consigas',
-          third: 'consiga',
+          first: "consiga",
+          second: "consigas",
+          third: "consiga",
         },
         plural: {
-          third: 'consigan',
+          third: "consigan",
         },
       },
-      'imperfect -ra': {
+      "imperfect -ra": {
         singular: {
-          first: 'consiguiera',
-          second: 'consiguieras',
-          third: 'consiguiera',
+          first: "consiguiera",
+          second: "consiguieras",
+          third: "consiguiera",
         },
         plural: {
-          first: 'consiguiéramos',
-          second: 'consiguierais',
-          third: 'consiguieran',
+          first: "consiguiéramos",
+          second: "consiguierais",
+          third: "consiguieran",
         },
       },
-      'imperfect -se': {
+      "imperfect -se": {
         singular: {
-          first: 'consiguiese',
-          second: 'consiguieses',
-          third: 'consiguiese',
+          first: "consiguiese",
+          second: "consiguieses",
+          third: "consiguiese",
         },
         plural: {
-          first: 'consiguiésemos',
-          second: 'consiguieseis',
-          third: 'consiguiesen',
+          first: "consiguiésemos",
+          second: "consiguieseis",
+          third: "consiguiesen",
         },
       },
       future: {
         singular: {
-          first: 'consiguiere',
-          second: 'consiguieres',
-          third: 'consiguiere',
+          first: "consiguiere",
+          second: "consiguieres",
+          third: "consiguiere",
         },
         plural: {
-          first: 'consiguiéremos',
-          second: 'consiguiereis',
-          third: 'consiguieren',
+          first: "consiguiéremos",
+          second: "consiguiereis",
+          third: "consiguieren",
         },
       },
     },
     imperative: {
       affirmative: {
         singular: {
-          second: 'consigue',
-          third: 'consiga',
+          second: "consigue",
+          third: "consiga",
         },
         plural: {
-          first: 'consigamos',
-          third: 'consigan',
+          first: "consigamos",
+          third: "consigan",
         },
       },
       negative: {
         singular: {
-          second: 'consigas',
-          third: 'consiga',
+          second: "consigas",
+          third: "consiga",
         },
         plural: {
-          first: 'consigamos',
-          second: 'consigáis',
-          third: 'consigan',
+          first: "consigamos",
+          second: "consigáis",
+          third: "consigan",
         },
       },
     },
   },
 
   abrir: {
-    'past participle': 'abierto',
+    "past participle": "abierto",
   },
   cubrir: {
-    'past participle': 'cubierto',
+    "past participle": "cubierto",
   },
   decir: {
-    'past participle': 'dicho',
-    gerund: 'diciendo',
+    "past participle": "dicho",
+    gerund: "diciendo",
     indicative: {
       present: {
         singular: {
-          first: 'digo',
-          second: 'dices',
-          third: 'dice',
+          first: "digo",
+          second: "dices",
+          third: "dice",
         },
         plural: {
-          third: 'dicen',
+          third: "dicen",
         },
       },
       preterite: {
         singular: {
-          first: 'dije',
-          second: 'dijiste',
-          third: 'dijo',
+          first: "dije",
+          second: "dijiste",
+          third: "dijo",
         },
         plural: {
-          first: 'dijimos',
-          second: 'dijisteis',
-          third: 'dijeron',
+          first: "dijimos",
+          second: "dijisteis",
+          third: "dijeron",
         },
       },
       future: {
         singular: {
-          first: 'diré',
-          second: 'dirás',
-          third: 'dirá',
+          first: "diré",
+          second: "dirás",
+          third: "dirá",
         },
         plural: {
-          first: 'diremos',
-          second: 'diréis',
-          third: 'dirán',
+          first: "diremos",
+          second: "diréis",
+          third: "dirán",
         },
       },
     },
     subjunctive: {
       present: {
         singular: {
-          first: 'diga',
-          second: 'digas',
-          third: 'diga',
+          first: "diga",
+          second: "digas",
+          third: "diga",
         },
         plural: {
-          first: 'digamos',
-          second: 'digáis',
-          third: 'digan',
+          first: "digamos",
+          second: "digáis",
+          third: "digan",
         },
       },
-      'imperfect -ra': {
+      "imperfect -ra": {
         singular: {
-          first: 'dijera',
-          second: 'dijeras',
-          third: 'dijera',
+          first: "dijera",
+          second: "dijeras",
+          third: "dijera",
         },
         plural: {
-          first: 'dijéramos',
-          second: 'dijerais',
-          third: 'dijeran',
+          first: "dijéramos",
+          second: "dijerais",
+          third: "dijeran",
         },
       },
-      'imperfect -se': {
+      "imperfect -se": {
         singular: {
-          first: 'dijese',
-          second: 'dijeses',
-          third: 'dijese',
+          first: "dijese",
+          second: "dijeses",
+          third: "dijese",
         },
         plural: {
-          first: 'dijésemos',
-          second: 'dijeseis',
-          third: 'dijesen',
+          first: "dijésemos",
+          second: "dijeseis",
+          third: "dijesen",
         },
       },
       future: {
         singular: {
-          first: 'dijere',
-          second: 'dijeres',
-          third: 'dijere',
+          first: "dijere",
+          second: "dijeres",
+          third: "dijere",
         },
         plural: {
-          first: 'dijéremos',
-          second: 'dijereis',
-          third: 'dijeren',
+          first: "dijéremos",
+          second: "dijereis",
+          third: "dijeren",
         },
       },
     },
     conditional: {
       present: {
         singular: {
-          first: 'diría',
-          second: 'dirías',
-          third: 'diría',
+          first: "diría",
+          second: "dirías",
+          third: "diría",
         },
         plural: {
-          first: 'diríamos',
-          second: 'diríais',
-          third: 'dirían',
+          first: "diríamos",
+          second: "diríais",
+          third: "dirían",
         },
       },
     },
     imperative: {
       affirmative: {
         singular: {
-          second: 'di',
-          third: 'diga',
+          second: "di",
+          third: "diga",
         },
         plural: {
-          first: 'digamos',
-          third: 'digan',
+          first: "digamos",
+          third: "digan",
         },
       },
       negative: {
         singular: {
-          second: 'digas',
-          third: 'diga',
+          second: "digas",
+          third: "diga",
         },
         plural: {
-          first: 'digamos',
-          second: 'digáis',
-          third: 'digan',
+          first: "digamos",
+          second: "digáis",
+          third: "digan",
         },
       },
     },
   },
   escribir: {
-    'past participle': 'escrito',
+    "past participle": "escrito",
   },
   hacer: {
-    'past participle': 'hecho',
+    "past participle": "hecho",
     indicative: {
       present: {
         singular: {
-          first: 'hago',
+          first: "hago",
         },
       },
       preterite: {
         singular: {
-          first: 'hice',
-          second: 'hiciste',
-          third: 'hizo',
+          first: "hice",
+          second: "hiciste",
+          third: "hizo",
         },
         plural: {
-          first: 'hicimos',
-          second: 'hicisteis',
-          third: 'hicieron',
+          first: "hicimos",
+          second: "hicisteis",
+          third: "hicieron",
         },
       },
       future: {
         singular: {
-          first: 'haré',
-          second: 'harás',
-          third: 'hará',
+          first: "haré",
+          second: "harás",
+          third: "hará",
         },
         plural: {
-          first: 'haremos',
-          second: 'haréis',
-          third: 'harán',
+          first: "haremos",
+          second: "haréis",
+          third: "harán",
         },
       },
     },
     subjunctive: {
       present: {
         singular: {
-          first: 'haga',
-          second: 'hagas',
-          third: 'haga',
+          first: "haga",
+          second: "hagas",
+          third: "haga",
         },
         plural: {
-          first: 'tengamos',
-          second: 'tengáis',
-          third: 'tengan',
+          first: "tengamos",
+          second: "tengáis",
+          third: "tengan",
         },
       },
-      'imperfect -ra': {
+      "imperfect -ra": {
         singular: {
-          first: 'hiciera',
-          second: 'hicieras',
-          third: 'hiciera',
+          first: "hiciera",
+          second: "hicieras",
+          third: "hiciera",
         },
         plural: {
-          first: 'hiciéramos',
-          second: 'hicierais',
-          third: 'hicieran',
+          first: "hiciéramos",
+          second: "hicierais",
+          third: "hicieran",
         },
       },
-      'imperfect -se': {
+      "imperfect -se": {
         singular: {
-          first: 'hiciese',
-          second: 'hicieses',
-          third: 'hiciese',
+          first: "hiciese",
+          second: "hicieses",
+          third: "hiciese",
         },
         plural: {
-          first: 'hiciésemos',
-          second: 'hicieseis',
-          third: 'hiciesen',
+          first: "hiciésemos",
+          second: "hicieseis",
+          third: "hiciesen",
         },
       },
       future: {
         singular: {
-          first: 'hiciere',
-          second: 'hicieres',
-          third: 'hiciere',
+          first: "hiciere",
+          second: "hicieres",
+          third: "hiciere",
         },
         plural: {
-          first: 'hiciéremos',
-          second: 'hiciereis',
-          third: 'hicieren',
+          first: "hiciéremos",
+          second: "hiciereis",
+          third: "hicieren",
         },
       },
     },
     conditional: {
       present: {
         singular: {
-          first: 'haría',
-          second: 'harías',
-          third: 'haría',
+          first: "haría",
+          second: "harías",
+          third: "haría",
         },
         plural: {
-          first: 'haríamos',
-          second: 'haríais',
-          third: 'harían',
+          first: "haríamos",
+          second: "haríais",
+          third: "harían",
         },
       },
     },
     imperative: {
       affirmative: {
         singular: {
-          second: 'haz',
-          third: 'haga',
+          second: "haz",
+          third: "haga",
         },
         plural: {
-          first: 'hagamos',
-          third: 'hagan',
+          first: "hagamos",
+          third: "hagan",
         },
       },
       negative: {
         singular: {
-          second: 'hagas',
-          third: 'haga',
+          second: "hagas",
+          third: "haga",
         },
         plural: {
-          first: 'hagamos',
-          second: 'hagáis',
-          third: 'hagan',
+          first: "hagamos",
+          second: "hagáis",
+          third: "hagan",
         },
       },
     },
   },
   morir: {
-    'past participle': 'muerto',
+    "past participle": "muerto",
   },
   poner: {
-    'past participle': 'puesto',
+    "past participle": "puesto",
     indicative: {
       present: {
         singular: {
-          first: 'pongo',
+          first: "pongo",
         },
       },
       preterite: {
         singular: {
-          first: 'puse',
-          second: 'pusiste',
-          third: 'puso',
+          first: "puse",
+          second: "pusiste",
+          third: "puso",
         },
         plural: {
-          first: 'pusimos',
-          second: 'pusisteis',
-          third: 'pusieron',
+          first: "pusimos",
+          second: "pusisteis",
+          third: "pusieron",
         },
       },
       future: {
         singular: {
-          first: 'pondré',
-          second: 'pondrás',
-          third: 'pondrá',
+          first: "pondré",
+          second: "pondrás",
+          third: "pondrá",
         },
         plural: {
-          first: 'pondremos',
-          second: 'pondréis',
-          third: 'pondrán',
+          first: "pondremos",
+          second: "pondréis",
+          third: "pondrán",
         },
       },
     },
     subjunctive: {
       present: {
         singular: {
-          first: 'ponga',
-          second: 'pongas',
-          third: 'ponga',
+          first: "ponga",
+          second: "pongas",
+          third: "ponga",
         },
         plural: {
-          first: 'pongamos',
-          second: 'pongáis',
-          third: 'pongan',
+          first: "pongamos",
+          second: "pongáis",
+          third: "pongan",
         },
       },
-      'imperfect -ra': {
+      "imperfect -ra": {
         singular: {
-          first: 'pusiera',
-          second: 'pusieras',
-          third: 'pusiera',
+          first: "pusiera",
+          second: "pusieras",
+          third: "pusiera",
         },
         plural: {
-          first: 'pusiéramos',
-          second: 'pusierais',
-          third: 'pusieran',
+          first: "pusiéramos",
+          second: "pusierais",
+          third: "pusieran",
         },
       },
-      'imperfect -se': {
+      "imperfect -se": {
         singular: {
-          first: 'pusiese',
-          second: 'pusieses',
-          third: 'pusiese',
+          first: "pusiese",
+          second: "pusieses",
+          third: "pusiese",
         },
         plural: {
-          first: 'pusiésemos',
-          second: 'pusieseis',
-          third: 'pusiesen',
+          first: "pusiésemos",
+          second: "pusieseis",
+          third: "pusiesen",
         },
       },
       future: {
         singular: {
-          first: 'pusiere',
-          second: 'pusieres',
-          third: 'pusiere',
+          first: "pusiere",
+          second: "pusieres",
+          third: "pusiere",
         },
         plural: {
-          first: 'pusiéremos',
-          second: 'pusiereis',
-          third: 'pusieren',
+          first: "pusiéremos",
+          second: "pusiereis",
+          third: "pusieren",
         },
       },
     },
     conditional: {
       present: {
         singular: {
-          first: 'pondría',
-          second: 'pondrías',
-          third: 'pondría',
+          first: "pondría",
+          second: "pondrías",
+          third: "pondría",
         },
         plural: {
-          first: 'pondríamos',
-          second: 'pondríais',
-          third: 'pondrían',
+          first: "pondríamos",
+          second: "pondríais",
+          third: "pondrían",
         },
       },
     },
     imperative: {
       affirmative: {
         singular: {
-          second: 'pon',
-          third: 'ponga',
+          second: "pon",
+          third: "ponga",
         },
         plural: {
-          first: 'pongamos',
-          third: 'pongan',
+          first: "pongamos",
+          third: "pongan",
         },
       },
       negative: {
         singular: {
-          second: 'pongas',
-          third: 'ponga',
+          second: "pongas",
+          third: "ponga",
         },
         plural: {
-          first: 'pongamos',
-          second: 'pongáis',
-          third: 'pongan',
+          first: "pongamos",
+          second: "pongáis",
+          third: "pongan",
         },
       },
     },
   },
   romper: {
-    'past participle': 'roto',
+    "past participle": "roto",
   },
   ver: {
-    'past participle': 'visto',
+    "past participle": "visto",
     indicative: {
       present: {
         singular: {
-          first: 'veo',
+          first: "veo",
         },
         plural: {
-          second: 'veis',
+          second: "veis",
         },
       },
       preterite: {
         singular: {
-          first: 'vi',
-          third: 'vio',
+          first: "vi",
+          third: "vio",
         },
       },
     },
     subjunctive: {
       present: {
         singular: {
-          first: 'vea',
-          second: 'veas',
-          third: 'vea',
+          first: "vea",
+          second: "veas",
+          third: "vea",
         },
         plural: {
-          first: 'veamos',
-          second: 'veáis',
-          third: 'vean',
+          first: "veamos",
+          second: "veáis",
+          third: "vean",
         },
       },
     },
     imperative: {
       affirmative: {
         singular: {
-          third: 'vea',
+          third: "vea",
         },
         plural: {
-          first: 'veamos',
+          first: "veamos",
         },
       },
       negative: {
         singular: {
-          second: 'veas',
-          third: 'vea',
+          second: "veas",
+          third: "vea",
         },
         plural: {
-          first: 'veamos',
-          second: 'veáis',
-          third: 'vean',
+          first: "veamos",
+          second: "veáis",
+          third: "vean",
         },
       },
     },
   },
   pudrir: {
-    'past participle': 'podrido',
+    "past participle": "podrido",
   },
   volver: {
-    'past participle': 'vuelto',
+    "past participle": "vuelto",
   },
   producir: {
     indicative: {
       preterite: {
         singular: {
-          first: 'produje',
-          third: 'produjo',
+          first: "produje",
+          third: "produjo",
         },
       },
     },
@@ -1772,24 +1772,24 @@ export const exceptions: Exceptions = {
     indicative: {
       preterite: {
         singular: {
-          third: 'condujo',
+          third: "condujo",
         },
       },
     },
     subjunctive: {
       present: {
         singular: {
-          third: 'conduzca',
+          third: "conduzca",
         },
       },
       future: {
         singular: {
-          third: 'condujere',
+          third: "condujere",
         },
       },
       imperfect: {
         singular: {
-          third: 'condujese',
+          third: "condujese",
         },
       },
     },
@@ -1799,110 +1799,110 @@ export const exceptions: Exceptions = {
     indicative: {
       present: {
         singular: {
-          first: 'vengo',
-          second: 'vienes',
-          third: 'viene',
+          first: "vengo",
+          second: "vienes",
+          third: "viene",
         },
         plural: {
-          third: 'vienen',
+          third: "vienen",
         },
       },
       preterite: {
         singular: {
-          first: 'vine',
-          second: 'viniste',
-          third: 'vino',
+          first: "vine",
+          second: "viniste",
+          third: "vino",
         },
         plural: {
-          first: 'vinimos',
-          second: 'vinisteis',
-          third: 'vinieron',
+          first: "vinimos",
+          second: "vinisteis",
+          third: "vinieron",
         },
       },
     },
     conditional: {
       present: {
         singular: {
-          first: 'vendría',
-          second: 'vendrías',
-          third: 'vendría',
+          first: "vendría",
+          second: "vendrías",
+          third: "vendría",
         },
         plural: {
-          first: 'vendríamos',
-          second: 'vendríais',
-          third: 'vendrían',
+          first: "vendríamos",
+          second: "vendríais",
+          third: "vendrían",
         },
       },
     },
     subjunctive: {
       present: {
         singular: {
-          first: 'venga',
-          second: 'vengas',
-          third: 'venga',
+          first: "venga",
+          second: "vengas",
+          third: "venga",
         },
         plural: {
-          first: 'vengamos',
-          second: 'vengáis',
-          third: 'vengan',
+          first: "vengamos",
+          second: "vengáis",
+          third: "vengan",
         },
       },
-      'imperfect -ra': {
+      "imperfect -ra": {
         singular: {
-          first: 'viniera',
-          second: 'vinieras',
-          third: 'viniera',
+          first: "viniera",
+          second: "vinieras",
+          third: "viniera",
         },
         plural: {
-          first: 'viniéramos',
-          second: 'vinierais',
-          third: 'vinieran',
+          first: "viniéramos",
+          second: "vinierais",
+          third: "vinieran",
         },
       },
-      'imperfect -se': {
+      "imperfect -se": {
         singular: {
-          first: 'viniese',
-          second: 'vinieses',
-          third: 'viniese',
+          first: "viniese",
+          second: "vinieses",
+          third: "viniese",
         },
         plural: {
-          first: 'viniésemos',
-          second: 'vinieseis',
-          third: 'viniesen',
+          first: "viniésemos",
+          second: "vinieseis",
+          third: "viniesen",
         },
       },
       future: {
         singular: {
-          first: 'viniere',
-          second: 'vinieres',
-          third: 'viniere',
+          first: "viniere",
+          second: "vinieres",
+          third: "viniere",
         },
         plural: {
-          first: 'viniéremos',
-          second: 'viniereis',
-          third: 'vinieren',
+          first: "viniéremos",
+          second: "viniereis",
+          third: "vinieren",
         },
       },
     },
     imperative: {
       affirmative: {
         singular: {
-          second: 'ven',
-          third: 'venga',
+          second: "ven",
+          third: "venga",
         },
         plural: {
-          first: 'vengamos',
-          third: 'vengan',
+          first: "vengamos",
+          third: "vengan",
         },
       },
       negative: {
         singular: {
-          second: 'venga',
-          third: 'vengamos',
+          second: "venga",
+          third: "vengamos",
         },
         plural: {
-          second: 'vengáis',
-          third: 'vengan',
+          second: "vengáis",
+          third: "vengan",
         },
       },
     },
@@ -1911,14 +1911,14 @@ export const exceptions: Exceptions = {
     subjunctive: {
       present: {
         singular: {
-          first: 'corrija',
-          second: 'corrijas',
-          third: 'corrija',
+          first: "corrija",
+          second: "corrijas",
+          third: "corrija",
         },
         plural: {
-          first: 'corrijamos',
-          second: 'corrijáis',
-          third: 'corrijan',
+          first: "corrijamos",
+          second: "corrijáis",
+          third: "corrijan",
         },
       },
     },
@@ -1927,14 +1927,14 @@ export const exceptions: Exceptions = {
     subjunctive: {
       present: {
         singular: {
-          first: 'construya',
-          second: 'construyas',
-          third: 'construya',
+          first: "construya",
+          second: "construyas",
+          third: "construya",
         },
         plural: {
-          first: 'construyamos',
-          second: 'construyáis',
-          third: 'construyan',
+          first: "construyamos",
+          second: "construyáis",
+          third: "construyan",
         },
       },
     },
@@ -1943,28 +1943,28 @@ export const exceptions: Exceptions = {
     indicative: {
       present: {
         singular: {
-          first: 'mantengo',
-          second: 'mantienes',
-          third: 'mantiene',
+          first: "mantengo",
+          second: "mantienes",
+          third: "mantiene",
         },
         plural: {
-          first: 'mantenemos',
-          second: 'mantenéis',
-          third: 'mantienen',
+          first: "mantenemos",
+          second: "mantenéis",
+          third: "mantienen",
         },
-      }
+      },
     },
     subjunctive: {
       present: {
         singular: {
-          first: 'mantenga',
-          second: 'mantengas',
-          third: 'mantenga',
+          first: "mantenga",
+          second: "mantengas",
+          third: "mantenga",
         },
         plural: {
-          first: 'mantengamos',
-          second: 'mantengáis',
-          third: 'mantengan',
+          first: "mantengamos",
+          second: "mantengáis",
+          third: "mantengan",
         },
       },
     },
@@ -1973,28 +1973,82 @@ export const exceptions: Exceptions = {
     indicative: {
       present: {
         singular: {
-          first: 'huyo',
-          second: 'huyes',
-          third: 'huye',
+          first: "huyo",
+          second: "huyes",
+          third: "huye",
         },
         plural: {
-          first: 'huimos',
-          second: 'huís',
-          third: 'huyen',
+          first: "huimos",
+          second: "huís",
+          third: "huyen",
         },
-      }
+      },
     },
     subjunctive: {
       present: {
         singular: {
-          first: 'huya',
-          second: 'huyas',
-          third: 'huya',
+          first: "huya",
+          second: "huyas",
+          third: "huya",
         },
         plural: {
-          first: 'huyamos',
-          second: 'huyáis',
-          third: 'huyan',
+          first: "huyamos",
+          second: "huyáis",
+          third: "huyan",
+        },
+      },
+    },
+  },
+  oir: {
+    indicative: {
+      present: {
+        singular: {
+          first: "oigo",
+          second: "oyes",
+          third: "oye",
+        },
+        plural: {
+          first: "oímos",
+          second: "oís",
+          third: "oyen",
+        },
+      },
+      preterite: {
+        singular: {
+          first: "oi",
+          second: "oiste",
+          third: "oyo",
+        },
+        plural: {
+          first: "oimos",
+          second: "oisteis",
+          third: "oyeron",
+        },
+      },
+    },
+    subjunctive: {
+      present: {
+        singular: {
+          first: "oiga",
+          second: "oigas",
+          third: "oiga",
+        },
+        plural: {
+          first: "oigamos",
+          second: "oigáis",
+          third: "oigan",
+        },
+      },
+      "imperfect -ra": {
+        singular: {
+          first: "oyera",
+          second: "oyeras",
+          third: "oyera",
+        },
+        plural: {
+          first: "oyéramos",
+          second: "oyerais",
+          third: "oyeran",
         },
       },
     },
