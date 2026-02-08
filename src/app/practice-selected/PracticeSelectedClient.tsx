@@ -16,11 +16,11 @@ import { PagesUrl } from "@/data/urls";
 import { removeVerb } from "@/store/modules/selectedVerbsSlice";
 import { removeTense } from "@/store/modules/selectedTensesSlice";
 import { AnswerResults } from "@/types/typeAnswers";
+import { getConjugation } from "@/plugins/spanish-verbs";
 import * as ga from "@/plugins/ga";
 
 export default function PracticeSelected() {
   const router = useRouter();
-  const SpanishVerbs = require("spanish-verbs");
   const dispatch = useDispatch();
   const selectedVerbs = useSelector(
     (state: RootState) => state.selectedVerbs.selectedVerbs,
@@ -42,9 +42,10 @@ export default function PracticeSelected() {
 
   function getCurrentConjugated() {
     let conjugatedVerb = "";
+    console.log(getConjugation);
     if (currentVerb && currentTense) {
       const tenseKey = getKeyByValue(Tense, currentTense);
-      conjugatedVerb = SpanishVerbs.getConjugation(
+      conjugatedVerb = getConjugation(
         currentVerb,
         tenseKey,
         Pronomb.indexOf(currentPronomb),
