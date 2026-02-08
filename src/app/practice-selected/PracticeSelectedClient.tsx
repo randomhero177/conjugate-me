@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CheckForm from "@/components/CheckForm";
-import { RootState } from "@/types/typeVerbs";
+import type { Person0To5, RootState } from "@/types/typeVerbs";
 import Pronomb from "@/data/pronomb";
 import Tense from "@/data/tense";
 import { useRouter } from "next/navigation";
@@ -47,8 +47,8 @@ export default function PracticeSelected() {
       const tenseKey = getKeyByValue(Tense, currentTense);
       conjugatedVerb = getConjugation(
         currentVerb,
-        tenseKey,
-        Pronomb.indexOf(currentPronomb),
+        tenseKey ? tenseKey : "",
+        Pronomb.indexOf(currentPronomb) as Person0To5,
       );
     }
 

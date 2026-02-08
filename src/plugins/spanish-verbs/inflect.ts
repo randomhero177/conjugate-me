@@ -333,9 +333,7 @@ export function inflect(verb: string, options: Options): string {
     const moodObj =
       pluralityObj[mood as "indicative" | "subjunctive" | "conditional"];
     // @ts-ignore
-    const aux: string = moodObj[
-      tense as "perfect" | "pluperfect" | "future perfect" | "preterite perfect"
-    ] as string;
+    const aux: string = moodObj[tense];
     const suffix =
       endingsSuffix[ending as "ar" | "ir" | "er"]["past participle"].singular
         .masculine;
