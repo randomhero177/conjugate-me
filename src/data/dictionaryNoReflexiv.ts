@@ -403,7 +403,7 @@ const Dictionary = [
   "odiar",
   "ofender",
   "ofrecer",
-  "oír",
+  "oir",
   "oler",
   "olvidar",
   "oponer",

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CheckForm from "@/components/CheckForm";
-import { RootState } from "@/types/typeVerbs";
+import type { Person0To5, RootState } from "@/types/typeVerbs";
 import Pronomb from "@/data/pronomb";
 import Tense from "@/data/tense";
 import { useRouter } from "next/navigation";
@@ -16,11 +16,11 @@ import { PagesUrl } from "@/data/urls";
 import { removeVerb } from "@/store/modules/selectedVerbsSlice";
 import { removeTense } from "@/store/modules/selectedTensesSlice";
 import { AnswerResults } from "@/types/typeAnswers";
+import { getConjugation } from "@/plugins/spanish-verbs";
 import * as ga from "@/plugins/ga";
 
 export default function PracticeSelected() {
   const router = useRouter();
-  const SpanishVerbs = require("spanish-verbs");
   const dispatch = useDispatch();
   const selectedVerbs = useSelector(
     (state: RootState) => state.selectedVerbs.selectedVerbs,
@@ -42,12 +42,13 @@ export default function PracticeSelected() {
 
   function getCurrentConjugated() {
     let conjugatedVerb = "";
+    console.log(getConjugation);
     if (currentVerb && currentTense) {
       const tenseKey = getKeyByValue(Tense, currentTense);
-      conjugatedVerb = SpanishVerbs.getConjugation(
+      conjugatedVerb = getConjugation(
         currentVerb,
-        tenseKey,
-        Pronomb.indexOf(currentPronomb),
+        tenseKey ? tenseKey : "",
+        Pronomb.indexOf(currentPronomb) as Person0To5,
       );
     }
 
