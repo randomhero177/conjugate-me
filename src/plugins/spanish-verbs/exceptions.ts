@@ -1999,6 +1999,17 @@ export const exceptions: Exceptions = {
       },
     },
   },
+  perder: {
+    indicative: {
+      present: {
+        singular: {
+          first: "pierdo",
+          second: "pierdes",
+          third: "pierde",
+        },
+      },
+    },
+  },
   oir: {
     indicative: {
       present: {
