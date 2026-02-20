@@ -59,7 +59,7 @@ export default function AllVerbsPage() {
   return (
     <main className="flex min-h-screen flex-col items-center lg:p-24 lg:pt-32 lg:pb-48 pb-32 pt-8">
       <h1 className="text-2xl md:text-3xl font-bold mb-4 md:mb-12 text-center text-gray-800 pt-12 md:pt-0">
-        3 ways to <b>select verbs</b> to practice
+        3 ways to <b>select verbs</b> for practicing
       </h1>
       <ChooseStepsDescription />
       {selectedVerbs.length > 0 && (
