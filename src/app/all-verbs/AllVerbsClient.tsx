@@ -91,7 +91,7 @@ export default function AllVerbsPage() {
           <span className="me-4 w-14 h-14 flex items-center justify-center text-xl font-semibold text-white bg-gray-600 rounded-full transition-colors duration-300 group-hover:bg-gray-900">
             1
           </span>{" "}
-          Find a verb by query
+          Use text field below
         </div>
         <div className="lg:min-w-[540px]">
           <UiCombobox
@@ -111,7 +111,7 @@ export default function AllVerbsPage() {
           <span className="me-4 w-14 h-14 flex items-center justify-center text-xl font-semibold text-white bg-gray-600 rounded-full transition-colors duration-300 group-hover:bg-gray-900">
             2
           </span>{" "}
-          Choose from presets
+          Select a preset below
         </div>
         <VerbsPresets />
       </div>
