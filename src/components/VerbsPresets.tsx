@@ -4,9 +4,9 @@ import VerbsPresetChip from "@/components/VerbsPresetChip";
 const VerbsPresets = () => {
   return (
     <div>
-      <h4 className="mb-4 block text-xl text-center font-medium text-gray-700">
+      {/*<h4 className="mb-4 block text-xl text-center font-medium text-gray-700">
         Choose from the preset
-      </h4>
+      </h4>*/}
       <ul className="flex flex-wrap gap-2 mb-4 justify-center">
         {verbsPresets.map((presetVerb, index) => (
           <li

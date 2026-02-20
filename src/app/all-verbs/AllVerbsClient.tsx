@@ -59,7 +59,7 @@ export default function AllVerbsPage() {
   return (
     <main className="flex min-h-screen flex-col items-center lg:p-24 lg:pt-32 lg:pb-48 pb-32 pt-8">
       <h1 className="text-2xl md:text-3xl font-bold mb-4 md:mb-12 text-center text-gray-800 pt-12 md:pt-0">
-        Select verbs to practice ({Dictionary.length})
+        3 ways to <b>select verbs</b> for practicing
       </h1>
       <ChooseStepsDescription />
       {selectedVerbs.length > 0 && (
@@ -87,6 +87,12 @@ export default function AllVerbsPage() {
         </div>
       )}
       <div className="mb-8">
+        <div className="flex justify-center items-center text-xl font-medium text-gray-700 text-center mb-4">
+          <span className="me-4 w-14 h-14 flex items-center justify-center text-xl font-semibold text-white bg-gray-600 rounded-full transition-colors duration-300 group-hover:bg-gray-900">
+            1
+          </span>{" "}
+          Use text field below
+        </div>
         <div className="lg:min-w-[540px]">
           <UiCombobox
             options={Dictionary}
@@ -101,10 +107,19 @@ export default function AllVerbsPage() {
         </div>
       </div>
       <div className="mb-8">
+        <div className="flex justify-center items-center text-xl font-medium text-gray-700 text-center mb-4">
+          <span className="me-4 w-14 h-14 flex items-center justify-center text-xl font-semibold text-white bg-gray-600 rounded-full transition-colors duration-300 group-hover:bg-gray-900">
+            2
+          </span>{" "}
+          Select a preset below
+        </div>
         <VerbsPresets />
       </div>
 
-      <h4 className="mb-4 block text-xl font-medium text-gray-700">
+      <h4 className="mb-4 flex justify-center items-center text-xl font-medium text-gray-700">
+        <span className="me-4 w-14 h-14 flex items-center justify-center text-xl font-semibold text-white bg-gray-600 rounded-full transition-colors duration-300 group-hover:bg-gray-900">
+          3
+        </span>{" "}
         List of all verbs
       </h4>
       <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
