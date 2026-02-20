@@ -26,7 +26,7 @@ const MainMenu = () => {
         href={PagesUrl.verbs}
         className={`main-menu__item pe-4 lg:pe-12 font-bold text-amber-50 ${isActive(PagesUrl.verbs) ? "main-menu__item_active" : ""}`}
       >
-        All verbs
+        Select verbs
       </Link>
       <Link
         href={PagesUrl.tense}
