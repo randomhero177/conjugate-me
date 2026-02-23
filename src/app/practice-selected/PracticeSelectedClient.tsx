@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import CheckForm from "@/components/CheckForm";
 import type { Person0To5, RootState } from "@/types/typeVerbs";
 import Pronomb from "@/data/pronomb";
-import Tense from "@/data/tense";
+import { TensesList } from "@/data/tense";
 import { useRouter } from "next/navigation";
 import getRandomInRange from "@/util/getRandom";
 import getKeyByValue from "@/util/getKeyByValue";
@@ -44,7 +44,7 @@ export default function PracticeSelected() {
     let conjugatedVerb = "";
     console.log(getConjugation);
     if (currentVerb && currentTense) {
-      const tenseKey = getKeyByValue(Tense, currentTense);
+      const tenseKey = getKeyByValue(TensesList, currentTense);
       conjugatedVerb = getConjugation(
         currentVerb,
         tenseKey ? tenseKey : "",
