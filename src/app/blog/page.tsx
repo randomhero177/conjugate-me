@@ -42,6 +42,10 @@ const articles = [
     slug: "how-to-practice-without-stress",
     title: "Spanish Irregular Verbs: How to Practice Them Without Stress",
   },
+  {
+    slug: "common-spanish-conjugation-mistakes",
+    title: "Common Spanish Conjugation Mistakes",
+  },
 ];
 
 export default function BlogPage() {
