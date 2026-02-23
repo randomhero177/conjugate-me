@@ -59,10 +59,8 @@ export default function ChooseTensePage() {
         </div>
       </div>
 
-      {/* Subjuntive */}
       <div className="bg-white shadow-sm border border-gray-100 p-6">
         <h2 className="text-xl font-semibold text-gray-800 mb-4">Subjuntive</h2>
-
         <div className="py-2">
           <UiChooseList
             options={Object.values(SubjuntiveTensesList)}
@@ -72,7 +70,6 @@ export default function ChooseTensePage() {
         </div>
       </div>
 
-      {/* Conditional */}
       <div className="bg-white shadow-sm border border-gray-100 p-6">
         <h2 className="text-xl font-semibold text-gray-800 mb-4">
           Conditional
