@@ -43,11 +43,11 @@ export default function ChooseTensePage() {
   }, []);
 
   return (
-    <div className="max-w-8xl mx-auto px-6 py-10 space-y-10 pt-32">
+    <div className="max-w-8xl mx-auto px-6 py-10 space-y-10 pt-32 pb-32">
       <h1 className="text-2xl md:text-3xl font-bold mb-8 text-center mb-4 text-gray-800">
         Select in which tenses you want to conjugate the verbs
       </h1>
-      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+      <div className="bg-white shadow-sm border border-gray-100 p-6">
         <h2 className="text-xl font-semibold text-gray-800 mb-4">Indicative</h2>
 
         <div className="py-2">
@@ -59,10 +59,8 @@ export default function ChooseTensePage() {
         </div>
       </div>
 
-      {/* Subjuntive */}
-      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+      <div className="bg-white shadow-sm border border-gray-100 p-6">
         <h2 className="text-xl font-semibold text-gray-800 mb-4">Subjuntive</h2>
-
         <div className="py-2">
           <UiChooseList
             options={Object.values(SubjuntiveTensesList)}
@@ -72,8 +70,7 @@ export default function ChooseTensePage() {
         </div>
       </div>
 
-      {/* Conditional */}
-      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+      <div className="bg-white shadow-sm border border-gray-100 p-6">
         <h2 className="text-xl font-semibold text-gray-800 mb-4">
           Conditional
         </h2>
