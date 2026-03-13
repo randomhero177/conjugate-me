@@ -26,19 +26,19 @@ const MainMenu = () => {
         href={PagesUrl.verbs}
         className={`main-menu__item pe-4 lg:pe-12 font-bold text-amber-50 ${isActive(PagesUrl.verbs) ? "main-menu__item_active" : ""}`}
       >
-        All verbs
+        1. Select verbs
       </Link>
       <Link
         href={PagesUrl.tense}
         className={`main-menu__item pe-4 ms-4 lg:pe-12 lg:ms-12 font-bold text-amber-50 ${isActive(PagesUrl.tense) ? "main-menu__item_active" : ""}`}
       >
-        Select tenses
+        2. Select tenses
       </Link>
       <Link
         href={PagesUrl.practiseSelected}
         className={`main-menu__item pe-4 ms-4 lg:pe-12 lg:ms-12 font-bold text-amber-50 ${isActive(PagesUrl.practiseSelected) ? "main-menu__item_active" : ""}`}
       >
-        Practice
+        3. Practice
       </Link>
       <Link href={PagesUrl.register} className={`p-4 ms-auto pe-0`}>
         <span
