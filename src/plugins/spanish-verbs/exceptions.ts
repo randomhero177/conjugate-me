@@ -2010,6 +2010,36 @@ export const exceptions: Exceptions = {
       },
     },
   },
+  jugar: {
+    indicative: {
+      present: {
+        singular: {
+          first: "juego",
+          second: "juegas",
+          third: "juega",
+        },
+        plural: {
+          first: "jugamos",
+          second: "jugáis",
+          third: "juegan",
+        },
+      },
+    },
+    subjunctive: {
+      present: {
+        singular: {
+          first: "juegue",
+          second: "juegues",
+          third: "juegue",
+        },
+        plural: {
+          first: "juguemos",
+          second: "juguéis",
+          third: "jueguen",
+        },
+      },
+    },
+  },
   oir: {
     indicative: {
       present: {
