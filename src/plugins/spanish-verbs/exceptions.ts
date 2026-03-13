@@ -2094,4 +2094,105 @@ export const exceptions: Exceptions = {
       },
     },
   },
+  traer: {
+    indicative: {
+      present: {
+        singular: {
+          first: "traigo",
+        },
+      },
+      preterite: {
+        singular: {
+          first: "traje",
+          second: "trajiste",
+          third: "trajo",
+        },
+        plural: {
+          first: "trajimos",
+          second: "trajisteis",
+          third: "trajeron",
+        },
+      },
+    },
+    subjunctive: {
+      present: {
+        singular: {
+          first: "traiga",
+          second: "traigas",
+          third: "traiga",
+        },
+        plural: {
+          first: "traigamos",
+          second: "traigáis",
+          third: "traigan",
+        },
+      },
+      "imperfect -ra": {
+        singular: {
+          first: "trajera",
+          second: "trajeras",
+          third: "trajera",
+        },
+        plural: {
+          first: "trajéramos",
+          second: "trajerais",
+          third: "trajeran",
+        },
+      },
+    },
+  },
+  influir: {
+    indicative: {
+      present: {
+        singular: {
+          first: "influyo",
+          second: "influyes",
+          third: "influye",
+        },
+        plural: {
+          first: "influimos",
+          second: "influís",
+          third: "influyen",
+        },
+      },
+      preterite: {
+        singular: {
+          first: "influí",
+          second: "influiste",
+          third: "influyó",
+        },
+        plural: {
+          first: "influimos",
+          second: "influisteis",
+          third: "influyeron",
+        },
+      },
+    },
+    subjunctive: {
+      present: {
+        singular: {
+          first: "influya",
+          second: "influyas",
+          third: "influya",
+        },
+        plural: {
+          first: "influyamos",
+          second: "influyáis",
+          third: "influyan",
+        },
+      },
+      "imperfect -ra": {
+        singular: {
+          first: "influyera",
+          second: "influyeras",
+          third: "influyera",
+        },
+        plural: {
+          first: "influyéramos",
+          second: "influyerais",
+          third: "influyeran",
+        },
+      },
+    },
+  },
 };
