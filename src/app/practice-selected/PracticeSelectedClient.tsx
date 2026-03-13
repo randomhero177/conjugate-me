@@ -8,13 +8,20 @@ import Pronomb from "@/data/pronomb";
 import { TensesList } from "@/data/tense";
 import { useRouter } from "next/navigation";
 import getRandomInRange from "@/util/getRandom";
+import RandomVerbs from "@/app/practice-selected/RandomVerbs";
 import getKeyByValue from "@/util/getKeyByValue";
 import ChipItem from "@/components/ChipItem";
 import ClearAllVerbs from "@/components/ClearAllVerbs";
 import FooterContact from "@/components/FooterContact";
 import { PagesUrl } from "@/data/urls";
-import { removeVerb } from "@/store/modules/selectedVerbsSlice";
-import { removeTense } from "@/store/modules/selectedTensesSlice";
+import {
+  removeVerb,
+  setSelectedVerbs,
+} from "@/store/modules/selectedVerbsSlice";
+import {
+  removeTense,
+  setSelectedTenses,
+} from "@/store/modules/selectedTensesSlice";
 import { AnswerResults } from "@/types/typeAnswers";
 import { getConjugation } from "@/plugins/spanish-verbs";
 import * as ga from "@/plugins/ga";
@@ -103,12 +110,26 @@ export default function PracticeSelected() {
     setResetKey((prevKey) => prevKey + 1);
   };
 
+  const randomVerbsAction = (verbs: string[], tenses: string[]) => {
+    dispatch(setSelectedVerbs(verbs));
+    dispatch(setSelectedTenses(tenses));
+  };
+
   useEffect(() => {
-    randomiseVerbsAndTense(false);
+    if (selectedVerbs.length > 0 && selectedTenses.length > 0) {
+      randomiseVerbsAndTense(false);
+    }
+
     ga.event("load_page", {
       category: "practice_selected",
     });
   }, []);
+
+  useEffect(() => {
+    if (selectedVerbs.length > 0 && selectedTenses.length > 0) {
+      randomiseVerbsAndTense(false);
+    }
+  }, [selectedVerbs]);
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center px-4 lg:p-12 pt-24 lg:pt-32 pb-44 lg:pb-4">
@@ -140,28 +161,31 @@ export default function PracticeSelected() {
           </div>
         </div>
       )}
-      <div className="mt-2 flex flex-col gap-4 lg:mb-6 mb-2">
-        <div className="flex w-full max-w-xs justify-between rounded-2xl px-6 py-2">
-          <div className="text-center px-2">
-            <p className="text-sm text-gray-500">✅ Correct</p>
-            <p className="text-lg font-semibold text-green-600">
-              {answerResults?.correct}
-            </p>
-          </div>
-          <div className="text-center px-2">
-            <p className="text-sm text-gray-500">❌ Wrong</p>
-            <p className="text-lg font-semibold text-red-500">
-              {answerResults?.wrong}
-            </p>
-          </div>
-          <div className="text-center px-2">
-            <p className="text-sm text-gray-500">🧮 Total </p>
-            <p className="text-lg font-semibold text-blue-500">
-              {resetKey ? resetKey - 1 : 0}
-            </p>
+      {selectedVerbs.length > 0 && selectedTenses.length > 0 && (
+        <div className="mt-2 flex flex-col gap-4 lg:mb-6 mb-2">
+          <div className="flex w-full max-w-xs justify-between rounded-2xl px-6 py-2">
+            <div className="text-center px-2">
+              <p className="text-sm text-gray-500">✅ Correct</p>
+              <p className="text-lg font-semibold text-green-600">
+                {answerResults?.correct}
+              </p>
+            </div>
+            <div className="text-center px-2">
+              <p className="text-sm text-gray-500">❌ Wrong</p>
+              <p className="text-lg font-semibold text-red-500">
+                {answerResults?.wrong}
+              </p>
+            </div>
+            <div className="text-center px-2">
+              <p className="text-sm text-gray-500">🧮 Total </p>
+              <p className="text-lg font-semibold text-blue-500">
+                {resetKey ? resetKey - 1 : 0}
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      )}
+
       {!nothingSelected && (
         <div className="lg:flex mb-8 lg:mb-24">
           <div className="group lg:me-6 mb-6 flex-1">
@@ -237,17 +261,19 @@ export default function PracticeSelected() {
         </div>
       )}
       {nothingSelected && (
-        <div>
-          <div className="group">
-            <div className="p-6 bg-white shadow-lg flex flex-col items-center transition-transform transform hover:scale-105 -mt-32">
+        <div className="flex -mt-32">
+          <div className="group me-4">
+            <div className="p-6 bg-white shadow-lg flex flex-col items-center transition-transform transform hover:scale-105">
               <h2 className="text-xl font-semibold text-gray-700 mb-6">
                 Riding too fast, amigo!
               </h2>
               <div className="text-gray-600 text-center">
                 To start testing your conjugation skills please select{" "}
                 <b>verbs</b> first. <br />
-                Then to really to practice you'll have to chose <b>tenses</b> as
-                well . <br />
+                Then to really to practice, you'll have to chose <b>
+                  tenses
+                </b>{" "}
+                as well . <br />
                 <br />
                 Both steps are mandatories!! You little cheater!
                 <div className="mt-4">
@@ -258,6 +284,23 @@ export default function PracticeSelected() {
                     Select verbs
                   </button>
                 </div>
+              </div>
+            </div>
+          </div>
+          <div className="group ms-4">
+            <div className="p-6 bg-white shadow-lg flex flex-col items-center transition-transform transform hover:scale-105">
+              <h2 className="text-xl font-semibold text-gray-700 mb-6">
+                You haven't selected anything
+              </h2>
+              <div className="text-gray-600 text-center">
+                But no worries, go ahead and practice some random verbs and
+                tenses
+                <b>verbs</b> first. <br />
+                Then to really to practice you'll have to chose <b>tenses</b> as
+                well . <br />
+              </div>
+              <div className="mt-8 pt-8">
+                <RandomVerbs mainAction={randomVerbsAction} />
               </div>
             </div>
           </div>
