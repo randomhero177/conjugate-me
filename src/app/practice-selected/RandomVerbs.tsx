@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import Dictionary from "@/data/dictionaryNoReflexiv";
 import getRandomInRange from "@/util/getRandom";
-import Tense from "@/data/tense";
+import { TensesList } from "@/data/tense";
 import { setSelectedTenses } from "@/store/modules/selectedTensesSlice";
 import { setSelectedVerbs } from "@/store/modules/selectedVerbsSlice";
 type RandomVerbsProps = {
@@ -11,7 +11,7 @@ export default function RandomVerbs({ mainAction }: RandomVerbsProps) {
   const dispatch = useDispatch();
   let verbsList: string[] = [];
   let tensesList: string[] = [];
-  const existingTenses = Object.values(Tense);
+  const existingTenses = Object.values(TensesList);
 
   function getRandomVerbs() {
     for (let i = 0; i < 10; ++i) {
