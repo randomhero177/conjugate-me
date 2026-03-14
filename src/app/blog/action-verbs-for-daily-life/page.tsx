@@ -6,7 +6,7 @@ const article = {
   title: "Spanish Action Verbs for Daily Life",
   description: "Action verbs are at the heart of everyday Spanish.",
   url: "action-verbs-for-daily-life",
-  publishedAt: "2025-10-18",
+  publishedAt: "2025-10-18T08:00:00+00:00",
 };
 
 export const metadata: Metadata = {
