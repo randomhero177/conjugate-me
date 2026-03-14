@@ -261,8 +261,8 @@ export default function PracticeSelected() {
         </div>
       )}
       {nothingSelected && (
-        <div className="flex -mt-32">
-          <div className="group me-4">
+        <div className="lg:flex lg:-mt-32">
+          <div className="group lg:me-4 mb-8">
             <div className="p-6 bg-white shadow-lg flex flex-col items-center transition-transform transform hover:scale-105">
               <h2 className="text-xl font-semibold text-gray-700 mb-6">
                 Riding too fast, amigo!
@@ -287,7 +287,7 @@ export default function PracticeSelected() {
               </div>
             </div>
           </div>
-          <div className="group ms-4">
+          <div className="group lg:ms-4">
             <div className="p-6 bg-white shadow-lg flex flex-col items-center transition-transform transform hover:scale-105">
               <h2 className="text-xl font-semibold text-gray-700 mb-6">
                 You haven't selected anything
