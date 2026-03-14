@@ -7,7 +7,10 @@ import { TensesList } from "@/data/tense";
 import { setSelectedTenses } from "@/store/modules/selectedTensesSlice";
 import { setSelectedVerbs } from "@/store/modules/selectedVerbsSlice";
 
-export default function RandomVerbs() {
+type RandomVerbsProps = {
+  cb?: () => void;
+};
+export default function RandomVerbs({ cb }: RandomVerbsProps) {
   const dispatch = useDispatch();
   let verbsList: string[] = [];
   let tensesList: string[] = [];
@@ -26,6 +29,10 @@ export default function RandomVerbs() {
 
     dispatch(setSelectedVerbs(verbsList));
     dispatch(setSelectedTenses(tensesList));
+
+    if (typeof cb === "function") {
+      cb();
+    }
   }
 
   return (
