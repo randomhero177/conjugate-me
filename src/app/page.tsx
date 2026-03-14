@@ -1,5 +1,6 @@
 import Link from "next/link";
 import FooterContact from "@/components/FooterContact";
+import RandomVerbs from "@/app/practice-selected/RandomVerbs";
 
 export default function HomePage() {
   return (
@@ -52,6 +53,9 @@ export default function HomePage() {
             </p>
           </div>
         </Link>
+      </div>
+      <div>
+        <RandomVerbs />
       </div>
       <div className="mt-8 lg:mt-32 font-bold text-xl text-center text-gray-800">
         Mastering verb conjugation is essential for clear and confident
