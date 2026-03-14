@@ -31,7 +31,7 @@ export default function TypesOfSpanishIrregularVerbs() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      <article className="mx-auto max-w-4xl px-6 py-16 lg:py-24 pt-32">
+      <article className="mx-auto max-w-4xl px-6 py-16 lg:py-32 bg-white">
         <header className="mb-14">
           <p className="text-sm font-semibold uppercase tracking-wide text-indigo-600">
             Spanish Verb Mastery
