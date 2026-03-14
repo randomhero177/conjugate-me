@@ -46,6 +46,10 @@ const articles = [
     slug: "common-spanish-conjugation-mistakes",
     title: "Common Spanish Conjugation Mistakes",
   },
+  {
+    slug: "types-of-spanish-irregular-verbs",
+    title: "The 7 Types of Spanish Irregular Verbs (And How to Master Them)",
+  },
 ];
 
 export default function BlogPage() {
