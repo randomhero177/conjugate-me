@@ -1,13 +1,16 @@
+"use client";
+
 import { useDispatch, useSelector } from "react-redux";
 import Dictionary from "@/data/dictionaryNoReflexiv";
 import getRandomInRange from "@/util/getRandom";
 import { TensesList } from "@/data/tense";
 import { setSelectedTenses } from "@/store/modules/selectedTensesSlice";
 import { setSelectedVerbs } from "@/store/modules/selectedVerbsSlice";
+
 type RandomVerbsProps = {
-  mainAction: (verbs: string[], tenses: string[]) => void;
+  cb?: () => void;
 };
-export default function RandomVerbs({ mainAction }: RandomVerbsProps) {
+export default function RandomVerbs({ cb }: RandomVerbsProps) {
   const dispatch = useDispatch();
   let verbsList: string[] = [];
   let tensesList: string[] = [];
@@ -26,7 +29,10 @@ export default function RandomVerbs({ mainAction }: RandomVerbsProps) {
 
     dispatch(setSelectedVerbs(verbsList));
     dispatch(setSelectedTenses(tensesList));
-    mainAction(verbsList, tensesList);
+
+    if (typeof cb === "function") {
+      cb();
+    }
   }
 
   return (

@@ -110,11 +110,6 @@ export default function PracticeSelected() {
     setResetKey((prevKey) => prevKey + 1);
   };
 
-  const randomVerbsAction = (verbs: string[], tenses: string[]) => {
-    dispatch(setSelectedVerbs(verbs));
-    dispatch(setSelectedTenses(tenses));
-  };
-
   useEffect(() => {
     if (selectedVerbs.length > 0 && selectedTenses.length > 0) {
       randomiseVerbsAndTense(false);
@@ -300,7 +295,7 @@ export default function PracticeSelected() {
                 well . <br />
               </div>
               <div className="mt-8 pt-8">
-                <RandomVerbs mainAction={randomVerbsAction} />
+                <RandomVerbs />
               </div>
             </div>
           </div>

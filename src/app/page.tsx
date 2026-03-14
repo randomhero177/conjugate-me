@@ -1,5 +1,6 @@
 import Link from "next/link";
 import FooterContact from "@/components/FooterContact";
+import HomePageClient from "@/app/pageClient";
 
 export default function HomePage() {
   return (
@@ -53,6 +54,7 @@ export default function HomePage() {
           </div>
         </Link>
       </div>
+      <HomePageClient />
       <div className="mt-8 lg:mt-32 font-bold text-xl text-center text-gray-800">
         Mastering verb conjugation is essential for clear and confident
         communication in&nbsp;any language. <br />

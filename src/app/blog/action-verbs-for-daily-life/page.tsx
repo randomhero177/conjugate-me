@@ -1,4 +1,26 @@
+import Script from "next/script";
+import type { Metadata } from "next";
+import { getArticleSchema } from "@/plugins/articleSchema";
+
+const article = {
+  title: "Spanish Action Verbs for Daily Life",
+  description: "Action verbs are at the heart of everyday Spanish.",
+  url: "action-verbs-for-daily-life",
+  publishedAt: "2025-10-18",
+};
+
+export const metadata: Metadata = {
+  title: article.title,
+  description: article.description,
+};
+
 export default function ActionVerbsForDailyLife() {
+  const schema = getArticleSchema({
+    title: article.title,
+    description: article.description,
+    url: article.url,
+    publishedAt: article.publishedAt,
+  });
   const verbs = [
     {
       verb: "comer",
@@ -149,87 +171,96 @@ export default function ActionVerbsForDailyLife() {
   ];
 
   return (
-    <div className="max-w-4xl mx-auto px-6 py-12 prose prose-slate pt-32">
-      <h1 className="text-4xl font-bold mb-6">
-        Spanish Action Verbs for Daily Life
-      </h1>
-      <p>
-        Action verbs are at the heart of everyday Spanish. They describe what
-        you <strong>do</strong> — from eating breakfast to going out with
-        friends. Learning these verbs will help you build natural, practical
-        sentences for real-life situations.
-      </p>
+    <>
+      <Script
+        id="article-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <div className="max-w-4xl mx-auto px-6 py-12 prose prose-slate pt-32">
+        <h1 className="text-4xl font-bold mb-6">
+          Spanish Action Verbs for Daily Life
+        </h1>
+        <p>
+          Action verbs are at the heart of everyday Spanish. They describe what
+          you <strong>do</strong> — from eating breakfast to going out with
+          friends. Learning these verbs will help you build natural, practical
+          sentences for real-life situations.
+        </p>
 
-      <h2 className="text-2xl font-semibold mt-10 mb-4">
-        Why Action Verbs Matter
-      </h2>
-      <p>
-        When you talk about your daily routine, your hobbies, or your work —
-        you’re using action verbs all the time. Mastering them means you’ll be
-        able to express what you do, when, and how.
-      </p>
+        <h2 className="text-2xl font-semibold mt-10 mb-4">
+          Why Action Verbs Matter
+        </h2>
+        <p>
+          When you talk about your daily routine, your hobbies, or your work —
+          you’re using action verbs all the time. Mastering them means you’ll be
+          able to express what you do, when, and how.
+        </p>
 
-      <h2 className="text-2xl font-semibold mt-10 mb-4">
-        Everyday Action Verbs
-      </h2>
-      <div className="overflow-x-auto">
-        <table className="table-auto w-full border border-gray-300">
-          <thead className="bg-gray-100">
-            <tr>
-              <th className="border px-4 py-2 text-left">Verb</th>
-              <th className="border px-4 py-2 text-left">Translation</th>
-              <th className="border px-4 py-2 text-left">Example</th>
-            </tr>
-          </thead>
-          <tbody>
-            {verbs.map((v, i) => (
-              <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
-                <td className="border px-4 py-2 font-medium">{v.verb}</td>
-                <td className="border px-4 py-2">{v.translation}</td>
-                <td className="border px-4 py-2 italic">{v.example}</td>
+        <h2 className="text-2xl font-semibold mt-10 mb-4">
+          Everyday Action Verbs
+        </h2>
+        <div className="overflow-x-auto">
+          <table className="table-auto w-full border border-gray-300">
+            <thead className="bg-gray-100">
+              <tr>
+                <th className="border px-4 py-2 text-left">Verb</th>
+                <th className="border px-4 py-2 text-left">Translation</th>
+                <th className="border px-4 py-2 text-left">Example</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {verbs.map((v, i) => (
+                <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                  <td className="border px-4 py-2 font-medium">{v.verb}</td>
+                  <td className="border px-4 py-2">{v.translation}</td>
+                  <td className="border px-4 py-2 italic">{v.example}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <h2 className="text-2xl font-semibold mt-10 mb-4">
+          Tips for Learning Action Verbs
+        </h2>
+        <ul className="list-disc ml-6 mb-6">
+          <li>
+            <strong>Visualize</strong> the action — imagine yourself doing it.
+          </li>
+          <li>
+            <strong>Connect</strong> verbs to your own life: “Trabajo en una
+            oficina”, “Cocino pasta”.
+          </li>
+          <li>
+            <strong>Repeat aloud</strong> to improve pronunciation and memory.
+          </li>
+          <li>
+            <strong>Use them in phrases</strong> instead of memorizing them
+            alone.
+          </li>
+        </ul>
+
+        <h2 className="text-2xl font-semibold mt-10 mb-4">Practice Ideas</h2>
+        <ul className="list-disc ml-6 mb-6">
+          <li>
+            Write about your daily routine using at least 10 verbs from this
+            list.
+          </li>
+          <li>Record yourself describing your morning in Spanish.</li>
+          <li>
+            Use flashcards or an app (like <em>Conjugate Me</em> 😉) to practice
+            conjugations.
+          </li>
+        </ul>
+
+        <h2 className="text-2xl font-semibold mt-10 mb-4">Conclusion</h2>
+        <p>
+          These everyday action verbs are essential to communicate naturally in
+          Spanish. The more you use them in context, the faster you’ll sound
+          fluent. Practice daily, and soon Spanish will feel like second nature!
+        </p>
       </div>
-
-      <h2 className="text-2xl font-semibold mt-10 mb-4">
-        Tips for Learning Action Verbs
-      </h2>
-      <ul className="list-disc ml-6 mb-6">
-        <li>
-          <strong>Visualize</strong> the action — imagine yourself doing it.
-        </li>
-        <li>
-          <strong>Connect</strong> verbs to your own life: “Trabajo en una
-          oficina”, “Cocino pasta”.
-        </li>
-        <li>
-          <strong>Repeat aloud</strong> to improve pronunciation and memory.
-        </li>
-        <li>
-          <strong>Use them in phrases</strong> instead of memorizing them alone.
-        </li>
-      </ul>
-
-      <h2 className="text-2xl font-semibold mt-10 mb-4">Practice Ideas</h2>
-      <ul className="list-disc ml-6 mb-6">
-        <li>
-          Write about your daily routine using at least 10 verbs from this list.
-        </li>
-        <li>Record yourself describing your morning in Spanish.</li>
-        <li>
-          Use flashcards or an app (like <em>Conjugate Me</em> 😉) to practice
-          conjugations.
-        </li>
-      </ul>
-
-      <h2 className="text-2xl font-semibold mt-10 mb-4">Conclusion</h2>
-      <p>
-        These everyday action verbs are essential to communicate naturally in
-        Spanish. The more you use them in context, the faster you’ll sound
-        fluent. Practice daily, and soon Spanish will feel like second nature!
-      </p>
-    </div>
+    </>
   );
 }
