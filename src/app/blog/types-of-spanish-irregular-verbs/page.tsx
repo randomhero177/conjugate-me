@@ -7,7 +7,7 @@ const article = {
   description:
     "Spanish irregular verbs are easier to learn when grouped into patterns. Discover the 7 main types of irregular verbs and how to practice them effectively.",
   url: "types-of-spanish-irregular-verbs",
-  publishedAt: "2026-03-15",
+  publishedAt: "2026-03-14T08:00:00+00:00",
 };
 
 export const metadata: Metadata = {

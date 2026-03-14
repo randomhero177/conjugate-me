@@ -24,7 +24,7 @@ export function getArticleSchema({
       name: "Conjugate Me",
       logo: {
         "@type": "ImageObject",
-        url: "https://conjugate-me.vercel.app/logo.png",
+        url: "https://conjugate-me.vercel.app/CME_logo_book",
       },
     },
     datePublished: publishedAt,
