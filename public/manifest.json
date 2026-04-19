@@ -1,0 +1,22 @@
+{
+  "name": "Conjugate Me",
+  "short_name": "ConjugateMe",
+  "description": "Practice Spanish verb conjugations",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#22c55e",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/CME_logo_book.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/CME_logo_book.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

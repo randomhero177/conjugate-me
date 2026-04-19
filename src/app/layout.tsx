@@ -15,10 +15,20 @@ export const metadata: Metadata = {
   title: "Free Spanish conjugation trainer",
   description:
     "Conjugate spanish verbs for free in all the tenses you know. Choose verbs, pick a tense, and start practicing",
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Conjugate Me",
+  },
   other: {
     "yandex-verification": "ee32c79fe1813a4e",
     google: "notranslate",
   },
+};
+
+export const viewport = {
+  themeColor: "#22c55e",
 };
 
 export default function RootLayout({
