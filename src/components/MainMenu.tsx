@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import InstallButton from "@/components/pwa-button";
 import { PagesUrl } from "@/data/urls";
 import { User } from "lucide-react";
 
@@ -18,7 +19,6 @@ const MainMenu = () => {
           style={{ width: "60px", height: "auto" }}
         />
       </Link>
-
       {/*<Link href={PagesUrl.lang} className="p-4">
         Choose lang templ
       </Link>*/}
@@ -40,13 +40,16 @@ const MainMenu = () => {
       >
         <span className="hidden lg:inline">3.</span> Practice
       </Link>
-      <Link href={PagesUrl.register} className={`p-4 ms-auto pe-0`}>
+      <div className={`p-4 ms-auto pe-0`}>
+        <InstallButton />
+      </div>
+      {/*<Link href={PagesUrl.register} className={`p-4 ms-auto pe-0`}>
         <span
           className={`main-menu__user ${isActive(PagesUrl.register) ? "main-menu__user_active" : ""}`}
         >
           <User size={32} color={"#fff"} />
         </span>
-      </Link>
+      </Link>*/}
     </div>
   );
 };
