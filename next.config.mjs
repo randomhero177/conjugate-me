@@ -12,4 +12,6 @@ const nextConfig = {
   reactStrictMode: false,
 };
 
+console.log("NEXT CONFIG LOADED");
+
 export default withPWA(nextConfig);
