@@ -1787,6 +1787,18 @@ export const exceptions: Exceptions = {
           third: "condujere",
         },
       },
+      "imperfect -ra": {
+        singular: {
+          first: "condujera",
+          second: "condujeras",
+          third: "condujera",
+        },
+        plural: {
+          first: "condujéramos",
+          second: "condujerais",
+          third: "condujeran",
+        },
+      },
       imperfect: {
         singular: {
           third: "condujese",
@@ -1794,7 +1806,6 @@ export const exceptions: Exceptions = {
       },
     },
   },
-
   venir: {
     indicative: {
       present: {
@@ -2191,6 +2202,125 @@ export const exceptions: Exceptions = {
           first: "influyéramos",
           second: "influyerais",
           third: "influyeran",
+        },
+      },
+    },
+  },
+  incluir: {
+    indicative: {
+      present: {
+        singular: {
+          first: "incluyo",
+          second: "incluyes",
+          third: "incluye",
+        },
+        plural: {
+          first: "incluimos",
+          second: "incluís",
+          third: "incluyen",
+        },
+      },
+      preterite: {
+        singular: {
+          first: "incluí",
+          second: "incluiste",
+          third: "incluyó",
+        },
+        plural: {
+          first: "incluimos",
+          second: "incluisteis",
+          third: "incluyeron",
+        },
+      },
+    },
+    subjunctive: {
+      present: {
+        singular: {
+          first: "incluya",
+          second: "incluyas",
+          third: "incluya",
+        },
+        plural: {
+          first: "incluyamos",
+          second: "incluyáis",
+          third: "incluyan",
+        },
+      },
+      "imperfect -ra": {
+        singular: {
+          first: "incluyera",
+          second: "incluyeras",
+          third: "incluyera",
+        },
+        plural: {
+          first: "incluyéramos",
+          second: "incluyerais",
+          third: "incluyeran",
+        },
+      },
+    },
+  },
+  torcer: {
+    indicative: {
+      present: {
+        singular: {
+          first: "tuerzo",
+          second: "tuerces",
+          third: "tuerce",
+        },
+        plural: {
+          first: "torcemos",
+          second: "torcéis",
+          third: "tuercen",
+        },
+      },
+    },
+    subjunctive: {
+      present: {
+        singular: {
+          first: "tuerza",
+          second: "tuerzas",
+          third: "tuerza",
+        },
+        plural: {
+          first: "torzamos",
+          second: "torzáis",
+          third: "tuerzan",
+        },
+      },
+      "imperfect -ra": {
+        singular: {
+          first: "torciera",
+          second: "torcieras",
+          third: "torciera",
+        },
+        plural: {
+          first: "torciéramos",
+          second: "torcierais",
+          third: "torcieran",
+        },
+      },
+    },
+  },
+  convencer: {
+    indicative: {
+      present: {
+        singular: {
+          first: "convenzo",
+        },
+      },
+    },
+    subjunctive: {
+      present: {
+        singular: {
+          first: "convenza",
+          second: "convenzas",
+          third: "convenza",
+        },
+        plural: {
+          first: "convenzamos",
+          second: "convenzáis",
+          third: "convenzan",
         },
       },
     },
