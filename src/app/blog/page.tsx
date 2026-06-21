@@ -50,6 +50,10 @@ const articles = [
     slug: "types-of-spanish-irregular-verbs",
     title: "The 7 Types of Spanish Irregular Verbs (And How to Master Them)",
   },
+  {
+    slug: "spanish-verb-tenses-explained",
+    title: "Spanish Verb Tenses Explained: Which Tense Should You Learn First?",
+  },
 ];
 
 export default function BlogPage() {
