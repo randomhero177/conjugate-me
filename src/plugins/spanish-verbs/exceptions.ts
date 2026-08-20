@@ -2018,6 +2018,213 @@ export const exceptions: Exceptions = {
           second: "pierdes",
           third: "pierde",
         },
+        plural: {
+          third: "pierden",
+        },
+      },
+    },
+    subjunctive: {
+      present: {
+        singular: {
+          first: "pierda",
+          second: "pierdas",
+          third: "pierda",
+        },
+        plural: {
+          first: "perdamos",
+          second: "perdáis",
+          third: "pierdan",
+        },
+      },
+    },
+  },
+  pensar: {
+    indicative: {
+      present: {
+        singular: {
+          first: "pienso",
+          second: "piensas",
+          third: "piensa",
+        },
+        plural: {
+          third: "piensan",
+        },
+      },
+    },
+    subjunctive: {
+      present: {
+        singular: {
+          first: "piense",
+          second: "pienses",
+          third: "piense",
+        },
+        plural: {
+          third: "piensen",
+        },
+      },
+    },
+  },
+  entender: {
+    indicative: {
+      present: {
+        singular: {
+          first: "entiendo",
+          second: "entiendes",
+          third: "entiende",
+        },
+        plural: {
+          third: "entienden",
+        },
+      },
+    },
+    subjunctive: {
+      present: {
+        singular: {
+          first: "entienda",
+          second: "entiendas",
+          third: "entienda",
+        },
+        plural: {
+          third: "entiendan",
+        },
+      },
+    },
+  },
+  empezar: {
+    indicative: {
+      present: {
+        singular: {
+          first: "empiezo",
+          second: "empiezas",
+          third: "empieza",
+        },
+        plural: {
+          third: "empiezan",
+        },
+      },
+    },
+    subjunctive: {
+      present: {
+        singular: {
+          first: "empiece",
+          second: "empieces",
+          third: "empiece",
+        },
+        plural: {
+          first: "empecemos",
+          second: "empecéis",
+          third: "empiecen",
+        },
+      },
+    },
+  },
+  cerrar: {
+    indicative: {
+      present: {
+        singular: {
+          first: "cierro",
+          second: "cierras",
+          third: "cierra",
+        },
+        plural: {
+          third: "cierran",
+        },
+      },
+    },
+    subjunctive: {
+      present: {
+        singular: {
+          first: "cierre",
+          second: "cierres",
+          third: "cierre",
+        },
+        plural: {
+          third: "cierren",
+        },
+      },
+    },
+  },
+  pedir: {
+    indicative: {
+      present: {
+        singular: {
+          first: "pido",
+          second: "pides",
+          third: "pide",
+        },
+        plural: {
+          third: "piden",
+        },
+      },
+    },
+    subjunctive: {
+      present: {
+        singular: {
+          first: "pida",
+          second: "pidas",
+          third: "pida",
+        },
+        plural: {
+          first: "pidamos",
+          second: "pidais",
+          third: "pidan",
+        },
+      },
+    },
+  },
+  servir: {
+    indicative: {
+      present: {
+        singular: {
+          first: "sirvo",
+          second: "sirves",
+          third: "sirve",
+        },
+        plural: {
+          third: "sirven",
+        },
+      },
+    },
+    subjunctive: {
+      present: {
+        singular: {
+          first: "sirva",
+          second: "sirvas",
+          third: "sirva",
+        },
+        plural: {
+          first: "sirvamos",
+          second: "sirvais",
+          third: "sirvan",
+        },
+      },
+    },
+  },
+  repetir: {
+    indicative: {
+      present: {
+        singular: {
+          first: "repito",
+          second: "repites",
+          third: "repite",
+        },
+        plural: {
+          third: "repiten",
+        },
+      },
+    },
+    subjunctive: {
+      present: {
+        singular: {
+          first: "repita",
+          second: "repitas",
+          third: "repita",
+        },
+        plural: {
+          first: "repitamos",
+          second: "repitais",
+          third: "repitan",
+        },
       },
     },
   },
